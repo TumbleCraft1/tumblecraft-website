@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { MessageCircle, Users, Calendar, Star, ExternalLink, Hash } from 'lucide-react'
+import Image from 'next/image'
 
 export default function CommunityHub() {
   const containerVariants = {
@@ -170,9 +171,11 @@ export default function CommunityHub() {
           <h3 className="text-2xl font-bold text-center mb-8">Recent Events & News</h3>
           {/* Community Showcase Image */}
           <div className="mb-8 rounded-lg overflow-hidden">
-            <img 
+            <Image 
               src="/screenshot-3.png" 
               alt="Community Event Showcase" 
+              width={800}
+              height={256}
               className="w-full h-64 object-cover"
             />
           </div>
