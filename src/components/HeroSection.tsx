@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Copy, Users, Gamepad2, Sparkles, ExternalLink } from 'lucide-react'
+import { Copy } from 'lucide-react'
 import { useState } from 'react'
 
 interface ServerStatus {
@@ -119,6 +119,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
+
         {/* Main Title */}
         <motion.h1 
           className="hero-title mb-6 text-glow"
@@ -156,85 +157,8 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Game Mode Buttons */}
-        <motion.div 
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
-          variants={itemVariants}
-        >
-          <motion.button 
-            className="btn-primary flex items-center gap-3 text-lg px-8 py-4"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Sparkles size={20} />
-            Join SMP Server
-          </motion.button>
-          <motion.button 
-            className="btn-secondary flex items-center gap-3 text-lg px-8 py-4"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Gamepad2 size={20} />
-            Try Prison Mode
-          </motion.button>
-        </motion.div>
 
-        {/* Quick Stats */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
-          variants={itemVariants}
-        >
-          <div className="game-card text-center">
-            <motion.div 
-              className="text-accent-primary text-3xl font-bold mb-2"
-              whileHover={{ scale: 1.1 }}
-            >
-              {serverStatus.players}+
-            </motion.div>
-            <p className="text-foreground-secondary">Active Players</p>
-          </div>
-          
-          <div className="game-card text-center">
-            <motion.div 
-              className="text-accent-secondary text-3xl font-bold mb-2"
-              whileHover={{ scale: 1.1 }}
-            >
-              2
-            </motion.div>
-            <p className="text-foreground-secondary">Game Modes</p>
-          </div>
-          
-          <div className="game-card text-center">
-            <motion.div 
-              className="text-accent-tertiary text-3xl font-bold mb-2"
-              whileHover={{ scale: 1.1 }}
-            >
-              24/7
-            </motion.div>
-            <p className="text-foreground-secondary">Server Uptime</p>
-          </div>
-        </motion.div>
 
-        {/* Community Links */}
-        <motion.div 
-          className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center"
-          variants={itemVariants}
-        >
-          <a 
-            href="#" 
-            className="discord-widget flex items-center gap-3 px-6 py-3 rounded-lg hover:scale-105 transition-transform"
-          >
-            <Users size={20} />
-            Join Discord Community
-          </a>
-          <a 
-            href="#getting-started" 
-            className="flex items-center gap-2 text-accent-secondary hover:text-accent-primary transition-colors"
-          >
-            <span>How to Join</span>
-            <ExternalLink size={16} />
-          </a>
-        </motion.div>
       </motion.div>
 
       {/* Scroll Indicator */}
