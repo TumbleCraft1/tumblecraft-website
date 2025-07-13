@@ -1,26 +1,206 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark Gaming Theme Colors */
+  --background: #0a0a0a;
+  --background-secondary: #111111;
+  --background-tertiary: #1a1a1a;
+  --foreground: #ededed;
+  --foreground-secondary: #b3b3b3;
+  --foreground-muted: #666666;
+  
+  /* Gaming Accent Colors */
+  --accent-primary: #00ff88;
+  --accent-secondary: #0099ff;
+  --accent-tertiary: #ff6b35;
+  --accent-warning: #ffcc00;
+  --accent-danger: #ff4757;
+  
+  /* Gaming Gradients */
+  --gradient-primary: linear-gradient(135deg, #00ff88 0%, #0099ff 100%);
+  --gradient-secondary: linear-gradient(135deg, #0099ff 0%, #9900ff 100%);
+  --gradient-hero: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
+  
+  /* Border & Shadow */
+  --border-color: #333333;
+  --border-color-light: #444444;
+  --shadow-glow: 0 0 20px rgba(0, 255, 136, 0.3);
+  --shadow-glow-blue: 0 0 20px rgba(0, 153, 255, 0.3);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
   --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-tertiary: var(--accent-tertiary);
+  --color-accent-warning: var(--accent-warning);
+  --color-accent-danger: var(--accent-danger);
+  --color-border: var(--border-color);
+  --color-border-light: var(--border-color-light);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Gaming Button Styles */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: var(--background);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow), 0 8px 25px rgba(0, 255, 136, 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-secondary);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 2px solid var(--accent-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-secondary);
+  color: var(--background);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+/* Glowing Text Effect */
+.text-glow {
+  text-shadow: 0 0 10px var(--accent-primary);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 10px var(--accent-secondary);
+}
+
+/* Card Styles */
+.game-card {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-4px);
+}
+
+/* Particle Background Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating-particle {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Hero Video/Background Overlay */
+.hero-overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.8) 100%);
+}
+
+/* Responsive Text Sizes */
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* Gaming Grid Pattern */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Discord Integration Styling */
+.discord-widget {
+  background: #5865f2;
+  background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+}
+
+/* Server Status Indicators */
+.status-online {
+  color: var(--accent-primary);
+  text-shadow: 0 0 8px var(--accent-primary);
+}
+
+.status-offline {
+  color: var(--accent-danger);
+  text-shadow: 0 0 8px var(--accent-danger);
 }
