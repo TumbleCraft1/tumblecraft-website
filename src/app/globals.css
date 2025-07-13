@@ -21,8 +21,6 @@
   /* Border & Shadow */
   --border-color: #333333;
   --border-color-light: #444444;
-  --shadow-glow: 0 0 20px rgba(0, 255, 136, 0.3);
-  --shadow-glow-blue: 0 0 20px rgba(0, 153, 255, 0.3);
 }
 
 @theme inline {
@@ -90,13 +88,11 @@ body {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.25);
 }
 
 .btn-primary:hover {
   background: #00e67a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
 }
 
 .btn-secondary {
@@ -116,17 +112,8 @@ body {
   background: var(--accent-secondary);
   color: var(--background);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-blue);
 }
 
-/* Glowing Text Effect */
-.text-glow {
-  text-shadow: 0 0 10px var(--accent-primary);
-}
-
-.text-glow-blue {
-  text-shadow: 0 0 10px var(--accent-secondary);
-}
 
 /* Card Styles */
 .game-card {
@@ -139,7 +126,6 @@ body {
 
 .game-card:hover {
   border-color: var(--accent-primary);
-  box-shadow: var(--shadow-glow);
   transform: translateY(-4px);
 }
 
@@ -195,10 +181,8 @@ body {
 /* Server Status Indicators */
 .status-online {
   color: var(--accent-primary);
-  text-shadow: 0 0 8px var(--accent-primary);
 }
 
 .status-offline {
   color: var(--accent-danger);
-  text-shadow: 0 0 8px var(--accent-danger);
 }

@@ -64,8 +64,17 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/screenshot-2.png)',
+          filter: 'brightness(0.3) blur(1px)'
+        }}
+      ></div>
+      
       {/* Animated Background Grid */}
-      <div className="absolute inset-0 grid-pattern opacity-20"></div>
+      <div className="absolute inset-0 grid-pattern opacity-10"></div>
       
       {/* Floating Particles */}
       <motion.div 

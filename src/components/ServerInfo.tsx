@@ -73,9 +73,18 @@ export default function ServerInfo() {
   ]
 
   return (
-    <section id="server-info" className="py-20 bg-background-secondary">
+    <section id="server-info" className="py-20 bg-background-secondary relative overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/screenshot-1.png)',
+          filter: 'brightness(0.1) blur(2px)'
+        }}
+      ></div>
+      <div className="absolute inset-0 bg-background-secondary/80"></div>
       <motion.div 
-        className="container mx-auto px-6"
+        className="container mx-auto px-6 relative z-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -95,6 +104,14 @@ export default function ServerInfo() {
           {/* SMP Section */}
           <motion.div variants={itemVariants}>
             <div className="game-card h-full">
+              {/* SMP Preview Image */}
+              <div className="mb-6 rounded-lg overflow-hidden">
+                <img 
+                  src="/screenshot-6.png" 
+                  alt="SMP Server Preview" 
+                  className="w-full h-48 object-cover"
+                />
+              </div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-accent-primary rounded-xl flex items-center justify-center">
                   <Sparkles className="w-8 h-8 text-background" />
@@ -149,6 +166,12 @@ export default function ServerInfo() {
           {/* Prison Section */}
           <motion.div variants={itemVariants}>
             <div className="game-card h-full">
+              {/* Prison Preview Image - Placeholder */}
+              <div className="mb-6 rounded-lg overflow-hidden bg-background-tertiary border-2 border-dashed border-border-color">
+                <div className="w-full h-48 flex items-center justify-center">
+                  <span className="text-foreground-muted">Prison Server Preview Coming Soon</span>
+                </div>
+              </div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-accent-secondary rounded-xl flex items-center justify-center">
                   <Gamepad2 className="w-8 h-8 text-background" />

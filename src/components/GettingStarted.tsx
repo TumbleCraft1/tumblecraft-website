@@ -92,6 +92,14 @@ export default function GettingStarted() {
 
         {/* Step-by-step Guide */}
         <motion.div variants={itemVariants} className="mb-16">
+          {/* Guide Preview Image */}
+          <div className="mb-8 rounded-lg overflow-hidden max-w-3xl mx-auto">
+            <img 
+              src="/screenshot-5.png" 
+              alt="Server Guide Preview" 
+              className="w-full h-48 object-cover"
+            />
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => (
               <motion.div 
@@ -205,6 +213,14 @@ export default function GettingStarted() {
 
         {/* Quick Start CTA */}
         <motion.div variants={itemVariants} className="text-center mt-16">
+          {/* Welcome Screenshot */}
+          <div className="mb-8 rounded-lg overflow-hidden max-w-4xl mx-auto">
+            <img 
+              src="/screenshot-7.png" 
+              alt="Welcome to TumbleCraft" 
+              className="w-full h-64 object-cover"
+            />
+          </div>
           <div className="game-card inline-block">
             <h3 className="text-2xl font-bold mb-4">Ready to Start?</h3>
             <p className="text-foreground-secondary mb-6 max-w-md">

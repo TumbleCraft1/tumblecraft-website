@@ -26,23 +26,6 @@ export default function CommunityHub() {
     }
   }
 
-  const testimonials = [
-    {
-      name: "CraftMaster_99",
-      message: "Best server I've ever played on! The community is amazing and the staff really care.",
-      rating: 5
-    },
-    {
-      name: "PrisonEscaper",
-      message: "Started in A Block, now I'm Free! The prison grind is so addictive and rewarding.",
-      rating: 5
-    },
-    {
-      name: "BuilderBot2000",
-      message: "Love the SMP! My mega base looks incredible and grief protection works perfectly.",
-      rating: 5
-    }
-  ]
 
   const recentEvents = [
     {
@@ -185,6 +168,14 @@ export default function CommunityHub() {
         {/* Recent Events */}
         <motion.div variants={itemVariants} className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">Recent Events & News</h3>
+          {/* Community Showcase Image */}
+          <div className="mb-8 rounded-lg overflow-hidden">
+            <img 
+              src="/screenshot-3.png" 
+              alt="Community Event Showcase" 
+              className="w-full h-64 object-cover"
+            />
+          </div>
           <div className="grid md:grid-cols-3 gap-6">
             {recentEvents.map((event, index) => (
               <motion.div 
@@ -203,29 +194,6 @@ export default function CommunityHub() {
           </div>
         </motion.div>
 
-        {/* Player Testimonials */}
-        <motion.div variants={itemVariants}>
-          <h3 className="text-2xl font-bold text-center mb-8">What Players Say</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={index}
-                className="game-card"
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-accent-warning fill-current" />
-                  ))}
-                </div>
-                <p className="text-foreground-secondary italic mb-4">&ldquo;{testimonial.message}&rdquo;</p>
-                <div className="text-accent-primary font-semibold text-sm">
-                  - {testimonial.name}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   )
