@@ -49,7 +49,7 @@ export default function Footer() {
               className="flex items-center gap-3 mb-6"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-accent-primary rounded-lg flex items-center justify-center">
                 <span className="text-background font-bold text-xl">T</span>
               </div>
               <span className="text-2xl font-bold text-glow">TumbleCraft</span>
@@ -168,7 +168,7 @@ export default function Footer() {
       </div>
 
       {/* Minecraft-style border pattern */}
-      <div className="h-1 bg-gradient-primary"></div>
+      <div className="h-1 bg-accent-primary"></div>
     </footer>
   )
 }

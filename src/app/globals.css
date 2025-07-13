@@ -16,10 +16,7 @@
   --accent-warning: #ffcc00;
   --accent-danger: #ff4757;
   
-  /* Gaming Gradients */
-  --gradient-primary: linear-gradient(135deg, #00ff88 0%, #0099ff 100%);
-  --gradient-secondary: linear-gradient(135deg, #0099ff 0%, #9900ff 100%);
-  --gradient-hero: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #0a0a0a 100%);
+  /* Clean Design - No Gradients */
   
   /* Border & Shadow */
   --border-color: #333333;
@@ -83,7 +80,7 @@ body {
 
 /* Gaming Button Styles */
 .btn-primary {
-  background: var(--gradient-primary);
+  background: var(--accent-primary);
   color: var(--background);
   font-weight: 600;
   padding: 12px 24px;
@@ -93,12 +90,13 @@ body {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 4px 12px rgba(0, 255, 136, 0.25);
 }
 
 .btn-primary:hover {
+  background: #00e67a;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow), 0 8px 25px rgba(0, 255, 136, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
 }
 
 .btn-secondary {
@@ -155,9 +153,9 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Hero Video/Background Overlay */
+/* Hero Background Overlay */
 .hero-overlay {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(26, 26, 26, 0.8) 100%);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 /* Responsive Text Sizes */
@@ -165,10 +163,7 @@ body {
   font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1.1;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--accent-primary);
 }
 
 .section-title {
@@ -177,21 +172,24 @@ body {
   line-height: 1.2;
 }
 
-/* Gaming Grid Pattern */
+/* Clean Grid Pattern */
 .grid-pattern {
   background-image: 
-    linear-gradient(rgba(0, 255, 136, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 136, 0.1) 1px, transparent 1px);
+    radial-gradient(circle at 1px 1px, rgba(0, 255, 136, 0.15) 1px, transparent 0);
   background-size: 20px 20px;
 }
 
 /* Discord Integration Styling */
 .discord-widget {
   background: #5865f2;
-  background: linear-gradient(135deg, #5865f2 0%, #7289da 100%);
   border-radius: 12px;
   padding: 20px;
   color: white;
+  transition: all 0.3s ease;
+}
+
+.discord-widget:hover {
+  background: #4752c4;
 }
 
 /* Server Status Indicators */

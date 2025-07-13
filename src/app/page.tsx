@@ -9,11 +9,13 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Navigation />
-      <HeroSection />
-      <ServerInfo />
-      <CommunityHub />
-      <GettingStarted />
-      <Footer />
+      <div className="pt-16">
+        <HeroSection />
+        <ServerInfo />
+        <CommunityHub />
+        <GettingStarted />
+        <Footer />
+      </div>
     </main>
   );
 }

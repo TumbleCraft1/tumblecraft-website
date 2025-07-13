@@ -96,7 +96,7 @@ export default function ServerInfo() {
           <motion.div variants={itemVariants}>
             <div className="game-card h-full">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-accent-primary rounded-xl flex items-center justify-center">
                   <Sparkles className="w-8 h-8 text-background" />
                 </div>
                 <div>
@@ -150,7 +150,7 @@ export default function ServerInfo() {
           <motion.div variants={itemVariants}>
             <div className="game-card h-full">
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-gradient-secondary rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-accent-secondary rounded-xl flex items-center justify-center">
                   <Gamepad2 className="w-8 h-8 text-background" />
                 </div>
                 <div>
