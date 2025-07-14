@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,12 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
+
 export const metadata: Metadata = {
   title: "TumbleCraft | Minecraft SMP & Prison Server",
   description: "Join TumbleCraft's epic Minecraft adventure! Experience our thriving SMP community and challenging Prison gamemode. Modern survival, custom features, active community.",
   keywords: "Minecraft, SMP, Prison Server, Survival Multiplayer, Gaming Community, TumbleCraft",
   authors: [{ name: "TumbleCraft Team" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
     title: "TumbleCraft | Minecraft SMP & Prison Server",

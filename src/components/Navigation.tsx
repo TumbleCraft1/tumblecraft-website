@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Menu, X, Gamepad2, Users, BookOpen, MessageCircle } from 'lucide-react'
+import { Menu, X, Gamepad2, Users, BookOpen, MessageCircle, Briefcase } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,6 +21,7 @@ export default function Navigation() {
     { href: '#server-info', label: 'Game Modes', icon: <Gamepad2 className="w-4 h-4" /> },
     { href: '#community', label: 'Community', icon: <Users className="w-4 h-4" /> },
     { href: '#getting-started', label: 'Get Started', icon: <BookOpen className="w-4 h-4" /> },
+    { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
     { href: '#', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
   ]
 
