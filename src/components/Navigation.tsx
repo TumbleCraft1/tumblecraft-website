@@ -39,7 +39,8 @@ export default function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div 
+          <motion.a 
+            href="/"
             className="flex items-center gap-3"
             whileHover={{ scale: 1.05 }}
           >
@@ -47,7 +48,7 @@ export default function Navigation() {
               <span className="text-background font-bold text-lg">T</span>
             </div>
             <span className="text-xl font-bold text-glow">TumbleCraft</span>
-          </motion.div>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
