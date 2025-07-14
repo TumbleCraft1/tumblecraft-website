@@ -22,7 +22,7 @@ export default function Navigation() {
     { href: '#community', label: 'Community', icon: <Users className="w-4 h-4" /> },
     { href: '#getting-started', label: 'Get Started', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
-    { href: '#', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
+    { href: 'https://discord.gg/N7hEkd82', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
   ]
 
   return (

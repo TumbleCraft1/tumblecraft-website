@@ -127,7 +127,7 @@ export default function CommunityHub() {
               </div>
               
               <motion.a 
-                href="#" 
+                href="https://discord.gg/N7hEkd82" 
                 className="inline-flex items-center gap-3 bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

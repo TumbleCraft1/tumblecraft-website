@@ -19,7 +19,7 @@ export default function Footer() {
   }
 
   const socialLinks = [
-    { icon: <MessageCircle className="w-5 h-5" />, label: 'Discord', href: '#', color: 'hover:text-[#5865f2]' },
+    { icon: <MessageCircle className="w-5 h-5" />, label: 'Discord', href: 'https://discord.gg/N7hEkd82', color: 'hover:text-[#5865f2]' },
     { icon: <Twitter className="w-5 h-5" />, label: 'Twitter', href: '#', color: 'hover:text-[#1da1f2]' },
     { icon: <Youtube className="w-5 h-5" />, label: 'YouTube', href: '#', color: 'hover:text-[#ff0000]' },
     { icon: <Twitch className="w-5 h-5" />, label: 'Twitch', href: '#', color: 'hover:text-[#9146ff]' }
