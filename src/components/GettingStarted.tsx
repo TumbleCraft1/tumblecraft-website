@@ -43,7 +43,7 @@ export default function GettingStarted() {
     {
       icon: <Play className="w-8 h-8" />,
       title: "Start Playing!",
-      description: "Join our Discord, read the rules, and begin your TumbleCraft adventure with the community.",
+      description: "Join our Discord, read the rules, and begin your TumbleCraft adventure.",
       detail: "Have fun!"
     }
   ]
@@ -63,23 +63,13 @@ export default function GettingStarted() {
             Getting Started
           </h2>
           <p className="text-xl text-foreground-secondary max-w-3xl mx-auto">
-            New to TumbleCraft? Follow these simple steps to join our community and start your adventure. 
+            New to TumbleCraft? Follow these simple steps to start your adventure. 
             We&apos;ll help you get set up and ready to play in no time!
           </p>
         </motion.div>
 
         {/* Step-by-step Guide */}
         <motion.div variants={itemVariants} className="mb-16">
-          {/* Guide Preview Image */}
-          <div className="mb-8 rounded-lg overflow-hidden max-w-3xl mx-auto">
-            <Image 
-              src="/screenshot-5.png" 
-              alt="Server Guide Preview" 
-              width={800}
-              height={192}
-              className="w-full h-48 object-cover"
-            />
-          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((step, index) => (
               <motion.div 
@@ -119,7 +109,7 @@ export default function GettingStarted() {
           <div className="game-card inline-block">
             <h3 className="text-2xl font-bold mb-4">Ready to Start?</h3>
             <p className="text-foreground-secondary mb-6 max-w-md">
-              Copy the server IP, fire up Minecraft, and join thousands of players in the TumbleCraft universe!
+              Copy the server IP, fire up Minecraft, and start your TumbleCraft adventure!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button 
@@ -131,7 +121,7 @@ export default function GettingStarted() {
                 Join Server Now
               </motion.button>
               <motion.a 
-                href="#community"
+                href="https://discord.gg/N7hEkd82"
                 className="btn-secondary flex items-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

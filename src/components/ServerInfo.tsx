@@ -3,8 +3,10 @@
 import { motion } from 'framer-motion'
 import { Shield, Zap, Users2, Trophy, Pickaxe, Crown, Coins } from 'lucide-react'
 import Image from 'next/image'
+import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function ServerInfo() {
+  const { openForm } = useBetaForm()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -156,6 +158,15 @@ export default function ServerInfo() {
                   <span className="text-accent-primary font-semibold">50,000 x 50,000</span>
                 </div>
               </motion.div>
+
+              <motion.button
+                onClick={openForm}
+                className="mt-6 w-full px-6 py-3 bg-accent-primary text-background rounded-lg font-semibold hover:bg-accent-primary/90 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Apply For Beta
+              </motion.button>
             </div>
           </motion.div>
 
@@ -215,6 +226,15 @@ export default function ServerInfo() {
                   <span className="text-accent-secondary font-semibold">26 Unique Mines</span>
                 </div>
               </motion.div>
+
+              <motion.button
+                onClick={openForm}
+                className="mt-6 w-full px-6 py-3 bg-accent-secondary text-background rounded-lg font-semibold hover:bg-accent-secondary/90 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Apply For Beta
+              </motion.button>
             </div>
           </motion.div>
         </div>
