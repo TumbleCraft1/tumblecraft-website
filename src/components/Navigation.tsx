@@ -49,25 +49,36 @@ export default function Navigation() {
           </motion.a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.slice(0, -1).map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
-                className="flex items-center gap-2 text-foreground-secondary hover:text-accent-primary"
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
+                className="nav-link"
+                whileHover={{ y: -1 }}
+                whileTap={{ scale: 0.98 }}
               >
                 {link.icon}
                 {link.label}
               </motion.a>
             ))}
             
+            {/* Discord Button - Special styling */}
+            <motion.a
+              href="https://discord.gg/HYrTBqMKCM"
+              className="btn-or-discord"
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <MessageCircle className="w-4 h-4" />
+              Discord
+            </motion.a>
+            
             <motion.a 
               href="/coming-soon"
-              className="btn-primary text-sm px-4 py-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn-or-server"
+              whileHover={{ y: -1 }}
+              whileTap={{ scale: 0.98 }}
             >
               Apply for Beta
             </motion.a>
@@ -90,24 +101,36 @@ export default function Navigation() {
           className={`md:hidden overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}
           animate={{ maxHeight: isOpen ? 384 : 0 }}
         >
-          <div className="py-4 space-y-4">
-            {navLinks.map((link, index) => (
+          <div className="py-4 space-y-3">
+            {navLinks.slice(0, -1).map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
-                className="flex items-center gap-3 text-foreground-secondary hover:text-accent-primary py-2"
+                className="nav-link w-full"
                 onClick={() => setIsOpen(false)}
-                whileHover={{ x: 10 }}
+                whileHover={{ x: 5 }}
               >
                 {link.icon}
                 {link.label}
               </motion.a>
             ))}
             
+            {/* Discord Button */}
+            <motion.a
+              href="https://discord.gg/HYrTBqMKCM"
+              onClick={() => setIsOpen(false)}
+              className="btn-or-discord w-full mt-3"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <MessageCircle className="w-4 h-4" />
+              Discord
+            </motion.a>
+            
             <motion.a 
               href="/coming-soon"
               onClick={() => setIsOpen(false)}
-              className="btn-primary text-sm w-full mt-4"
+              className="btn-or-server w-full mt-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

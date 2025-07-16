@@ -76,40 +76,132 @@ body {
   background: var(--accent-secondary);
 }
 
-/* Gaming Button Styles */
+/* Origin Realms Inspired Button Styles */
 .btn-primary {
-  background: var(--accent-primary);
-  color: var(--background);
+  background: #4f8fdb;
+  color: white;
   font-weight: 600;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: #00e67a;
-  transform: translateY(-2px);
+  background: #5a97e5;
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--accent-secondary);
   font-weight: 600;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border-radius: 8px;
   border: 2px solid var(--accent-secondary);
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
   background: var(--accent-secondary);
   color: var(--background);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+/* Origin Realms Style Buttons */
+.btn-or-blue {
+  background: #4f8fdb;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-or-blue:hover {
+  background: #5a97e5;
+  transform: translateY(-1px);
+}
+
+.btn-or-discord {
+  background: #5865f2;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-or-discord:hover {
+  background: #6875f5;
+  transform: translateY(-1px);
+}
+
+.btn-or-server {
+  background: #f59e0b;
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-or-server:hover {
+  background: #fbbf24;
+  transform: translateY(-1px);
+}
+
+/* Navigation Link Styles - Origin Realms Inspired */
+.nav-link {
+  color: #b3b3b3;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link:hover {
+  color: white;
+  background: rgba(79, 143, 219, 0.1);
+}
+
+.nav-link.active {
+  color: white;
+  background: #4f8fdb;
 }
 
 
