@@ -1,8 +1,16 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { getMarkdownContent } from '@/lib/markdown'
-import { BookOpen, Clock, User, ArrowRight } from 'lucide-react'
+import { BookOpen } from 'lucide-react'
 import GuideThumbnail from './GuideThumbnail'
+
+// Enable static generation
+export const dynamic = 'force-static'
+
+// Generate static params for the guide page
+export async function generateStaticParams() {
+  return [{}] // Single static route for /guide
+}
 
 export default async function Guide() {
   const { content, data } = await getMarkdownContent('guide')
@@ -33,6 +41,7 @@ export default async function Guide() {
             title={data.title || 'TumbleCraft Guide'}
             excerpt={excerpt}
             content={content}
+            slug="getting-started"
           />
         </div>
       </div>
