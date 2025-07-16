@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 export default function Footer() {
   const [copied, setCopied] = useState(false)
-  const serverIP = "play.tumblecraft.net"
+  const serverIP = "tumblecraft.gg"
 
   const copyServerIP = async () => {
     try {

@@ -9,12 +9,12 @@ Welcome to the ultimate Minecraft survival multiplayer experience! This guide wi
 
 ## Server Information
 
-- **Server IP**: `play.tumblecraft.net`
+- **Server IP**: `tumblecraft.gg`
 - **Version**: 1.20.1+
 - **Type**: Survival Multiplayer (SMP)
 - **Difficulty**: Normal
 
-1. **Join the Server**: Connect using `play.tumblecraft.net`
+1. **Join the Server**: Connect using `tumblecraft.gg`
 2. **Read the Rules**: Make sure you understand our community guidelines
 3. **Claim Your Land**: Protect your builds with our land claiming system
 4. **Introduce Yourself**: Say hello in chat and join our Discord!

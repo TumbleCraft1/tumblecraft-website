@@ -1,8 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Copy } from 'lucide-react'
+import { useState } from 'react'
 
 export default function HeroSection() {
+  const [copied, setCopied] = useState(false)
+  const serverIP = "tumblecraft.gg"
+
+  const copyServerIP = async () => {
+    try {
+      await navigator.clipboard.writeText(serverIP)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,6 +103,18 @@ export default function HeroSection() {
           <span className="text-accent-secondary font-semibold">Prison gamemode</span>. 
           Modern survival, custom features, and an active community await you.
         </motion.p>
+
+        {/* CTA Button */}
+        <motion.button
+          onClick={copyServerIP}
+          className="inline-flex items-center gap-3 bg-accent-primary text-background px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Copy className="w-5 h-5" />
+          <span>{copied ? 'Copied!' : serverIP}</span>
+        </motion.button>
 
 
 

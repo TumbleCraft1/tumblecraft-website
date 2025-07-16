@@ -17,7 +17,7 @@ export default function GuideContent() {
       icon: <Server className="w-8 h-8" />,
       title: "Connect to Server",
       description: "Open Minecraft, go to Multiplayer, and add our server using the IP address below.",
-      detail: "play.tumblecraft.net"
+      detail: "tumblecraft.gg"
     },
     {
       icon: <User className="w-8 h-8" />,
@@ -101,7 +101,7 @@ export default function GuideContent() {
             prose-code:bg-background-secondary prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-accent-primary">
             <h2>Server Information</h2>
             <ul>
-              <li><strong>Server IP</strong>: <code>play.tumblecraft.net</code></li>
+              <li><strong>Server IP</strong>: <code>tumblecraft.gg</code></li>
               <li><strong>Version</strong>: 1.20.1+</li>
               <li><strong>Type</strong>: Survival Multiplayer (SMP)</li>
               <li><strong>Difficulty</strong>: Normal</li>
