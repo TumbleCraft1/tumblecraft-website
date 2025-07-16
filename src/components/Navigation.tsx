@@ -21,6 +21,7 @@ export default function Navigation() {
     { href: '#server-info', label: 'Game Modes', icon: <Gamepad2 className="w-4 h-4" /> },
     { href: '#community', label: 'Community', icon: <Users className="w-4 h-4" /> },
     { href: '#getting-started', label: 'Get Started', icon: <BookOpen className="w-4 h-4" /> },
+    { href: '/guide', label: 'Guide', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
     { href: 'https://discord.gg/N7hEkd82', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
   ]
