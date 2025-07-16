@@ -240,7 +240,7 @@ export default function BetaApplicationForm({ isOpen, onClose }: BetaApplication
                   </div>
                   <h3 className="text-2xl font-bold text-accent-primary mb-4">Application Submitted!</h3>
                   <p className="text-foreground-secondary mb-6">
-                    Thank you for your interest in TumbleCraft! We'll review your application and get back to you soon.
+                    Thank you for your interest in TumbleCraft! We&apos;ll review your application and get back to you soon.
                   </p>
                   <button
                     onClick={resetForm}
