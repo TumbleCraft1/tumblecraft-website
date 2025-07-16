@@ -18,7 +18,6 @@ export default function Navigation() {
   }, [])
 
   const navLinks = [
-    { href: '#server-info', label: 'Game Modes', icon: <Gamepad2 className="w-4 h-4" /> },
     { href: '/coming-soon', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
     { href: '/guide', label: 'Wiki', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
