@@ -21,11 +21,10 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '#server-info', label: 'Game Modes', icon: <Gamepad2 className="w-4 h-4" /> },
-    { href: '/leaderboards', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
-    { href: '/wiki', label: 'Wiki', icon: <BookOpen className="w-4 h-4" /> },
-    { href: '/guide', label: 'Guide', icon: <BookOpen className="w-4 h-4" /> },
+    { href: '/coming-soon', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
+    { href: '/guide', label: 'Wiki', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
-    { href: 'https://discord.gg/N7hEkd82', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
+    { href: 'https://discord.gg/HYrTBqMKCM', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
   ]
 
   return (
@@ -67,14 +66,14 @@ export default function Navigation() {
               </motion.a>
             ))}
             
-            <motion.button 
-              onClick={openForm}
+            <motion.a 
+              href="/coming-soon"
               className="btn-primary text-sm px-4 py-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Apply for Beta
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -108,17 +107,15 @@ export default function Navigation() {
               </motion.a>
             ))}
             
-            <motion.button 
-              onClick={() => {
-                openForm()
-                setIsOpen(false)
-              }}
+            <motion.a 
+              href="/coming-soon"
+              onClick={() => setIsOpen(false)}
               className="btn-primary text-sm w-full mt-4"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Apply for Beta
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
