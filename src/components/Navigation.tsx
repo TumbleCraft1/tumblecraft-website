@@ -49,7 +49,7 @@ export default function Navigation() {
             <div className="w-10 h-10 bg-accent-primary rounded-lg flex items-center justify-center">
               <span className="text-background font-bold text-lg">T</span>
             </div>
-            <span className="text-xl font-bold text-glow">TumbleCraft</span>
+            <span className="text-xl font-bold">TumbleCraft</span>
           </motion.a>
 
           {/* Desktop Navigation */}

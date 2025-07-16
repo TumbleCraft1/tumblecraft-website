@@ -183,15 +183,3 @@ body {
   color: var(--accent-danger);
 }
 
-/* Text Glow Effects */
-.text-glow {
-  text-shadow: 0 0 10px var(--accent-primary),
-               0 0 20px var(--accent-primary),
-               0 0 30px var(--accent-primary);
-}
-
-.text-glow-blue {
-  text-shadow: 0 0 10px var(--accent-secondary),
-               0 0 20px var(--accent-secondary),
-               0 0 30px var(--accent-secondary);
-}

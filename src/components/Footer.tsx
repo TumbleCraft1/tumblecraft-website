@@ -52,7 +52,7 @@ export default function Footer() {
               <div className="w-12 h-12 bg-accent-primary rounded-lg flex items-center justify-center">
                 <span className="text-background font-bold text-xl">T</span>
               </div>
-              <span className="text-2xl font-bold text-glow">TumbleCraft</span>
+              <span className="text-2xl font-bold">TumbleCraft</span>
             </motion.div>
             
             <p className="text-foreground-secondary mb-6 leading-relaxed">

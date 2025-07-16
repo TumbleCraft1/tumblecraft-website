@@ -55,7 +55,7 @@ export default function Jobs() {
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <Briefcase className="w-8 h-8 text-accent-primary" />
-              <h1 className="text-4xl md:text-5xl font-bold text-glow">Join Our Team</h1>
+              <h1 className="text-4xl md:text-5xl font-bold">Join Our Team</h1>
             </div>
             <p className="text-xl text-foreground-secondary max-w-3xl mx-auto">
               Help us build the ultimate Minecraft experience. We&apos;re looking for passionate individuals 

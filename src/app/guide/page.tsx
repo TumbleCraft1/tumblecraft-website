@@ -27,7 +27,7 @@ export default async function Guide() {
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
               <BookOpen className="w-8 h-8 text-accent-primary" />
-              <h1 className="text-4xl md:text-5xl font-bold text-glow">
+              <h1 className="text-4xl md:text-5xl font-bold">
                 TumbleCraft Guide
               </h1>
             </div>

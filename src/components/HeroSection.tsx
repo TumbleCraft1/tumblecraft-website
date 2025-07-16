@@ -73,7 +73,7 @@ export default function HeroSection() {
 
         {/* Main Title */}
         <motion.h1 
-          className="hero-title mb-6 text-glow"
+          className="hero-title mb-6"
           variants={itemVariants}
         >
           TUMBLECRAFT

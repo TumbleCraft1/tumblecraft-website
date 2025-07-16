@@ -59,7 +59,7 @@ export default function GettingStarted() {
         viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div variants={itemVariants} className="text-center mb-16">
-          <h2 className="section-title text-glow mb-6">
+          <h2 className="section-title mb-6">
             Getting Started
           </h2>
           <p className="text-xl text-foreground-secondary max-w-3xl mx-auto">
