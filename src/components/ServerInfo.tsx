@@ -239,33 +239,6 @@ export default function ServerInfo() {
           </motion.div>
         </div>
 
-        {/* Server Specs */}
-        <motion.div 
-          variants={itemVariants}
-          className="mt-16 text-center"
-        >
-          <div className="game-card inline-block">
-            <h3 className="text-xl font-bold text-accent-primary mb-4">Server Specifications</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-              <div>
-                <div className="text-accent-primary font-semibold">Version</div>
-                <div className="text-foreground-secondary">1.21+</div>
-              </div>
-              <div>
-                <div className="text-accent-primary font-semibold">Location</div>
-                <div className="text-foreground-secondary">North America</div>
-              </div>
-              <div>
-                <div className="text-accent-primary font-semibold">Slots</div>
-                <div className="text-foreground-secondary">100 Players</div>
-              </div>
-              <div>
-                <div className="text-accent-primary font-semibold">Uptime</div>
-                <div className="text-foreground-secondary">99.9%</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   )
