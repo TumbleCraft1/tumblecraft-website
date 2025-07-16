@@ -65,7 +65,7 @@ export default function Footer() {
                 <motion.a
                   key={index}
                   href={social.href}
-                  className={`text-foreground-secondary transition-colors ${social.color}`}
+                  className={`text-foreground-secondary ${social.color}`}
                   whileHover={{ scale: 1.2, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   title={social.label}
@@ -84,7 +84,7 @@ export default function Footer() {
                 <li key={index}>
                   <motion.a
                     href={link.href}
-                    className="text-foreground-secondary hover:text-accent-primary transition-colors flex items-center gap-2"
+                    className="text-foreground-secondary hover:text-accent-primary flex items-center gap-2"
                     whileHover={{ x: 5 }}
                   >
                     {link.label}
@@ -109,7 +109,7 @@ export default function Footer() {
             
             <motion.button
               onClick={copyServerIP}
-              className="mt-4 flex items-center gap-2 bg-background-secondary border border-border-color rounded-lg px-4 py-2 hover:border-accent-primary transition-colors w-full justify-center"
+              className="mt-4 flex items-center gap-2 bg-background-secondary border border-border-color rounded-lg px-4 py-2 hover:border-accent-primary w-full justify-center"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -126,7 +126,7 @@ export default function Footer() {
                 <p className="text-foreground-secondary text-sm mb-2">Need help? Contact us:</p>
                 <motion.a
                   href="#"
-                  className="flex items-center gap-2 text-accent-primary hover:text-accent-secondary transition-colors"
+                  className="flex items-center gap-2 text-accent-primary hover:text-accent-secondary"
                   whileHover={{ x: 5 }}
                 >
                   <Mail className="w-4 h-4" />
@@ -153,9 +153,9 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-foreground-secondary">
               <span>© 2024 TumbleCraft. All rights reserved.</span>
               <div className="flex gap-4">
-                <a href="#" className="hover:text-accent-primary transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-accent-primary transition-colors">Terms of Service</a>
-                <a href="#" className="hover:text-accent-primary transition-colors">DMCA</a>
+                <a href="#" className="hover:text-accent-primary">Privacy Policy</a>
+                <a href="#" className="hover:text-accent-primary">Terms of Service</a>
+                <a href="#" className="hover:text-accent-primary">DMCA</a>
               </div>
             </div>
             

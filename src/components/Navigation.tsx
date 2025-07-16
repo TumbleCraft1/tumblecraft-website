@@ -27,14 +27,13 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 ${
         scrolled 
           ? 'bg-background-secondary/95 backdrop-blur-md border-b border-border-color shadow-lg' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -56,7 +55,7 @@ export default function Navigation() {
               <motion.a
                 key={index}
                 href={link.href}
-                className="flex items-center gap-2 text-foreground-secondary hover:text-accent-primary transition-colors"
+                className="flex items-center gap-2 text-foreground-secondary hover:text-accent-primary"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -78,7 +77,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground-secondary hover:text-accent-primary transition-colors"
+              className="text-foreground-secondary hover:text-accent-primary"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -90,14 +89,13 @@ export default function Navigation() {
         <motion.div 
           className={`md:hidden overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}
           animate={{ maxHeight: isOpen ? 384 : 0 }}
-          transition={{ duration: 0.3 }}
         >
           <div className="py-4 space-y-4">
             {navLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
-                className="flex items-center gap-3 text-foreground-secondary hover:text-accent-primary transition-colors py-2"
+                className="flex items-center gap-3 text-foreground-secondary hover:text-accent-primary py-2"
                 onClick={() => setIsOpen(false)}
                 whileHover={{ x: 10 }}
               >

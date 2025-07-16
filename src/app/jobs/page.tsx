@@ -52,14 +52,13 @@ export default function Jobs() {
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <Briefcase className="w-8 h-8 text-accent-primary" />
               <h1 className="text-4xl md:text-5xl font-bold text-glow">Join Our Team</h1>
             </div>
             <p className="text-xl text-foreground-secondary max-w-3xl mx-auto">
-              Help us build the ultimate Minecraft experience. We're looking for passionate individuals 
+              Help us build the ultimate Minecraft experience. We&apos;re looking for passionate individuals 
               to join the TumbleCraft team and make an impact in our growing community.
             </p>
           </motion.div>
@@ -69,14 +68,13 @@ export default function Jobs() {
             {jobCategories.map((job, index) => (
               <motion.div
                 key={index}
-                className="bg-background-secondary border border-border-color rounded-xl p-8 hover:border-accent-primary/50 transition-all duration-300 group flex flex-col h-full"
+                className="bg-background-secondary border border-border-color rounded-xl p-8 hover:border-accent-primary/50 group flex flex-col h-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-accent-primary/20 rounded-lg flex items-center justify-center text-accent-primary group-hover:bg-accent-primary group-hover:text-background transition-all duration-300">
+                  <div className="w-12 h-12 bg-accent-primary/20 rounded-lg flex items-center justify-center text-accent-primary group-hover:bg-accent-primary group-hover:text-background">
                     {job.icon}
                   </div>
                   <h3 className="text-xl font-bold text-foreground">{job.title}</h3>
@@ -115,14 +113,13 @@ export default function Jobs() {
             className="text-center bg-gradient-to-r from-accent-primary/10 to-accent-secondary/10 border border-accent-primary/20 rounded-xl p-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h2 className="text-2xl font-bold text-foreground mb-4">
-              Don't see your title listed here?
+              Don&apos;t see your title listed here?
             </h2>
             <p className="text-foreground-secondary mb-6 max-w-2xl mx-auto">
-              Apply anyway! You can learn a skill but you can't learn motivation or hunger. 
-              We're always looking for passionate individuals who want to contribute to our community.
+              Apply anyway! You can learn a skill but you can&apos;t learn motivation or hunger. 
+              We&apos;re always looking for passionate individuals who want to contribute to our community.
             </p>
             <motion.a 
               href="https://forms.gle/66M8KGygBYSfLptu8"

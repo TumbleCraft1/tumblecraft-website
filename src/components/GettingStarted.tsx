@@ -1,17 +1,15 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Download, User, Server, Play, Shield, BookOpen, AlertCircle } from 'lucide-react'
+import { Download, User, Server, Play } from 'lucide-react'
+import Image from 'next/image'
 
 export default function GettingStarted() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.2
-      }
+      staggerChildren: 0.2
     }
   }
 
@@ -20,9 +18,6 @@ export default function GettingStarted() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.8
-      }
     }
   }
 
@@ -53,23 +48,6 @@ export default function GettingStarted() {
     }
   ]
 
-  const rules = [
-    "No griefing or stealing from other players",
-    "Be respectful and kind to all community members",
-    "No inappropriate language or behavior",
-    "No cheating, hacking, or exploiting bugs",
-    "Follow staff instructions and server guidelines",
-    "Build responsibly and respect the environment"
-  ]
-
-  const commands = [
-    { command: "/spawn", description: "Return to the main spawn area" },
-    { command: "/smp", description: "Join the SMP survival world" },
-    { command: "/prison", description: "Enter the Prison gamemode" },
-    { command: "/rules", description: "View the complete server rules" },
-    { command: "/discord", description: "Get our Discord server link" },
-    { command: "/vote", description: "Vote for the server and get rewards" }
-  ]
 
   return (
     <section id="getting-started" className="py-20 bg-background-secondary">
@@ -94,9 +72,11 @@ export default function GettingStarted() {
         <motion.div variants={itemVariants} className="mb-16">
           {/* Guide Preview Image */}
           <div className="mb-8 rounded-lg overflow-hidden max-w-3xl mx-auto">
-            <img 
+            <Image 
               src="/screenshot-5.png" 
               alt="Server Guide Preview" 
+              width={800}
+              height={192}
               className="w-full h-48 object-cover"
             />
           </div>
@@ -123,101 +103,16 @@ export default function GettingStarted() {
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Server Rules */}
-          <motion.div variants={itemVariants}>
-            <div className="game-card h-full">
-              <div className="flex items-center gap-3 mb-6">
-                <Shield className="w-8 h-8 text-accent-danger" />
-                <h3 className="text-2xl font-bold">Server Rules</h3>
-              </div>
-              
-              <p className="text-foreground-secondary mb-6">
-                To maintain a fun and safe environment for everyone, please follow these essential rules:
-              </p>
-
-              <div className="space-y-3">
-                {rules.map((rule, index) => (
-                  <motion.div 
-                    key={index}
-                    className="flex items-start gap-3"
-                    whileHover={{ x: 5 }}
-                  >
-                    <div className="w-6 h-6 bg-accent-danger rounded-full flex items-center justify-center text-background text-xs font-bold mt-0.5">
-                      {index + 1}
-                    </div>
-                    <p className="text-foreground-secondary text-sm flex-1">{rule}</p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div 
-                className="mt-6 p-4 bg-accent-danger/10 border border-accent-danger/20 rounded-lg"
-                whileHover={{ borderColor: "var(--accent-danger)" }}
-              >
-                <div className="flex items-center gap-2 text-accent-danger mb-2">
-                  <AlertCircle className="w-5 h-5" />
-                  <span className="font-semibold">Important</span>
-                </div>
-                <p className="text-foreground-secondary text-sm">
-                  Breaking these rules may result in warnings, temporary bans, or permanent removal from the server. 
-                  When in doubt, ask a staff member!
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Useful Commands */}
-          <motion.div variants={itemVariants}>
-            <div className="game-card h-full">
-              <div className="flex items-center gap-3 mb-6">
-                <BookOpen className="w-8 h-8 text-accent-secondary" />
-                <h3 className="text-2xl font-bold">Useful Commands</h3>
-              </div>
-              
-              <p className="text-foreground-secondary mb-6">
-                Here are some essential commands to help you navigate and enjoy the server:
-              </p>
-
-              <div className="space-y-4">
-                {commands.map((cmd, index) => (
-                  <motion.div 
-                    key={index}
-                    className="flex items-center justify-between p-3 bg-background-tertiary rounded-lg"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div>
-                      <code className="text-accent-primary font-mono text-sm">{cmd.command}</code>
-                      <p className="text-foreground-secondary text-xs mt-1">{cmd.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div 
-                className="mt-6 p-4 bg-accent-secondary/10 border border-accent-secondary/20 rounded-lg"
-                whileHover={{ borderColor: "var(--accent-secondary)" }}
-              >
-                <div className="flex items-center gap-2 text-accent-secondary mb-2">
-                  <BookOpen className="w-5 h-5" />
-                  <span className="font-semibold">Pro Tip</span>
-                </div>
-                <p className="text-foreground-secondary text-sm">
-                  Type <code className="text-accent-secondary">/help</code> in-game to see a full list of available 
-                  commands and get more detailed information about server features.
-                </p>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
 
         {/* Quick Start CTA */}
         <motion.div variants={itemVariants} className="text-center mt-16">
           {/* Welcome Screenshot */}
           <div className="mb-8 rounded-lg overflow-hidden max-w-4xl mx-auto">
-            <img 
+            <Image 
               src="/screenshot-7.png" 
               alt="Welcome to TumbleCraft" 
+              width={800}
+              height={256}
               className="w-full h-64 object-cover"
             />
           </div>

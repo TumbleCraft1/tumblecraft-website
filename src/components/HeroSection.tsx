@@ -34,10 +34,7 @@ export default function HeroSection() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.2
-      }
+      staggerChildren: 0.2
     }
   }
 
@@ -46,19 +43,13 @@ export default function HeroSection() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.8
-      }
     }
   }
 
   const floatingVariants = {
     float: {
       y: [-10, 10, -10],
-      transition: {
-        duration: 6,
-        repeat: Infinity
-      }
+      repeat: Infinity
     }
   }
 
@@ -86,19 +77,16 @@ export default function HeroSection() {
         className="absolute top-40 right-32 w-3 h-3 bg-accent-secondary rounded-full"
         variants={floatingVariants}
         animate="float"
-        transition={{ delay: 1 }}
       ></motion.div>
       <motion.div 
         className="absolute bottom-40 left-32 w-5 h-5 bg-accent-tertiary rounded-full"
         variants={floatingVariants}
         animate="float"
-        transition={{ delay: 2 }}
       ></motion.div>
       <motion.div 
         className="absolute bottom-20 right-20 w-2 h-2 bg-accent-warning rounded-full"
         variants={floatingVariants}
         animate="float"
-        transition={{ delay: 3 }}
       ></motion.div>
 
       {/* Main Hero Content */}
@@ -149,7 +137,7 @@ export default function HeroSection() {
             <code className="text-accent-primary font-mono text-lg">{serverIP}</code>
             <button
               onClick={copyServerIP}
-              className="flex items-center gap-2 px-3 py-1 bg-accent-primary text-background rounded-md hover:bg-opacity-80 transition-all"
+              className="flex items-center gap-2 px-3 py-1 bg-accent-primary text-background rounded-md hover:bg-opacity-80"
             >
               <Copy size={16} />
               {copied ? 'Copied!' : 'Copy'}
@@ -166,7 +154,6 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
       >
         <motion.div 
           className="w-6 h-10 border-2 border-accent-primary rounded-full flex justify-center"
@@ -178,7 +165,6 @@ export default function HeroSection() {
             ]
           }}
           transition={{ 
-            duration: 2,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -187,7 +173,6 @@ export default function HeroSection() {
             className="w-1 h-2 bg-accent-primary rounded-full mt-2"
             animate={{ y: [0, 16, 0] }}
             transition={{ 
-              duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
             }}

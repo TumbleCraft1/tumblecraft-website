@@ -2,16 +2,14 @@
 
 import { motion } from 'framer-motion'
 import { Shield, Zap, Users2, Trophy, Pickaxe, Crown, Coins } from 'lucide-react'
+import Image from 'next/image'
 
 export default function ServerInfo() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.1
-      }
+      staggerChildren: 0.1
     }
   }
 
@@ -20,9 +18,6 @@ export default function ServerInfo() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.8
-      }
     }
   }
 
@@ -106,9 +101,11 @@ export default function ServerInfo() {
             <div className="game-card h-full">
               {/* SMP Preview Image */}
               <div className="mb-6 rounded-lg overflow-hidden">
-                <img 
+                <Image 
                   src="/screenshot-6.png" 
                   alt="SMP Server Preview" 
+                  width={800}
+                  height={192}
                   className="w-full h-48 object-cover"
                 />
               </div>
@@ -134,7 +131,6 @@ export default function ServerInfo() {
                     key={index}
                     className="flex items-start gap-4"
                     whileHover={{ x: 10 }}
-                    transition={{ duration: 0.2 }}
                   >
                     <div className="text-accent-primary mt-1">
                       {feature.icon}
@@ -194,7 +190,6 @@ export default function ServerInfo() {
                     key={index}
                     className="flex items-start gap-4"
                     whileHover={{ x: 10 }}
-                    transition={{ duration: 0.2 }}
                   >
                     <div className="text-accent-secondary mt-1">
                       {feature.icon}

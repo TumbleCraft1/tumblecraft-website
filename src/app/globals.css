@@ -85,7 +85,6 @@ body {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -103,7 +102,6 @@ body {
   border-radius: 8px;
   border: 2px solid var(--accent-secondary);
   cursor: pointer;
-  transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -121,7 +119,6 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 24px;
-  transition: all 0.3s ease;
 }
 
 .game-card:hover {
@@ -171,7 +168,6 @@ body {
   border-radius: 12px;
   padding: 20px;
   color: white;
-  transition: all 0.3s ease;
 }
 
 .discord-widget:hover {

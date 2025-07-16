@@ -1,18 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MessageCircle, Users, Calendar, Star, ExternalLink, Hash } from 'lucide-react'
-import Image from 'next/image'
+import { MessageCircle, Users, ExternalLink, Hash } from 'lucide-react'
 
 export default function CommunityHub() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        duration: 1,
-        staggerChildren: 0.2
-      }
+      staggerChildren: 0.2
     }
   }
 
@@ -21,33 +17,10 @@ export default function CommunityHub() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.8
-      }
     }
   }
 
 
-  const recentEvents = [
-    {
-      title: "Building Contest",
-      description: "Medieval Castle Theme - $100 Prize Pool",
-      date: "Dec 15",
-      icon: <Star className="w-5 h-5" />
-    },
-    {
-      title: "Prison Season Reset",
-      description: "New mines, new ranks, fresh start!",
-      date: "Dec 10",
-      icon: <Calendar className="w-5 h-5" />
-    },
-    {
-      title: "Community Meet & Greet",
-      description: "Get to know your fellow players",
-      date: "Dec 5",
-      icon: <Users className="w-5 h-5" />
-    }
-  ]
 
   const communityStats = [
     { label: "Discord Members", value: "1,200+", color: "text-accent-primary" },
@@ -128,7 +101,7 @@ export default function CommunityHub() {
               
               <motion.a 
                 href="https://discord.gg/N7hEkd82" 
-                className="inline-flex items-center gap-3 bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-opacity-90 transition-all"
+                className="inline-flex items-center gap-3 bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg hover:bg-opacity-90"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -166,36 +139,6 @@ export default function CommunityHub() {
           </motion.div>
         </div>
 
-        {/* Recent Events */}
-        <motion.div variants={itemVariants} className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-8">Recent Events & News</h3>
-          {/* Community Showcase Image */}
-          <div className="mb-8 rounded-lg overflow-hidden">
-            <Image 
-              src="/screenshot-3.png" 
-              alt="Community Event Showcase" 
-              width={800}
-              height={256}
-              className="w-full h-64 object-cover"
-            />
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {recentEvents.map((event, index) => (
-              <motion.div 
-                key={index}
-                className="game-card text-center"
-                whileHover={{ y: -5 }}
-              >
-                <div className="text-accent-primary mb-4 flex justify-center">
-                  {event.icon}
-                </div>
-                <h4 className="font-semibold text-foreground mb-2">{event.title}</h4>
-                <p className="text-foreground-secondary text-sm mb-3">{event.description}</p>
-                <span className="text-accent-primary text-xs font-mono">{event.date}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
 
       </motion.div>
     </section>
