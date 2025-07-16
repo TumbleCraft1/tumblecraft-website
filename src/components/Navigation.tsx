@@ -1,21 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Menu, X, Trophy, BookOpen, MessageCircle, Briefcase } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const navLinks = [
     { href: '/coming-soon', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
@@ -26,11 +16,7 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      className={`fixed top-0 left-0 right-0 z-50 ${
-        scrolled 
-          ? 'bg-background-secondary/95 backdrop-blur-md border-b border-border-color shadow-lg' 
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-transparent"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >
