@@ -104,17 +104,39 @@ export default function HeroSection() {
           Modern survival, custom features, and an active community await you.
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.button
-          onClick={copyServerIP}
-          className="inline-flex items-center gap-3 bg-accent-primary text-background px-8 py-4 rounded-lg font-bold text-lg hover:bg-accent-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+        {/* CTA Section */}
+        <motion.div 
+          className="flex flex-col items-center gap-4"
           variants={itemVariants}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
         >
-          <Copy className="w-5 h-5" />
-          <span>{copied ? 'Copied!' : serverIP}</span>
-        </motion.button>
+          <p className="text-foreground-secondary text-sm font-medium uppercase tracking-wider">
+            Server Address
+          </p>
+          <motion.button
+            onClick={copyServerIP}
+            className="group relative overflow-hidden bg-background-secondary/80 backdrop-blur-sm border border-border-color rounded-xl px-6 py-3 hover:border-accent-primary/50 transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="flex items-center gap-3">
+              <motion.div
+                animate={copied ? { scale: [1, 1.2, 1] } : {}}
+                transition={{ duration: 0.3 }}
+              >
+                <Copy className="w-4 h-4 text-foreground-secondary group-hover:text-accent-primary transition-colors" />
+              </motion.div>
+              <span className="font-mono text-foreground group-hover:text-accent-primary transition-colors">
+                {copied ? 'Copied!' : serverIP}
+              </span>
+            </div>
+            
+            {/* Subtle hover effect */}
+            <motion.div
+              className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"
+              layoutId="button-bg"
+            />
+          </motion.button>
+        </motion.div>
 
 
 
