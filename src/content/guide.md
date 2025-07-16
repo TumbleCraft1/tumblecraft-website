@@ -14,15 +14,12 @@ Welcome to the ultimate Minecraft survival multiplayer experience! This guide wi
 - **Type**: Survival Multiplayer (SMP)
 - **Difficulty**: Normal
 
-## Getting Started
-
-### First Steps
 1. **Join the Server**: Connect using `play.tumblecraft.net`
 2. **Read the Rules**: Make sure you understand our community guidelines
 3. **Claim Your Land**: Protect your builds with our land claiming system
 4. **Introduce Yourself**: Say hello in chat and join our Discord!
 
-### Essential Commands
+## Essential Commands
 - `/spawn` - Return to the spawn area
 - `/home` - Teleport to your home location
 - `/sethome` - Set your home location
@@ -59,21 +56,6 @@ Experience vanilla Minecraft survival with quality-of-life improvements:
 - **Respect Neighbors**: Don't build too close to others without permission
 - **Clean Up**: Remove temporary structures when done
 - **No Lag Machines**: Avoid builds that cause server lag
-
-## Community & Support
-
-### Discord Server
-Join our active Discord community for:
-- Real-time chat with players
-- Server announcements and updates
-- Support and assistance
-- Event coordination
-
-### Getting Help
-- **In-Game**: Use `/help` or ask in chat
-- **Discord**: Post in our support channels
-- **Website**: Check our FAQ and guides
-- **Staff**: Contact moderators for urgent issues
 
 ## Tips for Success
 
