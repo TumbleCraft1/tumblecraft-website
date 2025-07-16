@@ -1,34 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Copy } from 'lucide-react'
 import { useState } from 'react'
 
-interface ServerStatus {
-  online: boolean
-  players: number
-  maxPlayers: number
-}
-
 export default function HeroSection() {
-  const [serverStatus] = useState<ServerStatus>({
-    online: true,
-    players: 42,
-    maxPlayers: 100
-  })
-  const [copied, setCopied] = useState(false)
-  
-  const serverIP = "play.tumblecraft.net"
-
-  const copyServerIP = async () => {
-    try {
-      await navigator.clipboard.writeText(serverIP)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy:', err)
-    }
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -96,17 +71,6 @@ export default function HeroSection() {
         initial="hidden"
         animate="visible"
       >
-        {/* Server Status Badge */}
-        <motion.div 
-          className="inline-flex items-center gap-2 mb-8 px-4 py-2 bg-background-secondary border border-border-color rounded-full"
-          variants={itemVariants}
-        >
-          <div className={`w-3 h-3 rounded-full ${serverStatus.online ? 'bg-accent-primary shadow-[0_0_10px_var(--accent-primary)]' : 'bg-accent-danger'}`}></div>
-          <span className="text-sm font-medium">
-            {serverStatus.online ? 'Server Online' : 'Server Offline'} • {serverStatus.players}/{serverStatus.maxPlayers} Players
-          </span>
-        </motion.div>
-
 
         {/* Main Title */}
         <motion.h1 
@@ -126,24 +90,6 @@ export default function HeroSection() {
           <span className="text-accent-secondary font-semibold">Prison gamemode</span>. 
           Modern survival, custom features, and an active community await you.
         </motion.p>
-
-        {/* Server IP Section */}
-        <motion.div 
-          className="mb-10"
-          variants={itemVariants}
-        >
-          <p className="text-foreground-muted mb-3">Server IP</p>
-          <div className="inline-flex items-center gap-3 bg-background-secondary border border-border-color rounded-lg px-6 py-4">
-            <code className="text-accent-primary font-mono text-lg">{serverIP}</code>
-            <button
-              onClick={copyServerIP}
-              className="flex items-center gap-2 px-3 py-1 bg-accent-primary text-background rounded-md hover:bg-opacity-80"
-            >
-              <Copy size={16} />
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
-          </div>
-        </motion.div>
 
 
 

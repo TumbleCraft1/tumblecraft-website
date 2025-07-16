@@ -2,11 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
-import { Menu, X, Gamepad2, Users, BookOpen, MessageCircle, Briefcase } from 'lucide-react'
+import { Menu, X, Gamepad2, Trophy, BookOpen, MessageCircle, Briefcase } from 'lucide-react'
+import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { openForm } = useBetaForm()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,8 +21,8 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '#server-info', label: 'Game Modes', icon: <Gamepad2 className="w-4 h-4" /> },
-    { href: '#community', label: 'Community', icon: <Users className="w-4 h-4" /> },
-    { href: '#getting-started', label: 'Get Started', icon: <BookOpen className="w-4 h-4" /> },
+    { href: '/leaderboards', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
+    { href: '/wiki', label: 'Wiki', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/guide', label: 'Guide', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
     { href: 'https://discord.gg/N7hEkd82', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
@@ -66,11 +68,12 @@ export default function Navigation() {
             ))}
             
             <motion.button 
+              onClick={openForm}
               className="btn-primary text-sm px-4 py-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Join Server
+              Apply for Beta
             </motion.button>
           </div>
 
@@ -106,11 +109,15 @@ export default function Navigation() {
             ))}
             
             <motion.button 
+              onClick={() => {
+                openForm()
+                setIsOpen(false)
+              }}
               className="btn-primary text-sm w-full mt-4"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Join Server
+              Apply for Beta
             </motion.button>
           </div>
         </motion.div>
