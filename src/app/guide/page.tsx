@@ -1,5 +1,4 @@
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 import { getMarkdownContent } from '@/lib/markdown'
 import { BookOpen } from 'lucide-react'
 import GuideThumbnail from './GuideThumbnail'
@@ -45,7 +44,6 @@ export default async function Guide() {
           />
         </div>
       </div>
-      <Footer />
     </main>
   )
 }

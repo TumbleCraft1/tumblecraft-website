@@ -1,7 +1,6 @@
 'use client'
 
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 // import { motion } from 'framer-motion'
 // import { Briefcase, Video, Code, Megaphone, ChevronRight } from 'lucide-react'
 
@@ -58,7 +57,6 @@ export default function Jobs() {
           </div>
         </div>
       </div>
-      <Footer />
     </main>
   )
 }

@@ -1,5 +1,4 @@
 import Navigation from '@/components/Navigation'
-import Footer from '@/components/Footer'
 import { BookOpen, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -51,7 +50,6 @@ export default async function GuidePage({ params }: GuidePageProps) {
           <GuideContent />
         </div>
       </div>
-      <Footer />
     </main>
   )
 }

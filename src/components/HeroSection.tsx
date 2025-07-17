@@ -1,22 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Copy } from 'lucide-react'
-import { useState } from 'react'
 
 export default function HeroSection() {
-  const [copied, setCopied] = useState(false)
-  const serverIP = "tumblecraft.gg"
-
-  const copyServerIP = async () => {
-    try {
-      await navigator.clipboard.writeText(serverIP)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy:', err)
-    }
-  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -104,39 +90,6 @@ export default function HeroSection() {
           Modern survival, custom features, and an active community await you.
         </motion.p>
 
-        {/* CTA Section */}
-        <motion.div 
-          className="flex flex-col items-center gap-4"
-          variants={itemVariants}
-        >
-          <p className="text-foreground-secondary text-sm font-medium uppercase tracking-wider">
-            Server Address
-          </p>
-          <motion.button
-            onClick={copyServerIP}
-            className="group relative overflow-hidden bg-background-secondary/80 backdrop-blur-sm border border-border-color rounded-xl px-6 py-3 hover:border-accent-primary/50 transition-all duration-300"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <div className="flex items-center gap-3">
-              <motion.div
-                animate={copied ? { scale: [1, 1.2, 1] } : {}}
-                transition={{ duration: 0.3 }}
-              >
-                <Copy className="w-4 h-4 text-foreground-secondary group-hover:text-accent-primary transition-colors" />
-              </motion.div>
-              <span className="font-mono text-foreground group-hover:text-accent-primary transition-colors">
-                {copied ? 'Copied!' : serverIP}
-              </span>
-            </div>
-            
-            {/* Subtle hover effect */}
-            <motion.div
-              className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"
-              layoutId="button-bg"
-            />
-          </motion.button>
-        </motion.div>
 
 
 
