@@ -2,9 +2,11 @@
 
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import { motion } from 'framer-motion'
-import { Briefcase, Video, Code, Megaphone, ChevronRight } from 'lucide-react'
+// import { motion } from 'framer-motion'
+// import { Briefcase, Video, Code, Megaphone, ChevronRight } from 'lucide-react'
 
+// ARCHIVED: Jobs section temporarily removed for revision - will revisit later this week
+/*
 const jobCategories = [
   {
     title: "Content Creator / Streamer",
@@ -40,6 +42,7 @@ const jobCategories = [
     ]
   }
 ]
+*/
 
 export default function Jobs() {
   return (
@@ -47,7 +50,21 @@ export default function Jobs() {
       <Navigation />
       <div className="pt-32 pb-16">
         <div className="container mx-auto px-6">
-          {/* Header */}
+          <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Jobs</h1>
+            <p className="text-xl text-foreground-secondary">
+              This section is currently being revised and will be updated soon.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </main>
+  )
+}
+
+/* ARCHIVED CONTENT - will be restored later this week
+          {/* Header *//*}
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +80,7 @@ export default function Jobs() {
             </p>
           </motion.div>
 
-          {/* Job Categories */}
+          {/* Job Categories *//*}
           <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
             {jobCategories.map((job, index) => (
               <motion.div
@@ -108,7 +125,7 @@ export default function Jobs() {
             ))}
           </div>
 
-          {/* Call to Action */}
+          {/* Call to Action *//*}
           <motion.div 
             className="text-center bg-gradient-to-r from-accent-primary/10 to-accent-secondary/10 border border-accent-primary/20 rounded-xl p-8"
             initial={{ opacity: 0, y: 20 }}
@@ -132,9 +149,4 @@ export default function Jobs() {
               Apply Now
             </motion.a>
           </motion.div>
-        </div>
-      </div>
-      <Footer />
-    </main>
-  )
-}
+*/
