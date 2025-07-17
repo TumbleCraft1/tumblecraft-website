@@ -44,6 +44,14 @@ export default function HeroSection() {
       <div className="absolute inset-0 grid-pattern opacity-15"></div>
       <div className="absolute inset-0 grid-pattern-accent opacity-5"></div>
       
+      {/* Gradient Blend Overlay - Only at bottom edge */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-32 z-5"
+        style={{
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(248, 249, 250, 0.8) 70%, var(--background-secondary) 100%)'
+        }}
+      ></div>
+      
       {/* Floating Particles - Enhanced InvestorFuse Colors */}
       <motion.div 
         className="absolute top-20 left-20 w-4 h-4 rounded-full"

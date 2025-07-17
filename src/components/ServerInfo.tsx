@@ -107,10 +107,9 @@ export default function ServerInfo() {
 
               <div className="space-y-6">
                 {smpFeatures.map((feature, index) => (
-                  <motion.div 
+                  <div 
                     key={index}
                     className="flex items-start gap-4"
-                    whileHover={{ x: 10 }}
                   >
                     <div className="text-primary mt-1">
                       {feature.icon}
@@ -119,13 +118,12 @@ export default function ServerInfo() {
                       <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
                       <p className="text-foreground-secondary text-sm">{feature.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
 
-              <motion.div 
+              <div 
                 className="mt-8 p-4 bg-background-tertiary border border-primary/20 rounded-lg"
-                whileHover={{ borderColor: "var(--color-primary)" }}
               >
                 <div className="flex justify-between items-center">
                   <span className="text-foreground-secondary">Current Season:</span>
@@ -135,7 +133,7 @@ export default function ServerInfo() {
                   <span className="text-foreground-secondary">World Border:</span>
                   <span className="text-primary font-semibold">30,000 x 30,000</span>
                 </div>
-              </motion.div>
+              </div>
 
               <motion.button
                 onClick={openForm}

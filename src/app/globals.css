@@ -549,6 +549,46 @@ body {
    ============================================ */
 
 /* ============================================
+   BACKGROUND BLENDING UTILITIES
+   ============================================ */
+
+/* Section Background Blending */
+.section-blend-bottom {
+  position: relative;
+}
+
+.section-blend-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to bottom, transparent 0%, var(--background-secondary) 100%);
+  pointer-events: none;
+}
+
+.section-blend-top {
+  position: relative;
+}
+
+.section-blend-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, transparent 0%, var(--background-secondary) 100%);
+  pointer-events: none;
+}
+
+/* Hero specific blending */
+.hero-blend-bottom {
+  background: linear-gradient(to bottom, transparent 0%, transparent 70%, var(--background-secondary) 100%);
+}
+
+/* ============================================
    UTILITY CLASSES FOR QUICK APPLICATION
    ============================================ */
 
