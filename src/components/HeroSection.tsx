@@ -99,41 +99,6 @@ export default function HeroSection() {
 
       </motion.div>
 
-      {/* Scroll Indicator - Enhanced InvestorFuse Styling */}
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-      >
-        <motion.div 
-          className="w-6 h-10 border-2 rounded-full flex justify-center"
-          style={{ borderColor: 'var(--color-primary)' }}
-          animate={{ 
-            boxShadow: [
-              "0 0 8px var(--color-primary-30)",
-              "0 0 24px var(--color-primary-50)",
-              "0 0 8px var(--color-primary-30)"
-            ]
-          }}
-          transition={{ 
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        >
-          <motion.div 
-            className="w-1 h-2 rounded-full mt-2"
-            style={{ background: 'var(--color-primary)' }}
-            animate={{ y: [0, 16, 0] }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

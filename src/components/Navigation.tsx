@@ -46,6 +46,27 @@ export default function Navigation() {
               {link.label}
             </motion.a>
           ))}
+          
+          {/* Discord Button */}
+          <motion.a
+            href="#"
+            className="bg-[#5865F2] hover:bg-[#4752C4] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <MessageCircle className="w-4 h-4" />
+            DISCORD
+          </motion.a>
+
+          {/* Apply for Beta Button */}
+          <motion.a
+            href="#"
+            className="bg-[#FF8C00] hover:bg-[#FF7700] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            APPLY FOR BETA
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -81,6 +102,27 @@ export default function Navigation() {
                 {link.label}
               </motion.a>
             ))}
+            
+            {/* Mobile Discord Button */}
+            <motion.a
+              href="#"
+              className="bg-[#5865F2] hover:bg-[#4752C4] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2 w-full"
+              onClick={() => setIsOpen(false)}
+              whileHover={{ x: 5 }}
+            >
+              <MessageCircle className="w-4 h-4" />
+              DISCORD
+            </motion.a>
+
+            {/* Mobile Apply for Beta Button */}
+            <motion.a
+              href="#"
+              className="bg-[#FF8C00] hover:bg-[#FF7700] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2 w-full"
+              onClick={() => setIsOpen(false)}
+              whileHover={{ x: 5 }}
+            >
+              APPLY FOR BETA
+            </motion.a>
           </div>
         </motion.div>
       )}

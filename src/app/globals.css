@@ -12,9 +12,9 @@
   --color-primary-hover: #5C9BD5;     /* Button Blue hover state */
   
   /* Accent Colors */
-  --color-accent: #7CB342;            /* Primary Green Accent */
-  --color-accent-dark: #689F38;       /* Dark Green variation */
-  --color-accent-light: #8BC34A;      /* Light Green variation */
+  --color-accent: #FF8C00;            /* Primary Orange Accent */
+  --color-accent-dark: #FF7700;       /* Dark Orange variation */
+  --color-accent-light: #FFA500;      /* Light Orange variation */
   
   /* Neutral Colors */
   --color-white: #FFFFFF;             /* Pure White */
@@ -48,11 +48,11 @@
   --color-primary-50: rgba(74, 144, 164, 0.5);
   --color-primary-80: rgba(74, 144, 164, 0.8);
   
-  --color-accent-10: rgba(124, 179, 66, 0.1);
-  --color-accent-20: rgba(124, 179, 66, 0.2);
-  --color-accent-30: rgba(124, 179, 66, 0.3);
-  --color-accent-50: rgba(124, 179, 66, 0.5);
-  --color-accent-80: rgba(124, 179, 66, 0.8);
+  --color-accent-10: rgba(255, 140, 0, 0.1);
+  --color-accent-20: rgba(255, 140, 0, 0.2);
+  --color-accent-30: rgba(255, 140, 0, 0.3);
+  --color-accent-50: rgba(255, 140, 0, 0.5);
+  --color-accent-80: rgba(255, 140, 0, 0.8);
   
   /* Border & Shadow Colors */
   --border-color: #D1D5DB;            /* Medium border - Better visibility */
