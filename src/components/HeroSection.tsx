@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, Sparkles } from 'lucide-react'
 import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function HeroSection() {
@@ -23,11 +23,6 @@ export default function HeroSection() {
     }
   }
 
-  const floatingVariants = {
-    float: {
-      y: [-10, 10, -10],
-    }
-  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -44,106 +39,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 grid-pattern opacity-15"></div>
       <div className="absolute inset-0 grid-pattern-accent opacity-5"></div>
       
-      {/* Gradient Blend Overlay - Only at bottom edge */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-32 z-5"
-        style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(248, 249, 250, 0.8) 70%, var(--background-secondary) 100%)'
-        }}
-      ></div>
       
-      {/* Floating Particles - Enhanced InvestorFuse Colors */}
-      <motion.div 
-        className="absolute top-20 left-20 w-4 h-4 rounded-full"
-        style={{ 
-          background: 'var(--color-primary)',
-          boxShadow: '0 0 12px var(--color-primary-30)'
-        }}
-        variants={floatingVariants}
-        animate="float"
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0 
-        }}
-      ></motion.div>
-      <motion.div 
-        className="absolute top-40 right-32 w-3 h-3 rounded-full"
-        style={{ 
-          background: 'var(--color-accent)',
-          boxShadow: '0 0 10px var(--color-accent-30)'
-        }}
-        variants={floatingVariants}
-        animate="float"
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 0.5 
-        }}
-      ></motion.div>
-      <motion.div 
-        className="absolute bottom-40 left-32 w-5 h-5 rounded-full"
-        style={{ 
-          background: 'var(--color-primary-light)',
-          boxShadow: '0 0 15px var(--color-primary-20)'
-        }}
-        variants={floatingVariants}
-        animate="float"
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1 
-        }}
-      ></motion.div>
-      <motion.div 
-        className="absolute bottom-20 right-20 w-2 h-2 rounded-full"
-        style={{ 
-          background: 'var(--color-accent-dark)',
-          boxShadow: '0 0 8px var(--color-accent-20)'
-        }}
-        variants={floatingVariants}
-        animate="float"
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1.5 
-        }}
-      ></motion.div>
-      {/* Additional Brand Particles */}
-      <motion.div 
-        className="absolute top-1/3 left-1/4 w-3 h-3 rounded-full"
-        style={{ 
-          background: 'var(--color-primary-hover)',
-          boxShadow: '0 0 10px var(--color-primary-20)'
-        }}
-        variants={floatingVariants}
-        animate="float"
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2 
-        }}
-      ></motion.div>
-      <motion.div 
-        className="absolute bottom-1/3 right-1/4 w-4 h-4 rounded-full"
-        style={{ 
-          background: 'var(--color-accent-light)',
-          boxShadow: '0 0 12px var(--color-accent-20)'
-        }}
-        variants={floatingVariants}
-        animate="float"
-        transition={{ 
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 2.5 
-        }}
-      ></motion.div>
 
       {/* Main Hero Content */}
       <motion.div 
@@ -163,7 +59,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <motion.p 
-          className="text-xl md:text-2xl text-foreground-secondary mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
           variants={itemVariants}
         >
           Experience the ultimate Minecraft adventure with our thriving{' '}
@@ -198,6 +94,7 @@ export default function HeroSection() {
             }}
             whileTap={{ scale: 0.98 }}
           >
+            <Sparkles className="w-5 h-5" />
             Apply For Beta
           </motion.button>
         </motion.div>

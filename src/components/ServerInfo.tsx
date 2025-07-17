@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Zap, Users2, Trophy } from 'lucide-react'
+import { Shield, Zap, Users2, Trophy, Sparkles } from 'lucide-react'
 import Image from 'next/image'
 import { useBetaForm } from '@/context/BetaFormContext'
 
@@ -151,6 +151,3 @@ export default function ServerInfo() {
     </section>
   )
 }
-
-// Need to import Sparkles icon
-import { Sparkles } from 'lucide-react'
