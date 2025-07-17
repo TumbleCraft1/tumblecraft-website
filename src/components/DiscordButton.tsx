@@ -18,7 +18,7 @@ export default function DiscordButton({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#5865f2] to-[#4752c4] text-white font-bold px-8 py-4 rounded-lg hover:from-[#4752c4] hover:to-[#3c4ec7] ${className}`}
+      className={`btn-or-discord ${className}`}
     >
       <MessageCircle className="w-5 h-5" />
       {children}

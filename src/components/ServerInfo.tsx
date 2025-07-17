@@ -90,11 +90,11 @@ export default function ServerInfo() {
                 />
               </div>
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-accent-primary rounded-xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
                   <Sparkles className="w-8 h-8 text-background" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-accent-primary mb-2">SMP Server</h3>
+                  <h3 className="text-3xl font-bold text-primary mb-2">SMP Server</h3>
                   <p className="text-foreground-secondary">Survival Multiplayer Paradise</p>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function ServerInfo() {
                     className="flex items-start gap-4"
                     whileHover={{ x: 10 }}
                   >
-                    <div className="text-accent-primary mt-1">
+                    <div className="text-primary mt-1">
                       {feature.icon}
                     </div>
                     <div>
@@ -124,22 +124,22 @@ export default function ServerInfo() {
               </div>
 
               <motion.div 
-                className="mt-8 p-4 bg-background-tertiary border border-accent-primary/20 rounded-lg"
-                whileHover={{ borderColor: "var(--accent-primary)" }}
+                className="mt-8 p-4 bg-background-tertiary border border-primary/20 rounded-lg"
+                whileHover={{ borderColor: "var(--color-primary)" }}
               >
                 <div className="flex justify-between items-center">
                   <span className="text-foreground-secondary">Current Season:</span>
-                  <span className="text-accent-primary font-semibold">Beta Season</span>
+                  <span className="text-primary font-semibold">Beta Season</span>
                 </div>
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-foreground-secondary">World Border:</span>
-                  <span className="text-accent-primary font-semibold">30,000 x 30,000</span>
+                  <span className="text-primary font-semibold">30,000 x 30,000</span>
                 </div>
               </motion.div>
 
               <motion.button
                 onClick={openForm}
-                className="mt-6 w-full px-6 py-3 bg-accent-primary text-background rounded-lg font-semibold hover:bg-accent-primary/90 transition-colors"
+                className="btn-or-server w-full"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

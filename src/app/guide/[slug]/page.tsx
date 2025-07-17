@@ -27,7 +27,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
           <div className="mb-8">
             <Link 
               href="/guide"
-              className="inline-flex items-center gap-2 text-foreground-secondary hover:text-accent-primary transition-colors"
+              className="inline-flex items-center gap-2 text-foreground-secondary hover:text-primary transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Guides
@@ -37,7 +37,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
           {/* Header */}
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-3 mb-6">
-              <BookOpen className="w-8 h-8 text-accent-primary" />
+              <BookOpen className="w-8 h-8 text-primary" />
               <h1 className="text-4xl md:text-5xl font-bold">
                 TumbleCraft Guide
               </h1>

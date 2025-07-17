@@ -51,7 +51,7 @@ export default function GuideContent() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 py-2 px-1 border-b-2 transition-colors ${
                   activeTab === tab.id
-                    ? 'border-accent-primary text-accent-primary'
+                    ? 'border-primary text-primary'
                     : 'border-transparent text-foreground-secondary hover:text-foreground hover:border-border-color'
                 }`}
               >
@@ -71,15 +71,15 @@ export default function GuideContent() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {steps.map((step, index) => (
                 <div key={index} className="game-card text-center relative">
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-accent-primary text-background rounded-full flex items-center justify-center font-bold text-sm">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary text-background rounded-full flex items-center justify-center font-bold text-sm">
                     {index + 1}
                   </div>
-                  <div className="text-accent-primary mb-4 flex justify-center mt-4">
+                  <div className="text-primary mb-4 flex justify-center mt-4">
                     {step.icon}
                   </div>
                   <h3 className="font-bold text-foreground mb-3">{step.title}</h3>
                   <p className="text-foreground-secondary text-sm mb-3 leading-relaxed">{step.description}</p>
-                  <div className="text-accent-primary text-xs font-mono bg-background-tertiary px-3 py-1 rounded">
+                  <div className="text-primary text-xs font-mono bg-background-tertiary px-3 py-1 rounded">
                     {step.detail}
                   </div>
                 </div>
@@ -92,13 +92,13 @@ export default function GuideContent() {
         {activeTab === 1 && (
           <div className="prose prose-lg prose-invert max-w-none
             prose-headings:text-foreground prose-headings:font-bold
-            prose-h1:text-3xl prose-h1:mb-8 prose-h1:text-accent-primary
-            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-accent-primary
+            prose-h1:text-3xl prose-h1:mb-8 prose-h1:text-primary
+            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-primary
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
             prose-p:text-foreground-secondary prose-p:leading-relaxed
             prose-li:text-foreground-secondary
             prose-strong:text-foreground prose-strong:font-semibold
-            prose-code:bg-background-secondary prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-accent-primary">
+            prose-code:bg-background-secondary prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-primary">
             <h2>Server Information</h2>
             <ul>
               <li><strong>Server IP</strong>: <code>tumblecraft.gg</code></li>
@@ -131,13 +131,13 @@ export default function GuideContent() {
         {activeTab === 2 && (
           <div className="prose prose-lg prose-invert max-w-none
             prose-headings:text-foreground prose-headings:font-bold
-            prose-h1:text-3xl prose-h1:mb-8 prose-h1:text-accent-primary
-            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-accent-primary
+            prose-h1:text-3xl prose-h1:mb-8 prose-h1:text-primary
+            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-primary
             prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
             prose-p:text-foreground-secondary prose-p:leading-relaxed
             prose-li:text-foreground-secondary
             prose-strong:text-foreground prose-strong:font-semibold
-            prose-code:bg-background-secondary prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-accent-primary">
+            prose-code:bg-background-secondary prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-primary">
             <h2>Essential Commands</h2>
             <ul>
               <li><code>/spawn</code> - Return to the spawn area</li>

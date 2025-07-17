@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Menu, X, Trophy, BookOpen, MessageCircle, Briefcase } from 'lucide-react'
+import { Menu, X, Trophy, BookOpen } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +15,7 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      className="absolute top-0 left-0 right-0 z-50 bg-transparent"
+      className="absolute top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >
@@ -27,10 +27,10 @@ export default function Navigation() {
             className="flex items-center gap-3"
             whileHover={{ scale: 1.05 }}
           >
-            <div className="w-10 h-10 bg-accent-primary rounded-lg flex items-center justify-center">
-              <span className="text-background font-bold text-lg">T</span>
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">T</span>
             </div>
-            <span className="text-xl font-bold">TumbleCraft</span>
+            <span className="text-xl font-bold text-foreground">TumbleCraft</span>
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -53,7 +53,7 @@ export default function Navigation() {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground-secondary hover:text-accent-primary"
+              className="text-foreground-secondary hover:text-primary transition-colors duration-300"
               whileTap={{ scale: 0.95 }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

@@ -13,7 +13,7 @@ export default function ComingSoonPage() {
         transition={{ duration: 0.6 }}
       >
         <motion.div
-          className="w-20 h-20 bg-accent-primary rounded-full flex items-center justify-center mx-auto mb-6"
+          className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6"
           animate={{ 
             scale: [1, 1.1, 1],
             rotate: [0, 5, -5, 0] 
@@ -37,7 +37,7 @@ export default function ComingSoonPage() {
         
         <motion.a
           href="/"
-          className="inline-flex items-center gap-2 text-accent-primary hover:text-accent-secondary transition-colors"
+          className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors"
           whileHover={{ x: -5 }}
           whileTap={{ scale: 0.95 }}
         >

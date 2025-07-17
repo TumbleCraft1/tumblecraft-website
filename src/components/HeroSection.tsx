@@ -26,7 +26,6 @@ export default function HeroSection() {
   const floatingVariants = {
     float: {
       y: [-10, 10, -10],
-      repeat: Infinity
     }
   }
 
@@ -41,29 +40,101 @@ export default function HeroSection() {
         }}
       ></div>
       
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 grid-pattern opacity-10"></div>
+      {/* Animated Background Grid - InvestorFuse Enhanced */}
+      <div className="absolute inset-0 grid-pattern opacity-15"></div>
+      <div className="absolute inset-0 grid-pattern-accent opacity-5"></div>
       
-      {/* Floating Particles */}
+      {/* Floating Particles - Enhanced InvestorFuse Colors */}
       <motion.div 
-        className="absolute top-20 left-20 w-4 h-4 bg-accent-primary rounded-full"
+        className="absolute top-20 left-20 w-4 h-4 rounded-full"
+        style={{ 
+          background: 'var(--color-primary)',
+          boxShadow: '0 0 12px var(--color-primary-30)'
+        }}
         variants={floatingVariants}
         animate="float"
+        transition={{ 
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0 
+        }}
       ></motion.div>
       <motion.div 
-        className="absolute top-40 right-32 w-3 h-3 bg-accent-secondary rounded-full"
+        className="absolute top-40 right-32 w-3 h-3 rounded-full"
+        style={{ 
+          background: 'var(--color-accent)',
+          boxShadow: '0 0 10px var(--color-accent-30)'
+        }}
         variants={floatingVariants}
         animate="float"
+        transition={{ 
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5 
+        }}
       ></motion.div>
       <motion.div 
-        className="absolute bottom-40 left-32 w-5 h-5 bg-accent-tertiary rounded-full"
+        className="absolute bottom-40 left-32 w-5 h-5 rounded-full"
+        style={{ 
+          background: 'var(--color-primary-light)',
+          boxShadow: '0 0 15px var(--color-primary-20)'
+        }}
         variants={floatingVariants}
         animate="float"
+        transition={{ 
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1 
+        }}
       ></motion.div>
       <motion.div 
-        className="absolute bottom-20 right-20 w-2 h-2 bg-accent-warning rounded-full"
+        className="absolute bottom-20 right-20 w-2 h-2 rounded-full"
+        style={{ 
+          background: 'var(--color-accent-dark)',
+          boxShadow: '0 0 8px var(--color-accent-20)'
+        }}
         variants={floatingVariants}
         animate="float"
+        transition={{ 
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5 
+        }}
+      ></motion.div>
+      {/* Additional Brand Particles */}
+      <motion.div 
+        className="absolute top-1/3 left-1/4 w-3 h-3 rounded-full"
+        style={{ 
+          background: 'var(--color-primary-hover)',
+          boxShadow: '0 0 10px var(--color-primary-20)'
+        }}
+        variants={floatingVariants}
+        animate="float"
+        transition={{ 
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2 
+        }}
+      ></motion.div>
+      <motion.div 
+        className="absolute bottom-1/3 right-1/4 w-4 h-4 rounded-full"
+        style={{ 
+          background: 'var(--color-accent-light)',
+          boxShadow: '0 0 12px var(--color-accent-20)'
+        }}
+        variants={floatingVariants}
+        animate="float"
+        transition={{ 
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2.5 
+        }}
       ></motion.div>
 
       {/* Main Hero Content */}
@@ -88,8 +159,8 @@ export default function HeroSection() {
           variants={itemVariants}
         >
           Experience the ultimate Minecraft adventure with our thriving{' '}
-          <span className="text-accent-primary font-semibold">SMP community</span> and challenging{' '}
-          <span className="text-accent-secondary font-semibold">Prison gamemode</span>. 
+          <span className="primary-text">SMP community</span> and challenging{' '}
+          <span className="accent-text">Prison gamemode</span>. 
           Modern survival, custom features, and an active community await you.
         </motion.p>
 
@@ -102,8 +173,10 @@ export default function HeroSection() {
             href="https://discord.gg/HYrTBqMKCM"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#5865f2] to-[#4752c4] text-white font-bold px-8 py-4 rounded-lg hover:from-[#4752c4] hover:to-[#3c4ec7] transition-all min-w-[200px]"
-            whileHover={{ scale: 1.02 }}
+            className="btn-or-discord min-w-[200px]"
+            whileHover={{ 
+              scale: 1.02
+            }}
             whileTap={{ scale: 0.98 }}
           >
             <MessageCircle className="w-5 h-5" />
@@ -111,8 +184,10 @@ export default function HeroSection() {
           </motion.a>
           <motion.button
             onClick={openForm}
-            className="px-8 py-4 bg-accent-primary text-background rounded-lg font-bold hover:bg-accent-primary/90 transition-colors min-w-[200px]"
-            whileHover={{ scale: 1.02 }}
+            className="btn-or-server min-w-[200px]"
+            whileHover={{ 
+              scale: 1.02
+            }}
             whileTap={{ scale: 0.98 }}
           >
             Apply For Beta
@@ -121,30 +196,35 @@ export default function HeroSection() {
 
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Enhanced InvestorFuse Styling */}
       <motion.div 
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
       >
         <motion.div 
-          className="w-6 h-10 border-2 border-accent-primary rounded-full flex justify-center"
+          className="w-6 h-10 border-2 rounded-full flex justify-center"
+          style={{ borderColor: 'var(--color-primary)' }}
           animate={{ 
             boxShadow: [
-              "0 0 5px var(--accent-primary)",
-              "0 0 20px var(--accent-primary)",
-              "0 0 5px var(--accent-primary)"
+              "0 0 8px var(--color-primary-30)",
+              "0 0 24px var(--color-primary-50)",
+              "0 0 8px var(--color-primary-30)"
             ]
           }}
           transition={{ 
+            duration: 2,
             repeat: Infinity,
             ease: "easeInOut"
           }}
         >
           <motion.div 
-            className="w-1 h-2 bg-accent-primary rounded-full mt-2"
+            className="w-1 h-2 rounded-full mt-2"
+            style={{ background: 'var(--color-primary)' }}
             animate={{ y: [0, 16, 0] }}
             transition={{ 
+              duration: 2,
               repeat: Infinity,
               ease: "easeInOut"
             }}

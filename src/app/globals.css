@@ -1,42 +1,120 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Gaming Theme Colors */
-  --background: #0a0a0a;
-  --background-secondary: #111111;
-  --background-tertiary: #1a1a1a;
-  --foreground: #ededed;
-  --foreground-secondary: #b3b3b3;
-  --foreground-muted: #666666;
+  /* ============================================
+     INVESTORFUSE COLOR SYSTEM
+     ============================================ */
   
-  /* Gaming Accent Colors */
-  --accent-primary: #00ff88;
-  --accent-secondary: #0099ff;
-  --accent-tertiary: #ff6b35;
-  --accent-warning: #ffcc00;
-  --accent-danger: #ff4757;
+  /* Primary Brand Colors */
+  --color-primary: #4A90A4;           /* Primary Brand Blue */
+  --color-primary-dark: #3A7B9A;      /* Dark Blue variation */
+  --color-primary-light: #5BA0C5;     /* Light Blue variation */
+  --color-primary-hover: #5C9BD5;     /* Button Blue hover state */
   
-  /* Clean Design - No Gradients */
+  /* Accent Colors */
+  --color-accent: #7CB342;            /* Primary Green Accent */
+  --color-accent-dark: #689F38;       /* Dark Green variation */
+  --color-accent-light: #8BC34A;      /* Light Green variation */
   
-  /* Border & Shadow */
-  --border-color: #333333;
-  --border-color-light: #444444;
+  /* Neutral Colors */
+  --color-white: #FFFFFF;             /* Pure White */
+  --color-background: #F8F9FA;        /* Light Gray Background */
+  --color-text-primary: #333333;      /* Dark Text */
+  --color-text-secondary: #666666;    /* Medium Gray Text */
+  --color-text-muted: #999999;        /* Light Gray Text */
+  
+  /* Semantic Color Names */
+  --background: var(--color-background);
+  --background-secondary: var(--color-white);
+  --background-tertiary: #F1F3F4;     /* Slightly darker than background */
+  --foreground: var(--color-text-primary);
+  --foreground-secondary: var(--color-text-secondary);
+  --foreground-muted: var(--color-text-muted);
+  
+  /* Interactive States */
+  --accent-primary: var(--color-primary);
+  --accent-primary-hover: var(--color-primary-hover);
+  --accent-secondary: var(--color-accent);
+  --accent-secondary-hover: var(--color-accent-light);
+  --accent-tertiary: var(--color-primary-light);
+  --accent-warning: #F59E0B;          /* Warning/Alert color */
+  --accent-danger: #EF4444;           /* Error/Danger color */
+  --accent-success: var(--color-accent);
+  
+  /* Opacity Variations */
+  --color-primary-10: rgba(74, 144, 164, 0.1);
+  --color-primary-20: rgba(74, 144, 164, 0.2);
+  --color-primary-30: rgba(74, 144, 164, 0.3);
+  --color-primary-50: rgba(74, 144, 164, 0.5);
+  --color-primary-80: rgba(74, 144, 164, 0.8);
+  
+  --color-accent-10: rgba(124, 179, 66, 0.1);
+  --color-accent-20: rgba(124, 179, 66, 0.2);
+  --color-accent-30: rgba(124, 179, 66, 0.3);
+  --color-accent-50: rgba(124, 179, 66, 0.5);
+  --color-accent-80: rgba(124, 179, 66, 0.8);
+  
+  /* Border & Shadow Colors */
+  --border-color: #E5E7EB;            /* Light border */
+  --border-color-light: #F3F4F6;      /* Very light border */
+  --border-color-medium: #D1D5DB;     /* Medium border */
+  --border-color-dark: var(--color-text-muted);
+  
+  /* Shadow Colors */
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-medium: rgba(0, 0, 0, 0.1);
+  --shadow-strong: rgba(0, 0, 0, 0.15);
 }
 
 @theme inline {
+  /* Background Colors */
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
   --color-background-tertiary: var(--background-tertiary);
+  
+  /* Text Colors */
   --color-foreground: var(--foreground);
   --color-foreground-secondary: var(--foreground-secondary);
   --color-foreground-muted: var(--foreground-muted);
+  
+  /* Primary Brand Colors */
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-hover: var(--color-primary-hover);
+  
+  /* Accent Colors */
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-light: var(--color-accent-light);
+  
+  /* Legacy Support */
   --color-accent-primary: var(--accent-primary);
   --color-accent-secondary: var(--accent-secondary);
   --color-accent-tertiary: var(--accent-tertiary);
   --color-accent-warning: var(--accent-warning);
   --color-accent-danger: var(--accent-danger);
+  
+  /* Border Colors */
   --color-border: var(--border-color);
   --color-border-light: var(--border-color-light);
+  --color-border-medium: var(--border-color-medium);
+  --color-border-dark: var(--border-color-dark);
+  
+  /* Opacity Variations */
+  --color-primary-10: var(--color-primary-10);
+  --color-primary-20: var(--color-primary-20);
+  --color-primary-30: var(--color-primary-30);
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-80: var(--color-primary-80);
+  
+  --color-accent-10: var(--color-accent-10);
+  --color-accent-20: var(--color-accent-20);
+  --color-accent-30: var(--color-accent-30);
+  --color-accent-50: var(--color-accent-50);
+  --color-accent-80: var(--color-accent-80);
+  
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -58,7 +136,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbar - InvestorFuse Style */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -68,154 +146,225 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
+  background: var(--color-primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
+  background: var(--color-primary-hover);
 }
 
-/* Origin Realms Inspired Button Styles */
+/* ============================================
+   INVESTORFUSE BUTTON SYSTEM
+   ============================================ */
+
+/* Primary Button - Brand Blue */
 .btn-primary {
-  background: #4f8fdb;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .btn-primary:hover {
-  background: #5a97e5;
-  transform: translateY(-1px);
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+/* Secondary Button - Green Accent */
 .btn-secondary {
   background: transparent;
-  color: var(--accent-secondary);
+  color: var(--color-accent);
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
-  border: 2px solid var(--accent-secondary);
+  border: 2px solid var(--color-accent);
   cursor: pointer;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background: var(--accent-secondary);
-  color: var(--background);
+  background: var(--color-accent);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-accent-20);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Outline Button - Subtle */
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color-medium);
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-10);
   transform: translateY(-1px);
 }
 
-/* Origin Realms Style Buttons */
+/* ============================================
+   SPECIAL PURPOSE BUTTONS (Updated for InvestorFuse)
+   ============================================ */
+
+/* InvestorFuse Blue Button */
 .btn-or-blue {
-  background: #4f8fdb;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .btn-or-blue:hover {
-  background: #5a97e5;
-  transform: translateY(-1px);
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
+/* Discord Button (Keeps Discord brand color) */
 .btn-or-discord {
   background: #5865f2;
-  color: white;
+  color: var(--color-white);
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .btn-or-discord:hover {
-  background: #6875f5;
-  transform: translateY(-1px);
+  background: #4752c4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
 }
 
+/* Server/Action Button - Uses InvestorFuse Accent */
 .btn-or-server {
-  background: #f59e0b;
-  color: white;
+  background: var(--color-accent);
+  color: var(--color-white);
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .btn-or-server:hover {
-  background: #fbbf24;
-  transform: translateY(-1px);
+  background: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--color-accent-20);
 }
 
-/* Navigation Link Styles - Origin Realms Inspired */
+/* ============================================
+   NAVIGATION STYLES (InvestorFuse Theme)
+   ============================================ */
+
 .nav-link {
-  color: #b3b3b3;
+  color: var(--color-text-secondary);
   font-weight: 500;
   text-decoration: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  text-transform: uppercase;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
   letter-spacing: 0.3px;
   font-size: 14px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .nav-link:hover {
-  color: white;
-  background: rgba(79, 143, 219, 0.1);
+  color: var(--color-primary);
+  background: var(--color-primary-10);
+  transform: translateY(-1px);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 14px;
 }
 
 .nav-link.active {
-  color: white;
-  background: #4f8fdb;
+  color: var(--color-white);
+  background: var(--color-primary);
+  box-shadow: 0 2px 8px var(--color-primary-30);
 }
 
 
-/* Card Styles */
+/* ============================================
+   CARD STYLES (InvestorFuse Theme)
+   ============================================ */
+
 .game-card {
   background: var(--background-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 24px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--shadow-light);
 }
 
 .game-card:hover {
-  border-color: var(--accent-primary);
+  border-color: var(--color-primary);
   transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--shadow-medium);
+}
+
+/* Feature Card Variant */
+.feature-card {
+  background: var(--color-white);
+  border: 1px solid var(--border-color-light);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px var(--shadow-light);
+}
+
+.feature-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px var(--shadow-medium);
 }
 
 /* Particle Background Animation */
@@ -233,45 +382,214 @@ body {
   background: rgba(0, 0, 0, 0.75);
 }
 
-/* Responsive Text Sizes */
+/* ============================================
+   TYPOGRAPHY STYLES (InvestorFuse Theme)
+   ============================================ */
+
 .hero-title {
   font-size: clamp(2.5rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1.1;
-  color: var(--accent-primary);
+  color: var(--color-primary);
+  text-shadow: 0 2px 4px var(--shadow-light);
 }
 
 .section-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   line-height: 1.2;
+  color: var(--color-text-primary);
 }
 
-/* Clean Grid Pattern */
+.subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.accent-text {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.primary-text {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   BACKGROUND PATTERNS & WIDGETS (InvestorFuse Theme)
+   ============================================ */
+
+/* Clean Grid Pattern - Using InvestorFuse Primary */
 .grid-pattern {
   background-image: 
-    radial-gradient(circle at 1px 1px, rgba(0, 255, 136, 0.15) 1px, transparent 0);
+    radial-gradient(circle at 1px 1px, var(--color-primary-10) 1px, transparent 0);
   background-size: 20px 20px;
 }
 
-/* Discord Integration Styling */
+/* Accent Grid Pattern - Using InvestorFuse Accent */
+.grid-pattern-accent {
+  background-image: 
+    radial-gradient(circle at 1px 1px, var(--color-accent-10) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Discord Integration Styling (Keeps Discord brand colors) */
 .discord-widget {
   background: #5865f2;
   border-radius: 12px;
-  padding: 20px;
-  color: white;
+  padding: 24px;
+  color: var(--color-white);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(88, 101, 242, 0.2);
 }
 
 .discord-widget:hover {
   background: #4752c4;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(88, 101, 242, 0.3);
 }
 
-/* Server Status Indicators */
+/* ============================================
+   STATUS INDICATORS (InvestorFuse Theme)
+   ============================================ */
+
 .status-online {
-  color: var(--accent-primary);
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 .status-offline {
   color: var(--accent-danger);
+  font-weight: 600;
 }
 
+.status-warning {
+  color: var(--accent-warning);
+  font-weight: 600;
+}
+
+/* Status Dots */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.status-dot.online {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-30);
+}
+
+.status-dot.offline {
+  background: var(--accent-danger);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+.status-dot.warning {
+  background: var(--accent-warning);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+
+/* ============================================
+   INVESTORFUSE COLOR SYSTEM DOCUMENTATION
+   ============================================
+   
+   This comprehensive color system provides:
+   
+   PRIMARY COLORS:
+   - --color-primary: #4A90A4 (Primary Brand Blue)
+   - --color-primary-dark: #3A7B9A (Dark Blue)
+   - --color-primary-light: #5BA0C5 (Light Blue)
+   - --color-primary-hover: #5C9BD5 (Button Blue)
+   
+   ACCENT COLORS:
+   - --color-accent: #7CB342 (Primary Green Accent)
+   - --color-accent-dark: #689F38 (Dark Green)
+   - --color-accent-light: #8BC34A (Light Green)
+   
+   NEUTRAL COLORS:
+   - --color-white: #FFFFFF (Pure White)
+   - --color-background: #F8F9FA (Light Gray Background)
+   - --color-text-primary: #333333 (Dark Text)
+   - --color-text-secondary: #666666 (Medium Gray Text)
+   - --color-text-muted: #999999 (Light Gray Text)
+   
+   USAGE EXAMPLES:
+   
+   Primary Button:
+   background: var(--color-primary);
+   color: var(--color-white);
+   
+   Secondary Button:
+   background: var(--color-accent);
+   color: var(--color-white);
+   
+   Text Elements:
+   color: var(--color-text-primary);   // Main text
+   color: var(--color-text-secondary); // Secondary text
+   color: var(--color-text-muted);     // Muted text
+   
+   Interactive States:
+   :hover { background: var(--color-primary-hover); }
+   
+   Opacity Variations:
+   background: var(--color-primary-10);  // 10% opacity
+   background: var(--color-primary-20);  // 20% opacity
+   background: var(--color-primary-50);  // 50% opacity
+   
+   Borders & Shadows:
+   border: 1px solid var(--border-color);
+   box-shadow: 0 2px 4px var(--shadow-light);
+   
+   ============================================ */
+
+/* ============================================
+   UTILITY CLASSES FOR QUICK APPLICATION
+   ============================================ */
+
+/* Background Utilities */
+.bg-primary { background-color: var(--color-primary) !important; }
+.bg-primary-light { background-color: var(--color-primary-light) !important; }
+.bg-primary-dark { background-color: var(--color-primary-dark) !important; }
+.bg-accent { background-color: var(--color-accent) !important; }
+.bg-accent-light { background-color: var(--color-accent-light) !important; }
+.bg-accent-dark { background-color: var(--color-accent-dark) !important; }
+
+/* Text Color Utilities */
+.text-primary { color: var(--color-primary) !important; }
+.text-primary-light { color: var(--color-primary-light) !important; }
+.text-primary-dark { color: var(--color-primary-dark) !important; }
+.text-accent { color: var(--color-accent) !important; }
+.text-accent-light { color: var(--color-accent-light) !important; }
+.text-accent-dark { color: var(--color-accent-dark) !important; }
+.text-primary-content { color: var(--color-text-primary) !important; }
+.text-secondary-content { color: var(--color-text-secondary) !important; }
+.text-muted-content { color: var(--color-text-muted) !important; }
+
+/* Border Utilities */
+.border-primary { border-color: var(--color-primary) !important; }
+.border-accent { border-color: var(--color-accent) !important; }
+.border-light { border-color: var(--border-color-light) !important; }
+.border-medium { border-color: var(--border-color-medium) !important; }
+
+/* Hover State Utilities */
+.hover-lift {
+  transition: all 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-medium);
+}
+
+.hover-primary:hover {
+  background-color: var(--color-primary-hover) !important;
+}
+
+.hover-accent:hover {
+  background-color: var(--color-accent-light) !important;
+}

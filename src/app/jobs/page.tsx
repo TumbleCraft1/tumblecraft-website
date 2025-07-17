@@ -69,7 +69,7 @@ export default function Jobs() {
             animate={{ opacity: 1, y: 0 }}
           >
             <div className="flex items-center justify-center gap-3 mb-6">
-              <Briefcase className="w-8 h-8 text-accent-primary" />
+              <Briefcase className="w-8 h-8 text-primary" />
               <h1 className="text-4xl md:text-5xl font-bold">Join Our Team</h1>
             </div>
             <p className="text-xl text-foreground-secondary max-w-3xl mx-auto">
@@ -83,13 +83,13 @@ export default function Jobs() {
             {jobCategories.map((job, index) => (
               <motion.div
                 key={index}
-                className="bg-background-secondary border border-border-color rounded-xl p-8 hover:border-accent-primary/50 group flex flex-col h-full"
+                className="bg-background-secondary border border-border-color rounded-xl p-8 hover:border-primary/50 group flex flex-col h-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -5 }}
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-accent-primary/20 rounded-lg flex items-center justify-center text-accent-primary group-hover:bg-accent-primary group-hover:text-background">
+                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background">
                     {job.icon}
                   </div>
                   <h3 className="text-xl font-bold text-foreground">{job.title}</h3>
@@ -103,7 +103,7 @@ export default function Jobs() {
                   <h4 className="font-semibold text-foreground mb-3">Key Requirements:</h4>
                   {job.requirements.map((req, reqIndex) => (
                     <div key={reqIndex} className="flex items-start gap-3">
-                      <ChevronRight className="w-4 h-4 text-accent-primary mt-0.5 flex-shrink-0" />
+                      <ChevronRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                       <span className="text-sm text-foreground-secondary">{req}</span>
                     </div>
                   ))}
@@ -125,7 +125,7 @@ export default function Jobs() {
 
           {/* Call to Action *//*}
           <motion.div 
-            className="text-center bg-gradient-to-r from-accent-primary/10 to-accent-secondary/10 border border-accent-primary/20 rounded-xl p-8"
+            className="text-center bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-xl p-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
