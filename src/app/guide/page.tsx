@@ -1,5 +1,5 @@
 import Navigation from '@/components/Navigation'
-import { getMarkdownContent } from '@/lib/markdown'
+import { getAllGuides } from '@/lib/markdown'
 import { BookOpen } from 'lucide-react'
 import GuideThumbnail from './GuideThumbnail'
 
@@ -12,10 +12,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Guide() {
-  const { content, data } = await getMarkdownContent('guide')
-
-  // Extract excerpt from content (first paragraph or first 200 characters)
-  const excerpt = data.description || "Everything you need to know about playing on TumbleCraft"
+  const guides = getAllGuides()
 
   return (
     <main className="min-h-screen bg-background">
@@ -35,13 +32,24 @@ export default async function Guide() {
             </p>
           </div>
 
-          {/* Guide Thumbnail */}
-          <GuideThumbnail 
-            title={data.title || 'TumbleCraft Guide'}
-            excerpt={excerpt}
-            content={content}
-            slug="getting-started"
-          />
+          {/* Guide Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {guides.map((guide) => (
+              <GuideThumbnail 
+                key={guide.slug}
+                title={guide.title}
+                excerpt={guide.description}
+                content=""
+                slug={guide.slug}
+              />
+            ))}
+          </div>
+
+          {guides.length === 0 && (
+            <div className="text-center text-foreground-secondary">
+              <p>No guides available at the moment.</p>
+            </div>
+          )}
         </div>
       </div>
     </main>
