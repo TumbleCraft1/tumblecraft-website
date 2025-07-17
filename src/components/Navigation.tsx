@@ -3,9 +3,11 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Menu, X, Trophy, BookOpen, MessageCircle } from 'lucide-react'
+import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const { openForm } = useBetaForm()
 
   const navLinks = [
     { href: '/coming-soon', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
@@ -49,7 +51,9 @@ export default function Navigation() {
           
           {/* Discord Button */}
           <motion.a
-            href="#"
+            href="https://discord.gg/HYrTBqMKCM"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#5865F2] hover:bg-[#4752C4] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2"
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -59,14 +63,14 @@ export default function Navigation() {
           </motion.a>
 
           {/* Apply for Beta Button */}
-          <motion.a
-            href="#"
+          <motion.button
+            onClick={openForm}
             className="bg-[#FF8C00] hover:bg-[#FF7700] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2"
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             APPLY FOR BETA
-          </motion.a>
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -105,7 +109,9 @@ export default function Navigation() {
             
             {/* Mobile Discord Button */}
             <motion.a
-              href="#"
+              href="https://discord.gg/HYrTBqMKCM"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#5865F2] hover:bg-[#4752C4] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2 w-full"
               onClick={() => setIsOpen(false)}
               whileHover={{ x: 5 }}
@@ -115,14 +121,16 @@ export default function Navigation() {
             </motion.a>
 
             {/* Mobile Apply for Beta Button */}
-            <motion.a
-              href="#"
+            <motion.button
+              onClick={() => {
+                openForm()
+                setIsOpen(false)
+              }}
               className="bg-[#FF8C00] hover:bg-[#FF7700] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2 w-full"
-              onClick={() => setIsOpen(false)}
               whileHover={{ x: 5 }}
             >
               APPLY FOR BETA
-            </motion.a>
+            </motion.button>
           </div>
         </motion.div>
       )}
