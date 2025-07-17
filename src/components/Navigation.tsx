@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Menu, X, Trophy, BookOpen } from 'lucide-react'
+import { Menu, X, Trophy, BookOpen, MessageCircle } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)

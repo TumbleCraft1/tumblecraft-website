@@ -54,7 +54,7 @@ export default function HeroSection() {
           className="hero-title mb-6"
           variants={itemVariants}
         >
-          TUMBLECRAFT
+          The next generation of Minecraft servers is here.
         </motion.h1>
 
         {/* Subtitle */}
@@ -62,10 +62,8 @@ export default function HeroSection() {
           className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
           variants={itemVariants}
         >
-          Experience the ultimate Minecraft adventure with our thriving{' '}
-          <span className="primary-text">SMP community</span> and challenging{' '}
-          <span className="accent-text">Prison gamemode</span>. 
-          Modern survival, custom features, and an active community await you.
+          Built by software veterans with deep ties to tech creators and 
+          gaming culture - TumbleCraft is redefining what SMP should feel like.
         </motion.p>
 
         {/* CTA Section */}
