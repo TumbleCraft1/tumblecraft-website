@@ -15,63 +15,65 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      className="absolute top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm"
+      className="absolute top-6 left-6 right-6 z-50"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.a 
-            href="/"
-            className="flex items-center gap-3"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">TumbleCraft</span>
-          </motion.a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link, index) => (
-              <motion.a
-                key={index}
-                href={link.href}
-                className="nav-link"
-                whileHover={{ y: -1 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {link.icon}
-                {link.label}
-              </motion.a>
-            ))}
+      <div className="flex items-center justify-between">
+        {/* Logo */}
+        <motion.a 
+          href="/"
+          className="flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200"
+          whileHover={{ scale: 1.05 }}
+        >
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+            <span className="text-white font-bold text-sm">T</span>
           </div>
+          <span className="text-lg font-bold text-gray-900">TumbleCraft</span>
+        </motion.a>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <motion.button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground-secondary hover:text-primary transition-colors duration-300"
-              whileTap={{ scale: 0.95 }}
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-3">
+          {navLinks.map((link, index) => (
+            <motion.a
+              key={index}
+              href={link.href}
+              className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 text-gray-700 font-medium hover:text-primary hover:bg-white transition-all duration-300 flex items-center gap-2"
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </motion.button>
-          </div>
+              {link.icon}
+              {link.label}
+            </motion.a>
+          ))}
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <motion.button
+            onClick={() => setIsOpen(!isOpen)}
+            className="bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg border border-gray-200 text-gray-700 hover:text-primary transition-all duration-300"
+            whileTap={{ scale: 0.95 }}
+          >
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
         <motion.div 
-          className={`md:hidden overflow-hidden ${isOpen ? 'max-h-96' : 'max-h-0'}`}
-          animate={{ maxHeight: isOpen ? 384 : 0 }}
+          className="md:hidden mt-4"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
         >
-          <div className="py-4 space-y-3">
+          <div className="space-y-2">
             {navLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
-                className="nav-link w-full"
+                className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 text-gray-700 font-medium hover:text-primary hover:bg-white transition-all duration-300 flex items-center gap-2 w-full"
                 onClick={() => setIsOpen(false)}
                 whileHover={{ x: 5 }}
               >
@@ -81,7 +83,7 @@ export default function Navigation() {
             ))}
           </div>
         </motion.div>
-      </div>
+      )}
     </motion.nav>
   )
 }

@@ -19,9 +19,9 @@
   /* Neutral Colors */
   --color-white: #FFFFFF;             /* Pure White */
   --color-background: #F8F9FA;        /* Light Gray Background */
-  --color-text-primary: #333333;      /* Dark Text */
-  --color-text-secondary: #666666;    /* Medium Gray Text */
-  --color-text-muted: #999999;        /* Light Gray Text */
+  --color-text-primary: #1F2937;      /* Dark Text - Better contrast */
+  --color-text-secondary: #374151;    /* Medium Dark Text - Better contrast */
+  --color-text-muted: #6B7280;        /* Medium Gray Text - Better contrast */
   
   /* Semantic Color Names */
   --background: var(--color-background);
@@ -55,9 +55,9 @@
   --color-accent-80: rgba(124, 179, 66, 0.8);
   
   /* Border & Shadow Colors */
-  --border-color: #E5E7EB;            /* Light border */
-  --border-color-light: #F3F4F6;      /* Very light border */
-  --border-color-medium: #D1D5DB;     /* Medium border */
+  --border-color: #D1D5DB;            /* Medium border - Better visibility */
+  --border-color-light: #E5E7EB;      /* Light border */
+  --border-color-medium: #9CA3AF;     /* Medium dark border */
   --border-color-dark: var(--color-text-muted);
   
   /* Shadow Colors */
