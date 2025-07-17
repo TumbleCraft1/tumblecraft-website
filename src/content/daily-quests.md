@@ -1,6 +1,6 @@
 ---
-title:"Daily Quests"
-description:"Daily Quests are a fantastic way to earn Level XP every day. Make sure to complete them to maximize your progress!"
+title: "Daily Quests"
+description: "Daily Quests are a fantastic way to earn Level XP every day. Make sure to complete them to maximize your progress!"
 ---
 
 Daily Quests are a special set of tasks that reset every single day. They are one of the most efficient and rewarding ways to gain **Level XP** on the server.

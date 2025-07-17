@@ -1,6 +1,6 @@
 ---
-title:"Skills"
-description:"Improve your character's abilities by leveling up your skills. The more you do a task, the better you get at it!"
+title: "Skills"
+description: "Improve your character's abilities by leveling up your skills. The more you do a task, the better you get at it!"
 ---
 
 Beyond your main player level, you can also train a variety of **skills**. This system rewards you for specializing in certain tasks. The more you practice a skill, the higher its level will become, unlocking special abilities and perks along the way.

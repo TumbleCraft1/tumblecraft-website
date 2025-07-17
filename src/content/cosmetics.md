@@ -1,6 +1,6 @@
 ---
-title:"Cosmetics"
-description:"Stand out from the crowd with unique cosmetic items! Cosmetics are a fun way to personalize your appearance on the server."
+title: "Cosmetics"
+description: "Stand out from the crowd with unique cosmetic items! Cosmetics are a fun way to personalize your appearance on the server."
 ---
 
 Want to add a little extra flair to your character? Our cosmetics system allows you to equip cool visual effects, particles, and other fun items to make your character unique.

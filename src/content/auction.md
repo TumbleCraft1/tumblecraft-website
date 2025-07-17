@@ -1,6 +1,6 @@
 ---
-title:"Auction House"
-description:"The Auction House is the player-driven marketplace. Buy and sell rare items, gear, and more in a safe and easy way."
+title: "Auction House"
+description: "The Auction House is the player-driven marketplace. Buy and sell rare items, gear, and more in a safe and easy way."
 ---
 
 The Auction House is where you can trade with other players. It's the best place to find rare items that you can't buy in the regular shop, or to sell your own unique treasures for a great price.

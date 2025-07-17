@@ -1,6 +1,6 @@
 ---
-title:"Economy"
-description:"Learn how money works on the server and all the ways you can earn and spend it. Becoming wealthy is a fun goal for any player!"
+title: "Economy"
+description: "Learn how money works on the server and all the ways you can earn and spend it. Becoming wealthy is a fun goal for any player!"
 ---
 
 Money is a central part of our server, allowing you to buy, sell, and trade with other players. A healthy bank balance will open up many new opportunities for you!

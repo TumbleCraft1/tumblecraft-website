@@ -1,6 +1,6 @@
 ---
-title:"Homes"
-description:"Set personal teleport points called homes to get back to your base instantly from anywhere in the world."
+title: "Homes"
+description: "Set personal teleport points called homes to get back to your base instantly from anywhere in the world."
 ---
 
 Homes are one of the most useful commands on the server. A home is a personal teleport point that you can set anywhere you like, allowing you to return to that exact spot instantly.

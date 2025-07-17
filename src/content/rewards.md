@@ -1,6 +1,6 @@
 ---
-title:"Rewards"
-description:"Get rewarded just for playing on the server! Claim your free rewards to get a boost of items, money, and keys."
+title: "Rewards"
+description: "Get rewarded just for playing on the server! Claim your free rewards to get a boost of items, money, and keys."
 ---
 
 We believe in rewarding our players just for being a part of our community. That's why we have a simple rewards system that gives you free stuff just for playing!

@@ -1,6 +1,6 @@
 ---
-title:"Coins"
-description:"Coins are our server's special currency. Use them to buy unique cosmetic items and perks that you can't get with regular money."
+title: "Coins"
+description: "Coins are our server's special currency. Use them to buy unique cosmetic items and perks that you can't get with regular money."
 ---
 
 Coins are a premium currency that unlock a whole new range of cool items and perks. While regular money is for survival needs, Coins are for showing off your style!

@@ -1,6 +1,6 @@
 ---
-title:"Kits"
-description:"Kits give you a bundle of useful items to help you on your adventure. There are kits available for everyone, plus exclusive kits for donator ranks."
+title: "Kits"
+description: "Kits give you a bundle of useful items to help you on your adventure. There are kits available for everyone, plus exclusive kits for donator ranks."
 ---
 
 Kits are a quick way to get a full set of gear and items. They are on a cooldown, so you can claim them periodically to restock.

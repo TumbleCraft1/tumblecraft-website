@@ -1,6 +1,6 @@
 ---
-title:"Chat Games"
-description:"Keep an eye on the chat for fun and fast-paced games! Be the first to answer correctly to win a prize."
+title: "Chat Games"
+description: "Keep an eye on the chat for fun and fast-paced games! Be the first to answer correctly to win a prize."
 ---
 
 Every so often, a game will pop up in the server chat. These are fun, simple challenges where the goal is to be the fastest person to type the correct answer.

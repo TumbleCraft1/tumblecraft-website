@@ -1,6 +1,6 @@
 ---
-title:"ToolSkins"
-description:"Customize your tools and weapons with unique skins! This feature lets you change the appearance of your items, similar to skins in games like CS:GO."
+title: "ToolSkins"
+description: "Customize your tools and weapons with unique skins! This feature lets you change the appearance of your items, similar to skins in games like CS:GO."
 ---
 
 Tired of your diamond sword looking the same as everyone else's? With ToolSkins, you can apply a new, custom look to your favorite tools and weapons.

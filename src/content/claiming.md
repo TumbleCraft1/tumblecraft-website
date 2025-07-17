@@ -1,6 +1,6 @@
 ---
-title:"Claiming"
-description:"Learn how to protect your builds and items by claiming land. This is the most important step to keeping your base safe!"
+title: "Claiming"
+description: "Learn how to protect your builds and items by claiming land. This is the most important step to keeping your base safe!"
 ---
 
 ### Protect Your Hard Work!

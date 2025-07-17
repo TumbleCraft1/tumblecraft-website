@@ -1,6 +1,6 @@
 ---
-title:"AFK Pond"
-description:"Need to step away for a bit? Our AFK Pond rewards you for staying online, even when you're not actively playing."
+title: "AFK Pond"
+description: "Need to step away for a bit? Our AFK Pond rewards you for staying online, even when you're not actively playing."
 ---
 
 We understand that sometimes you need to go AFK (Away From Keyboard). At our AFK Pond, you can do so while still earning some nice rewards for your time.

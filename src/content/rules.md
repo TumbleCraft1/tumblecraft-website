@@ -1,6 +1,6 @@
 ---
-title:"Rules"
-description:"To ensure a fun and fair environment for everyone, we have a set of rules that all players must follow. Please read them carefully."
+title: "Rules"
+description: "To ensure a fun and fair environment for everyone, we have a set of rules that all players must follow. Please read them carefully."
 ---
 
 To make sure our server is a fun, safe, and fair place for everyone, we have a set of rules that all players are expected to follow. Ignorance of the rules is not an excuse for breaking them.

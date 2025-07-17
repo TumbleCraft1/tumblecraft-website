@@ -1,6 +1,6 @@
 ---
-title:"Crates"
-description:"Use Crate Keys to open crates for a chance at unique and amazing rewards. It's like opening a treasure chest!"
+title: "Crates"
+description: "Use Crate Keys to open crates for a chance at unique and amazing rewards. It's like opening a treasure chest!"
 ---
 
 Crates are a fun way to get your hands on some of the best items on the server. Each crate requires a **key** to open, and each key corresponds to a different type of crate with different potential loot.

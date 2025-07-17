@@ -1,6 +1,6 @@
 ---
-title:"Jobs"
-description:"Join a job to earn a reliable income and special points just for playing the game. It's a great way to make money while you have fun!"
+title: "Jobs"
+description: "Join a job to earn a reliable income and special points just for playing the game. It's a great way to make money while you have fun!"
 ---
 
 Joining a job is one of the best ways to ensure you have a steady flow of cash. With 12 different jobs available, you can get paid for doing the tasks you enjoy most.

@@ -1,6 +1,6 @@
 ---
-title:"Shop"
-description:"The server shop is your go-to place for selling resources to earn money. It's the foundation of our economy!"
+title: "Shop"
+description: "The server shop is your go-to place for selling resources to earn money. It's the foundation of our economy!"
 ---
 
 The shop is the most straightforward way to make money on the server. By selling the items you gather, you can build a steady income to fund all your projects.

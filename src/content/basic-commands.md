@@ -1,6 +1,6 @@
 ---
-title:"Basic Commands"
-description:"Here are the essential commands that will help you navigate the server and interact with the world. Every player should get familiar with these!"
+title: "Basic Commands"
+description: "Here are the essential commands that will help you navigate the server and interact with the world. Every player should get familiar with these!"
 ---
 
 Think of these as your essential toolkit for getting around and managing your gameplay.

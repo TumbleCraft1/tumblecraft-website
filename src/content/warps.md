@@ -1,6 +1,6 @@
 ---
-title:"Warps"
-description:"Warps are instant teleports to the most important locations on the server. Use them to get around quickly and easily."
+title: "Warps"
+description: "Warps are instant teleports to the most important locations on the server. Use them to get around quickly and easily."
 ---
 
 Warps are preset public teleport points that take you to all the important areas on the server. They are the fastest way to get to key locations.

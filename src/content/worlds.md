@@ -1,6 +1,6 @@
 ---
-title:"Worlds"
-description:"Explore the different worlds our server has to offer. Each one has a unique purpose and size."
+title: "Worlds"
+description: "Explore the different worlds our server has to offer. Each one has a unique purpose and size."
 ---
 
 Our server features several distinct worlds for you to explore, build, and conquer. You can travel between them using the `/worlds` command.

@@ -1,6 +1,6 @@
 ---
-title:"Player Warps"
-description:"Create your own public warp to let other players visit your shop, base, or build. It's a great way to show off your creations!"
+title: "Player Warps"
+description: "Create your own public warp to let other players visit your shop, base, or build. It's a great way to show off your creations!"
 ---
 
 Player Warps allow you to set up your own public teleport point that any other player on the server can use. This is perfect for creating player-run shops, public farms, or just showing off a cool build.

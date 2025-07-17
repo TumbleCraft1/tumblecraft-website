@@ -1,6 +1,6 @@
 ---
-title:"Donator Ranks"
-description:"Support the server and get amazing perks by purchasing a donator rank! Ranks are the best way to enhance your gameplay experience."
+title: "Donator Ranks"
+description: "Support the server and get amazing perks by purchasing a donator rank! Ranks are the best way to enhance your gameplay experience."
 ---
 
 Our server is free to play, but if you wish to support our community and development, you can purchase a donator rank. These ranks come with a variety of special perks and commands as a thank you for your support.

@@ -1,6 +1,6 @@
 ---
-title:"Arena"
-description:"The Arena is the designated zone for PvP. Fight other players, test your strength, and loot valuable Supply Crates."
+title: "Arena"
+description: "The Arena is the designated zone for PvP. Fight other players, test your strength, and loot valuable Supply Crates."
 ---
 
 Ready to test your combat skills? The Arena is where you can engage in **Player vs. Player (PvP)** combat without any risk to your items in the normal survival world. It's the perfect place to practice your fighting skills and have some fun.

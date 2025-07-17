@@ -1,6 +1,6 @@
 ---
-title:"Tags"
-description:"Add a special icon next to your name with a chat tag. With over 100 to choose from, you can find the perfect one to represent you."
+title: "Tags"
+description: "Add a special icon next to your name with a chat tag. With over 100 to choose from, you can find the perfect one to represent you."
 ---
 
 Tags are a great way to personalize your chat identity. A tag is a small icon that appears right before your name in chat, allowing you to show off your personality or achievements.

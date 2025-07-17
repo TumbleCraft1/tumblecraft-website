@@ -21,12 +21,15 @@ async function buildContent() {
           .use(html)
           .process(content)
         
+        // Ensure data is an object, not a string
+        const frontMatter = typeof data === 'object' && data !== null ? data : {}
+        
         return {
           slug,
-          title: data.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
-          description: data.description || 'Guide documentation',
+          title: frontMatter.title || slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+          description: frontMatter.description || 'Guide documentation',
           content: processedContent.toString(),
-          data
+          data: frontMatter
         }
       })
   )

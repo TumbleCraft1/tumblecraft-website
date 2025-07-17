@@ -1,6 +1,6 @@
 ---
-title:"King Of The Hill (KOTH)"
-description:"KOTH is a server-wide PvP event where you must fight to control a specific point and become the King. Glory and epic rewards await the winner!"
+title: "King Of The Hill (KOTH)"
+description: "KOTH is a server-wide PvP event where you must fight to control a specific point and become the King. Glory and epic rewards await the winner!"
 ---
 
 **King Of The Hill (KOTH)** is an automated event where players battle to capture and hold a specific area in the arena. It's a true test of strength and strategy.

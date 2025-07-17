@@ -1,6 +1,6 @@
 ---
-title:"Getting Started"
-description:"Your adventure begins here! Follow these steps to jump right into the action and make the most of your time on the server."
+title: "Getting Started"
+description: "Your adventure begins here! Follow these steps to jump right into the action and make the most of your time on the server."
 ---
 
 ### Welcome to the Server!

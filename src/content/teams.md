@@ -1,6 +1,6 @@
 ---
-title:"Teams"
-description:"Team up with your friends to share resources, homes, and a private chat. Working together makes the adventure even more fun!"
+title: "Teams"
+description: "Team up with your friends to share resources, homes, and a private chat. Working together makes the adventure even more fun!"
 ---
 
 Why play alone when you can team up? Our server allows you to create and join teams to collaborate with other players.

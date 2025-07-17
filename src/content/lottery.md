@@ -1,6 +1,6 @@
 ---
-title:"Lottery"
-description:"Feeling lucky? Enter the lottery for a chance to win a massive cash prize! It's a high-risk, high-reward way to get rich quick."
+title: "Lottery"
+description: "Feeling lucky? Enter the lottery for a chance to win a massive cash prize! It's a high-risk, high-reward way to get rich quick."
 ---
 
 Do you have some extra cash and a desire for a huge payout? The lottery is the place for you!
