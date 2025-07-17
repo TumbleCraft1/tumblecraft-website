@@ -71,7 +71,7 @@ export default function ServerInfo() {
           </h2>
           <p className="text-xl text-foreground-secondary max-w-3xl mx-auto">
             Join our thriving survival multiplayer community where creativity meets collaboration in 
-            TumbleCraft's carefully crafted survival experience.
+            TumbleCraft&apos;s carefully crafted survival experience.
           </p>
         </motion.div>
 
