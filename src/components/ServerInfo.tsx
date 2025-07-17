@@ -1,25 +1,12 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Zap, Users2, Trophy, Copy, MessageCircle } from 'lucide-react'
+import { Shield, Zap, Users2, Trophy } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
 import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function ServerInfo() {
   const { openForm } = useBetaForm()
-  const [copied, setCopied] = useState(false)
-  const serverIP = "tumblecraft.gg"
-
-  const copyServerIP = async () => {
-    try {
-      await navigator.clipboard.writeText(serverIP)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy:', err)
-    }
-  }
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -150,62 +137,14 @@ export default function ServerInfo() {
                 </div>
               </motion.div>
 
-              {/* Server IP Copy Section */}
-              <motion.div 
-                className="mt-8 p-4 bg-background-tertiary border border-accent-primary/20 rounded-lg"
-                whileHover={{ borderColor: "var(--accent-primary)" }}
+              <motion.button
+                onClick={openForm}
+                className="mt-6 w-full px-6 py-3 bg-accent-primary text-background rounded-lg font-semibold hover:bg-accent-primary/90 transition-colors"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-foreground-secondary text-sm font-medium uppercase tracking-wider">Server Address</span>
-                </div>
-                <motion.button
-                  onClick={copyServerIP}
-                  className="group relative overflow-hidden bg-background-secondary/80 backdrop-blur-sm border border-border-color rounded-xl px-6 py-3 hover:border-accent-primary/50 transition-all duration-300 w-full"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <div className="flex items-center justify-center gap-3">
-                    <motion.div
-                      animate={copied ? { scale: [1, 1.2, 1] } : {}}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <Copy className="w-4 h-4 text-foreground-secondary group-hover:text-accent-primary transition-colors" />
-                    </motion.div>
-                    <span className="font-mono text-foreground group-hover:text-accent-primary transition-colors">
-                      {copied ? 'Copied!' : serverIP}
-                    </span>
-                  </div>
-                  
-                  {/* Subtle hover effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"
-                    layoutId="button-bg"
-                  />
-                </motion.button>
-              </motion.div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-3 mt-6">
-                <motion.a
-                  href="https://discord.gg/HYrTBqMKCM"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#5865f2] to-[#4752c4] text-white font-semibold px-6 py-3 rounded-lg hover:from-[#4752c4] hover:to-[#3c4ec7] transition-all"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Join Discord
-                </motion.a>
-                <motion.button
-                  onClick={openForm}
-                  className="flex-1 px-6 py-3 bg-accent-primary text-background rounded-lg font-semibold hover:bg-accent-primary/90 transition-colors"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Apply For Beta
-                </motion.button>
-              </div>
+                Apply For Beta
+              </motion.button>
             </div>
           </motion.div>
         </div>

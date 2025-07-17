@@ -11,7 +11,6 @@ export default function Navigation() {
     { href: '/coming-soon', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
     { href: '/coming-soon', label: 'Wiki', icon: <BookOpen className="w-4 h-4" /> },
     // { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
-    { href: 'https://discord.gg/HYrTBqMKCM', label: 'Discord', icon: <MessageCircle className="w-4 h-4" /> }
   ]
 
   return (
@@ -36,7 +35,7 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.slice(0, -1).map((link, index) => (
+            {navLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
@@ -48,26 +47,6 @@ export default function Navigation() {
                 {link.label}
               </motion.a>
             ))}
-            
-            {/* Discord Button - Special styling */}
-            <motion.a
-              href="https://discord.gg/HYrTBqMKCM"
-              className="btn-or-discord"
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <MessageCircle className="w-4 h-4" />
-              Discord
-            </motion.a>
-            
-            <motion.a 
-              href="/coming-soon"
-              className="btn-or-server"
-              whileHover={{ y: -1 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Apply for Beta
-            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -88,7 +67,7 @@ export default function Navigation() {
           animate={{ maxHeight: isOpen ? 384 : 0 }}
         >
           <div className="py-4 space-y-3">
-            {navLinks.slice(0, -1).map((link, index) => (
+            {navLinks.map((link, index) => (
               <motion.a
                 key={index}
                 href={link.href}
@@ -100,28 +79,6 @@ export default function Navigation() {
                 {link.label}
               </motion.a>
             ))}
-            
-            {/* Discord Button */}
-            <motion.a
-              href="https://discord.gg/HYrTBqMKCM"
-              onClick={() => setIsOpen(false)}
-              className="btn-or-discord w-full mt-3"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <MessageCircle className="w-4 h-4" />
-              Discord
-            </motion.a>
-            
-            <motion.a 
-              href="/coming-soon"
-              onClick={() => setIsOpen(false)}
-              className="btn-or-server w-full mt-2"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Apply for Beta
-            </motion.a>
           </div>
         </motion.div>
       </div>

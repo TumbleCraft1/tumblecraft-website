@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { MessageCircle } from 'lucide-react'
+import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function HeroSection() {
+  const { openForm } = useBetaForm()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -90,8 +93,31 @@ export default function HeroSection() {
           Modern survival, custom features, and an active community await you.
         </motion.p>
 
-
-
+        {/* CTA Section */}
+        <motion.div 
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+          variants={itemVariants}
+        >
+          <motion.a
+            href="https://discord.gg/HYrTBqMKCM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#5865f2] to-[#4752c4] text-white font-bold px-8 py-4 rounded-lg hover:from-[#4752c4] hover:to-[#3c4ec7] transition-all min-w-[200px]"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <MessageCircle className="w-5 h-5" />
+            Join Discord
+          </motion.a>
+          <motion.button
+            onClick={openForm}
+            className="px-8 py-4 bg-accent-primary text-background rounded-lg font-bold hover:bg-accent-primary/90 transition-colors min-w-[200px]"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Apply For Beta
+          </motion.button>
+        </motion.div>
 
       </motion.div>
 
