@@ -2,7 +2,7 @@ import Navigation from '@/components/Navigation'
 import { BookOpen, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getMarkdownContent, getAllGuides } from '@/lib/markdown'
+import { getMarkdownContent, getAllGuides } from '@/lib/static-content'
 import GuideContent from './GuideContent'
 
 interface GuidePageProps {

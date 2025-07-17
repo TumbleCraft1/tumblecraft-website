@@ -1,5 +1,5 @@
 import Navigation from '@/components/Navigation'
-import { getAllGuides } from '@/lib/markdown'
+import { getAllGuides } from '@/lib/static-content'
 import { BookOpen } from 'lucide-react'
 import GuideThumbnail from './GuideThumbnail'
 
