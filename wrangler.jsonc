@@ -36,7 +36,7 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
 	 */
 	"vars": { 
-		"NEXT_PUBLIC_LEADERBOARD_API_URL": "http://103.137.193.5:8080"
+		"NEXT_PUBLIC_LEADERBOARD_API_URL": "http://103.137.193.5:8012"
 	},
 	/**
 	 * Note: Use secrets to store sensitive data.
