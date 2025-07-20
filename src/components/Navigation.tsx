@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Menu, X, Trophy, BookOpen, MessageCircle } from 'lucide-react'
+import { Menu, X, Trophy, MessageCircle, BookOpen } from 'lucide-react'
 import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function Navigation() {
@@ -10,8 +10,8 @@ export default function Navigation() {
   const { openForm } = useBetaForm()
 
   const navLinks = [
+    { href: '/docs', label: 'Documentation', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/leaderboards', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
-    { href: '/guide', label: 'Wiki', icon: <BookOpen className="w-4 h-4" /> },
     // { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
   ]
 
