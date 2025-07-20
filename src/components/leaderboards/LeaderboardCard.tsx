@@ -11,7 +11,7 @@ interface LeaderboardCardProps {
 }
 
 export default function LeaderboardCard({ category, categoryInfo, onClick }: LeaderboardCardProps) {
-  const topPlayers = category.players.slice(0, 3)
+  const topPlayers = category.rankings.slice(0, 3)
   
   return (
     <motion.div
@@ -32,7 +32,7 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
         </div>
         
         <div className="text-white/60 text-sm">
-          {category.players.length} players
+          {category.total_entries} players
         </div>
       </div>
       
@@ -40,9 +40,9 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
         {topPlayers.length > 0 ? (
           topPlayers.map((player, index) => (
             <PlayerRanking
-              key={player.uuid}
+              key={player.player_uuid}
               player={player}
-              rank={index + 1}
+              rank={player.position}
               category={category.category}
               formatValue={LeaderboardAPI.formatValue}
             />
@@ -54,10 +54,10 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
         )}
       </div>
       
-      {category.players.length > 3 && (
+      {category.total_entries > 3 && (
         <div className="text-center mt-4">
           <span className="text-white/80 text-sm">
-            +{category.players.length - 3} more players
+            +{category.total_entries - 3} more players
           </span>
         </div>
       )}

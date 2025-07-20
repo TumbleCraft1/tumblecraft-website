@@ -1,18 +1,27 @@
 import { LEADERBOARD_CONFIG } from './config'
 
 export interface LeaderboardPlayer {
-  uuid: string
-  name: string
-  value: number
+  position: number
+  player_name: string
+  player_uuid: string
+  value: string
+  formatted_value: string
 }
 
 export interface LeaderboardCategory {
   category: string
-  players: LeaderboardPlayer[]
+  display_name: string
+  rankings: LeaderboardPlayer[]
+  last_updated: string
+  total_entries: number
 }
 
 export interface LeaderboardsResponse {
   leaderboards: LeaderboardCategory[]
+}
+
+export interface AllLeaderboardsResponse {
+  [category: string]: LeaderboardCategory
 }
 
 export interface CategoryInfo {
@@ -169,14 +178,16 @@ export class LeaderboardAPI {
 
   static async getAllLeaderboards(): Promise<LeaderboardsResponse> {
     try {
-      const response = await this.fetchWithTimeout(`${API_BASE_URL}/leaderboards`)
+      const response = await this.fetchWithTimeout(`${API_BASE_URL}/api/all`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
       }
       
-      const data = await response.json() as LeaderboardsResponse
-      return data
+      const data = await response.json() as AllLeaderboardsResponse
+      // Convert the object format to array format expected by the frontend
+      const leaderboards = Object.values(data)
+      return { leaderboards }
     } catch (error) {
       console.error('Failed to fetch leaderboards:', error)
       throw new Error('Failed to fetch leaderboards')
@@ -185,7 +196,7 @@ export class LeaderboardAPI {
 
   static async getCategoryLeaderboard(category: string): Promise<LeaderboardCategory> {
     try {
-      const response = await this.fetchWithTimeout(`${API_BASE_URL}/leaderboard/${category}`)
+      const response = await this.fetchWithTimeout(`${API_BASE_URL}/api/leaderboards/${category}`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -201,7 +212,7 @@ export class LeaderboardAPI {
 
   static async getServerStatus(): Promise<{ status: 'online' | 'offline' }> {
     try {
-      const response = await this.fetchWithTimeout(`${API_BASE_URL}/status`, 3000)
+      const response = await this.fetchWithTimeout(`${API_BASE_URL}/api/health`, 3000)
       return { status: response.ok ? 'online' : 'offline' }
     } catch {
       return { status: 'offline' }

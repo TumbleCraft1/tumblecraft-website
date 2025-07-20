@@ -7,7 +7,7 @@ interface PlayerRankingProps {
   player: LeaderboardPlayer
   rank: number
   category: string
-  formatValue: (category: string, value: number) => string
+  formatValue: (category: string, value: string) => string
 }
 
 export default function PlayerRanking({ player, rank, category, formatValue }: PlayerRankingProps) {
@@ -45,20 +45,20 @@ export default function PlayerRanking({ player, rank, category, formatValue }: P
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
             <span className="text-white font-bold text-xs">
-              {player.name.charAt(0).toUpperCase()}
+              {player.player_name.charAt(0).toUpperCase()}
             </span>
           </div>
           
           <div>
-            <div className="text-white font-medium">{player.name}</div>
-            <div className="text-gray-300 text-sm">UUID: {player.uuid.slice(0, 8)}...</div>
+            <div className="text-white font-medium">{player.player_name}</div>
+            <div className="text-gray-300 text-sm">UUID: {player.player_uuid.slice(0, 8)}...</div>
           </div>
         </div>
       </div>
       
       <div className="text-right">
         <div className="text-white font-bold text-lg">
-          {formatValue(category, player.value)}
+          {player.formatted_value}
         </div>
       </div>
     </motion.div>

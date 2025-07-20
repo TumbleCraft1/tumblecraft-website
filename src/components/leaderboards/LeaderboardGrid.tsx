@@ -26,7 +26,7 @@ export default function LeaderboardGrid({ data, onCategoryClick }: LeaderboardGr
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.leaderboards.map((category, index) => {
+        {data.leaderboards?.map((category, index) => {
           const categoryInfo = LeaderboardAPI.getCategoryInfo(category.category)
           
           return (
