@@ -15,28 +15,30 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
   
   return (
     <motion.div
-      className={`bg-gradient-to-br ${categoryInfo.color} p-6 rounded-xl shadow-lg border border-white/20 backdrop-blur-sm cursor-pointer group`}
-      whileHover={{ scale: 1.02, y: -5 }}
+      className="feature-card cursor-pointer group hover-lift h-full flex flex-col"
+      whileHover={{ scale: 1.02, y: -2 }}
       whileTap={{ scale: 0.98 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       onClick={onClick}
     >
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <div className="text-3xl">{categoryInfo.icon}</div>
-          <div>
-            <h3 className="text-white font-bold text-lg">{categoryInfo.displayName}</h3>
-            <p className="text-white/80 text-sm">{categoryInfo.description}</p>
+      <div className="flex items-start justify-between mb-6 gap-4">
+        <div className="flex items-center gap-4 min-w-0 flex-1">
+          <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-2xl flex-shrink-0">
+            {categoryInfo.icon}
+          </div>
+          <div className="min-w-0 flex-1">
+            <h3 className="text-foreground font-bold text-xl truncate">{categoryInfo.displayName}</h3>
+            <p className="text-foreground-muted text-sm line-clamp-2">{categoryInfo.description}</p>
           </div>
         </div>
         
-        <div className="text-white/60 text-sm">
+        <div className="text-foreground-muted text-sm font-medium bg-background-tertiary px-3 py-1 rounded-full whitespace-nowrap flex-shrink-0">
           {category.total_entries} players
         </div>
       </div>
       
-      <div className="space-y-2">
+      <div className="space-y-2 flex-1">
         {topPlayers.length > 0 ? (
           topPlayers.map((player, index) => (
             <PlayerRanking
@@ -48,7 +50,7 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
             />
           ))
         ) : (
-          <div className="text-white/60 text-center py-4">
+          <div className="text-foreground-muted text-center py-8 bg-background-tertiary rounded-lg">
             No players yet
           </div>
         )}
@@ -56,14 +58,14 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
       
       {category.total_entries > 3 && (
         <div className="text-center mt-4">
-          <span className="text-white/80 text-sm">
+          <span className="text-foreground-muted text-sm font-medium">
             +{category.total_entries - 3} more players
           </span>
         </div>
       )}
       
-      <div className="mt-4 pt-4 border-t border-white/20">
-        <button className="w-full bg-white/20 hover:bg-white/30 text-white font-medium py-2 px-4 rounded-lg transition-all duration-300 group-hover:bg-white/30">
+      <div className="mt-6 pt-4 border-t border-border-light">
+        <button className="btn-primary w-full group-hover:bg-primary-hover">
           View Full Leaderboard
         </button>
       </div>

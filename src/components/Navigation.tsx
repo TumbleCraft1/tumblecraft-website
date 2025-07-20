@@ -17,7 +17,7 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      className="absolute top-6 left-6 right-6 z-50"
+      className="fixed top-6 left-6 right-6 z-50"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >

@@ -17,15 +17,15 @@ export default function LeaderboardGrid({ data, onCategoryClick }: LeaderboardGr
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+        <h1 className="hero-title mb-6">
           🏆 Leaderboards
         </h1>
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-          See how you stack up against the competition! Our leaderboards track the top players in various categories.
+        <p className="subtitle max-w-3xl mx-auto">
+          See how you stack up against the competition! Our leaderboards track the top players in various categories across the TumbleCraft server.
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
         {data.leaderboards?.map((category, index) => {
           const categoryInfo = LeaderboardAPI.getCategoryInfo(category.category)
           

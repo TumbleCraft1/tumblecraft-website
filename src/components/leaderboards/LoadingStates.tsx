@@ -4,41 +4,41 @@ import { motion } from 'framer-motion'
 
 export function LeaderboardSkeleton() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
       {Array.from({ length: 6 }).map((_, index) => (
         <motion.div
           key={index}
-          className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+          className="feature-card h-full flex flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: index * 0.1 }}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-8 bg-white/20 rounded-lg animate-pulse" />
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-12 bg-primary/10 rounded-xl animate-pulse" />
             <div>
-              <div className="w-32 h-5 bg-white/20 rounded animate-pulse mb-2" />
-              <div className="w-24 h-3 bg-white/20 rounded animate-pulse" />
+              <div className="w-32 h-5 bg-background-tertiary rounded animate-pulse mb-2" />
+              <div className="w-24 h-3 bg-background-tertiary rounded animate-pulse" />
             </div>
           </div>
           
-          <div className="space-y-2">
+          <div className="space-y-2 flex-1">
             {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 bg-white/20 rounded animate-pulse" />
-                  <div className="w-8 h-8 bg-white/20 rounded-lg animate-pulse" />
-                  <div>
-                    <div className="w-20 h-4 bg-white/20 rounded animate-pulse mb-1" />
-                    <div className="w-16 h-3 bg-white/20 rounded animate-pulse" />
+              <div key={i} className="flex items-center justify-between p-4 bg-background-secondary rounded-lg border border-border-light">
+                <div className="flex items-center gap-3 min-w-0 flex-1">
+                  <div className="w-6 h-6 bg-background-tertiary rounded animate-pulse flex-shrink-0" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-xl animate-pulse flex-shrink-0" />
+                  <div className="min-w-0 flex-1">
+                    <div className="w-20 h-4 bg-background-tertiary rounded animate-pulse mb-1" />
+                    <div className="w-16 h-3 bg-background-tertiary rounded animate-pulse" />
                   </div>
                 </div>
-                <div className="w-16 h-5 bg-white/20 rounded animate-pulse" />
+                <div className="w-16 h-5 bg-background-tertiary rounded animate-pulse flex-shrink-0" />
               </div>
             ))}
           </div>
           
-          <div className="mt-4 pt-4 border-t border-white/20">
-            <div className="w-full h-10 bg-white/20 rounded-lg animate-pulse" />
+          <div className="mt-6 pt-4 border-t border-border-light">
+            <div className="w-full h-12 bg-primary/10 rounded-lg animate-pulse" />
           </div>
         </motion.div>
       ))}
@@ -49,18 +49,18 @@ export function LeaderboardSkeleton() {
 export function ErrorState({ onRetry }: { onRetry: () => void }) {
   return (
     <motion.div
-      className="text-center py-12"
+      className="text-center py-12 max-w-md mx-auto"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
     >
-      <div className="text-6xl mb-4">⚠️</div>
-      <h2 className="text-2xl font-bold text-white mb-2">Failed to Load Leaderboards</h2>
-      <p className="text-gray-300 mb-6">
+      <div className="text-6xl mb-6">⚠️</div>
+      <h2 className="section-title mb-4">Failed to Load Leaderboards</h2>
+      <p className="subtitle mb-8">
         Unable to connect to the server. Please check your connection and try again.
       </p>
       <motion.button
         onClick={onRetry}
-        className="bg-primary hover:bg-primary/80 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300"
+        className="btn-primary"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -73,13 +73,13 @@ export function ErrorState({ onRetry }: { onRetry: () => void }) {
 export function EmptyState() {
   return (
     <motion.div
-      className="text-center py-12"
+      className="text-center py-12 max-w-md mx-auto"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
     >
-      <div className="text-6xl mb-4">📊</div>
-      <h2 className="text-2xl font-bold text-white mb-2">No Data Available</h2>
-      <p className="text-gray-300">
+      <div className="text-6xl mb-6">📊</div>
+      <h2 className="section-title mb-4">No Data Available</h2>
+      <p className="subtitle">
         Leaderboard data is not available at the moment. Please check back later.
       </p>
     </motion.div>

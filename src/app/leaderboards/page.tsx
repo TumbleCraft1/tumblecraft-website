@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { LeaderboardsResponse } from '@/lib/leaderboard-api'
 import { useLeaderboardData } from '@/hooks/useLeaderboardData'
+import Navigation from '@/components/Navigation'
 import LeaderboardGrid from '@/components/leaderboards/LeaderboardGrid'
 import { LeaderboardSkeleton, ErrorState, EmptyState } from '@/components/leaderboards/LoadingStates'
 
@@ -20,39 +21,49 @@ export default function LeaderboardsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
-        <div className="container mx-auto px-6 py-12">
+      <main className="min-h-screen bg-background">
+        <Navigation />
+        <div className="container mx-auto px-6 pt-24 pb-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
+            <h1 className="hero-title mb-6">
               🏆 Leaderboards
             </h1>
-            <p className="text-xl text-gray-300">Loading leaderboard data...</p>
+            <p className="subtitle">Loading leaderboard data...</p>
           </div>
           <LeaderboardSkeleton />
         </div>
-      </div>
+      </main>
     )
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
-        <ErrorState onRetry={handleRetry} />
-      </div>
+      <main className="min-h-screen bg-background">
+        <Navigation />
+        <div className="flex items-center justify-center min-h-screen pt-24">
+          <ErrorState onRetry={handleRetry} />
+        </div>
+      </main>
     )
   }
 
   if (!data || (data as LeaderboardsResponse).leaderboards?.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
-        <EmptyState />
-      </div>
+      <main className="min-h-screen bg-background">
+        <Navigation />
+        <div className="flex items-center justify-center min-h-screen pt-24">
+          <EmptyState />
+        </div>
+      </main>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
-      <LeaderboardGrid data={data as LeaderboardsResponse} onCategoryClick={handleCategoryClick} />
-    </div>
+    <main className="min-h-screen bg-background">
+      <Navigation />
+      <div className="pt-24">
+        <LeaderboardGrid data={data as LeaderboardsResponse} onCategoryClick={handleCategoryClick} />
+      </div>
+    </main>
   )
 }
