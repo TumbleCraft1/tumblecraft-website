@@ -6,11 +6,11 @@ import { LeaderboardPlayer } from '@/lib/leaderboard-api'
 interface PlayerRankingProps {
   player: LeaderboardPlayer
   rank: number
-  category: string
-  formatValue: (category: string, value: string) => string
+  category?: string
+  formatValue?: (category: string, value: string) => string
 }
 
-export default function PlayerRanking({ player, rank, category, formatValue }: PlayerRankingProps) {
+export default function PlayerRanking({ player, rank }: PlayerRankingProps) {
   const getRankIcon = (rank: number) => {
     switch (rank) {
       case 1: return '🥇'

@@ -36,15 +36,36 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
   
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const mountedRef = useRef(true)
+  const currentCategoryRef = useRef<string | undefined>(undefined)
+  const requestInProgressRef = useRef<boolean>(false)
 
+  // Single fetch function to handle all data fetching
   const fetchData = useCallback(async (isRefresh = false) => {
+    // Prevent concurrent requests for the same category
+    if (requestInProgressRef.current && !isRefresh) {
+      return
+    }
+    
+    // Check if we already have fresh data for this category
+    const categoryChanged = currentCategoryRef.current !== category
+    if (!isRefresh && !categoryChanged && data) {
+      return
+    }
+    
+    currentCategoryRef.current = category
+    requestInProgressRef.current = true
+    
+    // Don't abort during category changes - let both requests complete
+    // This prevents race conditions during client-side navigation
+    
     try {
+      setError(null)
+      
       if (isRefresh) {
         setRefreshing(true)
       } else {
         setLoading(true)
       }
-      setError(null)
 
       let response: LeaderboardsResponse | LeaderboardCategory
       
@@ -54,28 +75,23 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
         response = await LeaderboardAPI.getAllLeaderboards()
       }
 
-      if (mountedRef.current) {
-        setData(response)
-        setLastUpdated(new Date())
-        setServerStatus('online')
-      }
+      // Always update state - let React handle stale updates
+      setData(response)
+      setLastUpdated(new Date())
+      setServerStatus('online')
     } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Failed to fetch data'
       if (mountedRef.current) {
-        const errorMessage = err instanceof Error ? err.message : 'Failed to fetch data'
         setError(errorMessage)
         setServerStatus('offline')
-        
-        if (LEADERBOARD_CONFIG.DEV_MODE && LEADERBOARD_CONFIG.LOG_LEVEL === 'debug') {
-          console.error('Leaderboard fetch error:', err)
-        }
       }
     } finally {
-      if (mountedRef.current) {
-        setLoading(false)
-        setRefreshing(false)
-      }
+      // Always clear loading states
+      setLoading(false)
+      setRefreshing(false)
+      requestInProgressRef.current = false
     }
-  }, [category])
+  }, [category, data])
 
   const refresh = useCallback(async () => {
     await fetchData(true)
@@ -95,11 +111,10 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
     }
   }, [])
 
-  // Initial data fetch
+  // Main effect - triggers when category changes
   useEffect(() => {
-    fetchData()
-    checkServerStatus()
-  }, [fetchData, checkServerStatus])
+    fetchData(false)
+  }, [fetchData, category])
 
   // Auto-refresh setup
   useEffect(() => {
@@ -127,6 +142,8 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
 
   // Cleanup on unmount
   useEffect(() => {
+    mountedRef.current = true
+    
     return () => {
       mountedRef.current = false
       if (intervalRef.current) {

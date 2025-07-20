@@ -16,6 +16,7 @@ export default function CategoryLeaderboardPage() {
   const { data, loading, error, refreshing, refresh } = useLeaderboardData({ category })
   const categoryInfo = LeaderboardAPI.getCategoryInfo(category)
 
+
   const handleRefresh = () => {
     refresh()
   }
@@ -26,7 +27,7 @@ export default function CategoryLeaderboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900" data-category-page>
         <div className="container mx-auto px-6 py-12">
           <div className="text-center">
             <div className="text-6xl mb-4">{categoryInfo.icon}</div>
@@ -56,14 +57,14 @@ export default function CategoryLeaderboardPage() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center" data-category-page>
         <ErrorState onRetry={handleRetry} />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900" data-category-page>
       <div className="container mx-auto px-6 py-12">
         <motion.div
           className="text-center mb-12"
@@ -98,20 +99,18 @@ export default function CategoryLeaderboardPage() {
           
           <p className="text-xl text-gray-300">{categoryInfo.description}</p>
           {data && (
-            <p className="text-gray-400 mt-2">{(data as LeaderboardCategory).players.length} players ranked</p>
+            <p className="text-gray-400 mt-2">{(data as LeaderboardCategory).rankings.length} players ranked</p>
           )}
         </motion.div>
 
         <div className="max-w-2xl mx-auto">
-          {data && (data as LeaderboardCategory).players.length > 0 ? (
+          {data && (data as LeaderboardCategory).rankings.length > 0 ? (
             <div className="space-y-3">
-              {(data as LeaderboardCategory).players.map((player, index) => (
+              {(data as LeaderboardCategory).rankings.map((player, index) => (
                 <PlayerRanking
-                  key={player.uuid}
+                  key={`${player.player_uuid}-${index}`}
                   player={player}
                   rank={index + 1}
-                  category={category}
-                  formatValue={LeaderboardAPI.formatValue}
                 />
               ))}
             </div>

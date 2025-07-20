@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { LeaderboardCategory, CategoryInfo, LeaderboardAPI } from '@/lib/leaderboard-api'
+import { LeaderboardCategory, CategoryInfo } from '@/lib/leaderboard-api'
 import PlayerRanking from './PlayerRanking'
 
 interface LeaderboardCardProps {
@@ -40,13 +40,11 @@ export default function LeaderboardCard({ category, categoryInfo, onClick }: Lea
       
       <div className="space-y-2 flex-1">
         {topPlayers.length > 0 ? (
-          topPlayers.map((player, index) => (
+          topPlayers.map((player) => (
             <PlayerRanking
               key={player.player_uuid}
               player={player}
               rank={player.position}
-              category={category.category}
-              formatValue={LeaderboardAPI.formatValue}
             />
           ))
         ) : (
