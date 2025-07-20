@@ -1,6 +1,5 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import { LeaderboardsResponse } from '@/lib/leaderboard-api'
 import { useLeaderboardData } from '@/hooks/useLeaderboardData'
 import Navigation from '@/components/Navigation'
@@ -8,12 +7,8 @@ import LeaderboardGrid from '@/components/leaderboards/LeaderboardGrid'
 import { LeaderboardSkeleton, ErrorState, EmptyState } from '@/components/leaderboards/LoadingStates'
 
 export default function LeaderboardsPage() {
-  const router = useRouter()
   const { data, loading, error, refresh } = useLeaderboardData()
 
-  const handleCategoryClick = (category: string) => {
-    router.push(`/leaderboards/${category}`)
-  }
 
   const handleRetry = () => {
     refresh()
@@ -62,7 +57,7 @@ export default function LeaderboardsPage() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <div className="pt-24">
-        <LeaderboardGrid data={data as LeaderboardsResponse} onCategoryClick={handleCategoryClick} />
+        <LeaderboardGrid data={data as LeaderboardsResponse} />
       </div>
     </main>
   )
