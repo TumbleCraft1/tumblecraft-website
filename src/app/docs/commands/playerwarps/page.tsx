@@ -9,7 +9,6 @@ export default function PlayerWarpsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
-      
       <div className="container mx-auto px-6 pt-24 pb-12">
         {/* Breadcrumb */}
         <motion.div 
@@ -41,7 +40,7 @@ export default function PlayerWarpsPage() {
             <div>
               <h1 className="hero-title">PlayerWarps</h1>
               <p className="subtitle">
-                Playerwarps allows you to create your own warps which players can teleport to.  Commands:  ▪ /Pw set <name> Set your playerwarp  ➥ Left-Click to open playerwarps
+                Playerwarps allows you to create your own warps which players can teleport to.  Commands:  ▪ /Pw set &lt;name&gt; Set your playerwarp  ➥ Left-Click to open playerwarps
               </p>
             </div>
           </div>
@@ -57,9 +56,8 @@ export default function PlayerWarpsPage() {
           <div className="prose max-w-none">
             <h2 className="text-2xl font-bold text-foreground mb-6">Overview</h2>
             <p className="text-foreground-muted leading-relaxed mb-6">
-              Playerwarps allows you to create your own warps which players can teleport to.  Commands:  ▪ /Pw set <name> Set your playerwarp  ➥ Left-Click to open playerwarps
+              Playerwarps allows you to create your own warps which players can teleport to.  Commands:  ▪ /Pw set &lt;name&gt; Set your playerwarp  ➥ Left-Click to open playerwarps
             </p>
-            
             
             <h3 className="text-xl font-semibold text-foreground mb-4">Key Features</h3>
             <ul className="space-y-2 mb-6">
@@ -69,17 +67,14 @@ export default function PlayerWarpsPage() {
               </li>
               <li className="flex items-start space-x-2">
                 <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                <span className="text-foreground-muted">/Pw set <name> Set your playerwarp  ➥ Left-Click to open playerwarps</span>
+                <span className="text-foreground-muted">/Pw set &lt;name&gt; Set your playerwarp  ➥ Left-Click to open playerwarps</span>
               </li>
             </ul>
-            
-            
             
             <h3 className="text-xl font-semibold text-foreground mb-4">Related Commands</h3>
             <div className="bg-gray-50 rounded-lg p-4 mb-6">
               <code className="block bg-white px-3 py-2 rounded border mb-2">/playerwarps</code>
             </div>
-            
           </div>
         </motion.div>
 
