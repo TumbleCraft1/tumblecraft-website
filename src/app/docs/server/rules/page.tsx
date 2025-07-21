@@ -445,13 +445,15 @@ export default function ServerRulesPage() {
             Be honest, respectful, and provide any relevant evidence for your case.
           </p>
           <div className="flex justify-center space-x-4">
-            <Link 
-              href="/discord"
+            <a 
+              href="https://discord.gg/N7hEkd82"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary-dark transition-colors font-medium"
             >
               <MessageCircle className="w-4 h-4 mr-2" />
               Join Discord
-            </Link>
+            </a>
             <Link 
               href="/docs/server"
               className="inline-flex items-center px-6 py-3 bg-white text-foreground rounded-xl hover:bg-gray-50 transition-colors font-medium border border-gray-200"

@@ -490,11 +490,11 @@ export default function TagsPage() {
                 Complete achievements and participate in events for exclusive tags.
               </p>
               <Link 
-                href="/docs/gameplay/achievements"
+                href="/docs/progression/rewards"
                 className="inline-flex items-center px-4 py-2 bg-white text-foreground rounded-lg hover:bg-gray-50 transition-colors border border-gray-200 text-sm"
               >
                 <Trophy className="w-4 h-4 mr-2" />
-                Achievements Guide
+                Rewards Guide
               </Link>
             </div>
             <div className="text-center">
