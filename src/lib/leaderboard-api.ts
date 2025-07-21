@@ -154,7 +154,6 @@ export const CATEGORY_INFO: Record<string, CategoryInfo> = {
   }
 }
 
-const API_BASE_URL = LEADERBOARD_CONFIG.API_BASE_URL
 
 export class LeaderboardAPI {
   private static async fetchWithTimeout(url: string, timeout = LEADERBOARD_CONFIG.REQUEST_TIMEOUT): Promise<Response> {
@@ -177,14 +176,30 @@ export class LeaderboardAPI {
   }
 
   static async getAllLeaderboards(): Promise<LeaderboardsResponse> {
+    const startTime = Date.now()
+    
     try {
+      console.log('[LeaderboardAPI] Starting getAllLeaderboards request')
       const response = await this.fetchWithTimeout(`/api/leaderboards`)
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        // Try to parse error response for detailed information
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+          console.error(`[LeaderboardAPI] Server error response:`, errorData)
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
       }
       
       const data = await response.json() as AllLeaderboardsResponse
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched leaderboards in ${duration}ms`)
+      
       // Convert the object format to array format expected by the frontend
       const leaderboards = Object.values(data).map(category => ({
         ...category,
@@ -192,36 +207,95 @@ export class LeaderboardAPI {
       }))
       return { leaderboards }
     } catch (error) {
-      console.error('Failed to fetch leaderboards:', error)
-      throw new Error('Failed to fetch leaderboards')
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch leaderboards after ${duration}ms:`, errorMessage)
+      
+      // Provide more specific error messages based on error type
+      if (errorMessage.includes('timeout') || errorMessage.includes('aborted')) {
+        throw new Error('Request timed out - the leaderboard server may be busy. Please try again.')
+      } else if (errorMessage.includes('Network') || errorMessage.includes('fetch')) {
+        throw new Error('Unable to connect to the leaderboard server. Please check your internet connection.')
+      } else if (errorMessage.includes('504') || errorMessage.includes('Gateway')) {
+        throw new Error('The leaderboard server is temporarily unavailable. Please try again in a few moments.')
+      } else if (errorMessage.includes('503') || errorMessage.includes('Service')) {
+        throw new Error('The leaderboard service is temporarily down. Please try again later.')
+      } else {
+        throw new Error(`Failed to fetch leaderboards: ${errorMessage}`)
+      }
     }
   }
 
   static async getCategoryLeaderboard(category: string): Promise<LeaderboardCategory> {
+    const startTime = Date.now()
+    
     try {
+      console.log(`[LeaderboardAPI] Starting getCategoryLeaderboard request for: ${category}`)
       const response = await this.fetchWithTimeout(`/api/leaderboards?category=${category}`)
       
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
+        // Try to parse error response for detailed information
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+          console.error(`[LeaderboardAPI] Server error response for ${category}:`, errorData)
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
       }
       
       const data = await response.json() as LeaderboardCategory
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched ${category} leaderboard in ${duration}ms`)
+      
       return {
         ...data,
         rankings: this.deduplicatePlayersByUUID(data.rankings)
       }
     } catch (error) {
-      console.error(`Failed to fetch leaderboard for ${category}:`, error)
-      throw new Error(`Failed to fetch leaderboard for ${category}`)
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch ${category} leaderboard after ${duration}ms:`, errorMessage)
+      
+      // Provide more specific error messages based on error type
+      if (errorMessage.includes('timeout') || errorMessage.includes('aborted')) {
+        throw new Error(`Request timed out while fetching ${category} leaderboard. Please try again.`)
+      } else if (errorMessage.includes('Network') || errorMessage.includes('fetch')) {
+        throw new Error(`Unable to connect to server for ${category} leaderboard. Please check your connection.`)
+      } else if (errorMessage.includes('504') || errorMessage.includes('Gateway')) {
+        throw new Error(`The ${category} leaderboard is temporarily unavailable. Please try again in a few moments.`)
+      } else if (errorMessage.includes('503') || errorMessage.includes('Service')) {
+        throw new Error(`The ${category} leaderboard service is temporarily down. Please try again later.`)
+      } else {
+        throw new Error(`Failed to fetch ${category} leaderboard: ${errorMessage}`)
+      }
     }
   }
 
-  static async getServerStatus(): Promise<{ status: 'online' | 'offline' }> {
+  static async getServerStatus(): Promise<{ status: 'online' | 'offline', details?: Record<string, unknown> }> {
     try {
-      const response = await this.fetchWithTimeout(`${API_BASE_URL}/api/health`, 3000)
-      return { status: response.ok ? 'online' : 'offline' }
-    } catch {
-      return { status: 'offline' }
+      console.log('[LeaderboardAPI] Checking server status via health endpoint')
+      const response = await this.fetchWithTimeout(`/api/leaderboards/health`, LEADERBOARD_CONFIG.HEALTH_CHECK_TIMEOUT)
+      
+      if (response.ok) {
+        const healthData = await response.json() as { status?: string; [key: string]: unknown }
+        console.log('[LeaderboardAPI] Health check result:', healthData)
+        return { 
+          status: healthData.status === 'healthy' ? 'online' : 'offline',
+          details: healthData
+        }
+      } else {
+        console.warn('[LeaderboardAPI] Health check failed with status:', response.status)
+        return { status: 'offline', details: { statusCode: response.status } }
+      }
+    } catch (error) {
+      console.error('[LeaderboardAPI] Health check error:', error)
+      return { status: 'offline', details: { error: error instanceof Error ? error.message : 'Unknown error' } }
     }
   }
 
