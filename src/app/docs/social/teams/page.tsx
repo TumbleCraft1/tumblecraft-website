@@ -272,8 +272,8 @@ export default function TeamsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Why Form a Team?</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {teamBenefits.map((benefit, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {teamBenefits.map((benefit) => (
+              <motion.div key={benefit.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${benefit.bgColor} flex items-center justify-center`}>
@@ -290,8 +290,8 @@ export default function TeamsPage() {
                   </div>
                   
                   <div className="space-y-2">
-                    {benefit.benefits.map((item, i) => (
-                      <div key={i} className="flex items-center space-x-2">
+                    {benefit.benefits.map((item) => (
+                      <div key={item} className="flex items-center space-x-2">
                         <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                         <span className="text-sm text-foreground-muted">{item}</span>
                       </div>
@@ -312,8 +312,8 @@ export default function TeamsPage() {
         >
           <h2 className="text-2xl font-bold text-foreground mb-6">Team Roles & Permissions</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {teamRoles.map((role, index) => (
-              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
+            {teamRoles.map((role) => (
+              <div key={role.role} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
                     <role.icon className={`w-4 h-4 ${role.color}`} />
@@ -327,8 +327,8 @@ export default function TeamsPage() {
                 <div>
                   <h4 className="text-sm font-medium text-foreground mb-3">Permissions:</h4>
                   <div className="space-y-2">
-                    {role.permissions.map((permission, i) => (
-                      <div key={i} className="flex items-center space-x-2">
+                    {role.permissions.map((permission) => (
+                      <div key={permission} className="flex items-center space-x-2">
                         <div className="w-1.5 h-1.5 bg-green-400 rounded-full" />
                         <span className="text-xs text-foreground-muted">{permission}</span>
                       </div>
@@ -350,8 +350,8 @@ export default function TeamsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Team Success Strategies</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {teamStrategies.map((strategy, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {teamStrategies.map((strategy) => (
+              <motion.div key={strategy.category} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -363,8 +363,8 @@ export default function TeamsPage() {
                   </div>
                   
                   <div className="space-y-3">
-                    {strategy.tips.map((tip, i) => (
-                      <div key={i} className="flex items-start space-x-2">
+                    {strategy.tips.map((tip) => (
+                      <div key={tip} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-sm text-foreground-muted">{tip}</span>
                       </div>
@@ -387,8 +387,8 @@ export default function TeamsPage() {
             Essential Team Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {teamCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {teamCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

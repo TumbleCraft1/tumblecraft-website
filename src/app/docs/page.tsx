@@ -123,9 +123,9 @@ export default function DocsPage() {
             <h3 className="text-lg font-semibold text-foreground">Quick Start</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {quickLinks.map((link, index) => (
+            {quickLinks.map((link) => (
               <Link
-                key={index}
+                key={link.href}
                 href={link.href}
                 className="group flex items-center space-x-3 p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
               >
@@ -146,8 +146,8 @@ export default function DocsPage() {
           animate="visible"
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {categories.map((category, index) => (
-            <motion.div key={index} variants={itemVariants}>
+          {categories.map((category) => (
+            <motion.div key={category.href} variants={itemVariants}>
               <Link href={category.href} className="group block">
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-gray-300">
                   <div className="space-y-4">
@@ -172,8 +172,8 @@ export default function DocsPage() {
                         Includes:
                       </h4>
                       <div className="space-y-1">
-                        {category.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center space-x-2">
+                        {category.features.map((feature) => (
+                          <div key={feature} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                             <span className="text-xs text-foreground-muted">
                               {feature}

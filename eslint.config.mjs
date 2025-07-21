@@ -11,6 +11,12 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Prevent using array index as React key
+      "react/no-array-index-key": "error",
+    },
+  },
 ];
 
 export default eslintConfig;

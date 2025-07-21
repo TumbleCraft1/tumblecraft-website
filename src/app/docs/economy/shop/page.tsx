@@ -202,8 +202,8 @@ export default function ShopPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Best Resources to Sell</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {bestResources.map((category, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {bestResources.map((category) => (
+              <motion.div key={category.category} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${category.bgColor} flex items-center justify-center`}>
@@ -224,8 +224,8 @@ export default function ShopPage() {
                       Profitable Items:
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {category.items.map((item, i) => (
-                        <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md">
+                      {category.items.map((item) => (
+                        <span key={item} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md">
                           {item}
                         </span>
                       ))}
@@ -237,8 +237,8 @@ export default function ShopPage() {
                       Pro Tips:
                     </h4>
                     <ul className="space-y-1">
-                      {category.tips.map((tip, i) => (
-                        <li key={i} className="flex items-start space-x-2">
+                      {category.tips.map((tip) => (
+                        <li key={tip} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
                           <span className="text-xs text-foreground-muted">{tip}</span>
                         </li>
@@ -261,8 +261,8 @@ export default function ShopPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Selling Strategies</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {shopStrategies.map((strategy, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {shopStrategies.map((strategy) => (
+              <motion.div key={strategy.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center">
@@ -299,8 +299,8 @@ export default function ShopPage() {
             Essential Shop Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

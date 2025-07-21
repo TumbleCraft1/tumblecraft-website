@@ -173,8 +173,8 @@ export default function SocialPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Social Features</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {socialPages.map((page, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {socialPages.map((page) => (
+              <motion.div key={page.title} variants={itemVariants}>
                 <Link href={page.href} className="group block">
                   <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-gray-300">
                     <div className="space-y-4">
@@ -199,8 +199,8 @@ export default function SocialPage() {
                           Features:
                         </h4>
                         <div className="space-y-1">
-                          {page.features.map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-center space-x-2">
+                          {page.features.map((feature) => (
+                            <div key={feature} className="flex items-center space-x-2">
                               <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                               <span className="text-xs text-foreground-muted">
                                 {feature}

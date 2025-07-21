@@ -186,7 +186,10 @@ export class LeaderboardAPI {
       
       const data = await response.json() as AllLeaderboardsResponse
       // Convert the object format to array format expected by the frontend
-      const leaderboards = Object.values(data)
+      const leaderboards = Object.values(data).map(category => ({
+        ...category,
+        rankings: this.deduplicatePlayersByUUID(category.rankings)
+      }))
       return { leaderboards }
     } catch (error) {
       console.error('Failed to fetch leaderboards:', error)
@@ -203,7 +206,10 @@ export class LeaderboardAPI {
       }
       
       const data = await response.json() as LeaderboardCategory
-      return data
+      return {
+        ...data,
+        rankings: this.deduplicatePlayersByUUID(data.rankings)
+      }
     } catch (error) {
       console.error(`Failed to fetch leaderboard for ${category}:`, error)
       throw new Error(`Failed to fetch leaderboard for ${category}`)
@@ -244,5 +250,21 @@ export class LeaderboardAPI {
       description: 'Server statistics',
       color: 'from-gray-400 to-gray-600'
     }
+  }
+
+  /**
+   * Remove duplicate players by UUID, keeping the one with the highest position (lowest number)
+   */
+  private static deduplicatePlayersByUUID(rankings: LeaderboardPlayer[]): LeaderboardPlayer[] {
+    const seen = new Map<string, LeaderboardPlayer>()
+    
+    for (const player of rankings) {
+      const existing = seen.get(player.player_uuid)
+      if (!existing || player.position < existing.position) {
+        seen.set(player.player_uuid, player)
+      }
+    }
+    
+    return Array.from(seen.values()).sort((a, b) => a.position - b.position)
   }
 }

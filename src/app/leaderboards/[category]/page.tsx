@@ -36,8 +36,8 @@ export default function CategoryLeaderboardPage() {
           </div>
           
           <div className="max-w-2xl mx-auto mt-12 space-y-3">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div key={i} className="flex items-center justify-between p-4 bg-white/10 rounded-lg animate-pulse">
+            {Array.from({ length: 10 }, (_, i) => i).map((i) => (
+              <div key={`loading-${i}`} className="flex items-center justify-between p-4 bg-white/10 rounded-lg animate-pulse">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-6 bg-white/20 rounded" />
                   <div className="w-8 h-8 bg-white/20 rounded-lg" />
@@ -108,7 +108,7 @@ export default function CategoryLeaderboardPage() {
             <div className="space-y-3">
               {(data as LeaderboardCategory).rankings.map((player, index) => (
                 <PlayerRanking
-                  key={`${player.player_uuid}-${index}`}
+                  key={player.player_uuid}
                   player={player}
                   rank={index + 1}
                 />

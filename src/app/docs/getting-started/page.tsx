@@ -184,7 +184,7 @@ export default function GettingStartedPage() {
           
           <div className="grid gap-4">
             {steps.map((step, index) => (
-              <motion.div key={index} variants={itemVariants}>
+              <motion.div key={step.title} variants={itemVariants}>
                 <Link href={step.href} className="group block">
                   <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 transition-all duration-300 hover:shadow-xl hover:scale-[1.01] hover:border-gray-300">
                     <div className="flex items-center space-x-4">

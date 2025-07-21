@@ -240,8 +240,8 @@ export default function JobsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Job Categories</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {jobCategories.map((category, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {jobCategories.map((category) => (
+              <motion.div key={category.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${category.bgColor} flex items-center justify-center`}>
@@ -268,8 +268,8 @@ export default function JobsPage() {
                         Available Jobs:
                       </h4>
                       <div className="flex flex-wrap gap-1">
-                        {category.jobs.map((job, i) => (
-                          <span key={i} className="inline-block px-2 py-1 bg-gray-50 text-xs text-gray-600 rounded">
+                        {category.jobs.map((job) => (
+                          <span key={job} className="inline-block px-2 py-1 bg-gray-50 text-xs text-gray-600 rounded">
                             {job}
                           </span>
                         ))}
@@ -281,8 +281,8 @@ export default function JobsPage() {
                         Best For:
                       </h4>
                       <ul className="space-y-1">
-                        {category.bestFor.map((item, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {category.bestFor.map((item) => (
+                          <li key={item} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                             <span className="text-xs text-foreground-muted">{item}</span>
                           </li>
@@ -306,8 +306,8 @@ export default function JobsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Pointshop Rewards</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {pointshopRewards.map((reward, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {pointshopRewards.map((reward) => (
+              <motion.div key={reward.category} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="text-lg font-semibold text-foreground">
@@ -319,8 +319,8 @@ export default function JobsPage() {
                   </div>
                   
                   <ul className="space-y-2">
-                    {reward.items.map((item, i) => (
-                      <li key={i} className="flex items-center space-x-2">
+                    {reward.items.map((item) => (
+                      <li key={item} className="flex items-center space-x-2">
                         <div className="w-1.5 h-1.5 bg-purple-500 rounded-full" />
                         <span className="text-sm text-foreground-muted">{item}</span>
                       </li>
@@ -342,8 +342,8 @@ export default function JobsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Pro Tips for Success</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {jobTips.map((tip, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {jobTips.map((tip) => (
+              <motion.div key={tip.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center flex-shrink-0">
@@ -385,8 +385,8 @@ export default function JobsPage() {
             Essential Jobs Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

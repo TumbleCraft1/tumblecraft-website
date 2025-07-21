@@ -204,8 +204,8 @@ export default function QuestsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Quest Types</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {questTypes.map((quest, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {questTypes.map((quest) => (
+              <motion.div key={quest.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${quest.bgColor} flex items-center justify-center`}>
@@ -227,8 +227,8 @@ export default function QuestsPage() {
                         Features:
                       </h4>
                       <ul className="space-y-1">
-                        {quest.features.map((feature, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {quest.features.map((feature) => (
+                          <li key={feature} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
                             <span className="text-xs text-foreground-muted">{feature}</span>
                           </li>
@@ -240,8 +240,8 @@ export default function QuestsPage() {
                         Benefits:
                       </h4>
                       <ul className="space-y-1">
-                        {quest.benefits.map((benefit, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {quest.benefits.map((benefit) => (
+                          <li key={benefit} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                             <span className="text-xs text-foreground-muted">{benefit}</span>
                           </li>
@@ -265,8 +265,8 @@ export default function QuestsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Quest Management</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {questFeatures.map((feature, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {questFeatures.map((feature) => (
+              <motion.div key={feature.title} variants={itemVariants}>
                 <div className="group block h-full">
                   <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-gray-300">
                     <div className="flex items-start space-x-4 mb-4">
@@ -291,8 +291,8 @@ export default function QuestsPage() {
                         Pro Tips:
                       </h4>
                       <ul className="space-y-1">
-                        {feature.tips.map((tip, i) => (
-                          <li key={i} className="flex items-start space-x-2">
+                        {feature.tips.map((tip) => (
+                          <li key={tip} className="flex items-start space-x-2">
                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
                             <span className="text-xs text-foreground-muted">{tip}</span>
                           </li>
@@ -321,8 +321,8 @@ export default function QuestsPage() {
             Essential Quest Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

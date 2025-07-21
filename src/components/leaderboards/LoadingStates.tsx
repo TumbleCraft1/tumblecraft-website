@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 export function LeaderboardSkeleton() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-fr">
-      {Array.from({ length: 6 }).map((_, index) => (
+      {Array.from({ length: 6 }, (_, index) => index).map((index) => (
         <motion.div
-          key={index}
+          key={`skeleton-${index}`}
           className="feature-card h-full flex flex-col"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -22,8 +22,8 @@ export function LeaderboardSkeleton() {
           </div>
           
           <div className="space-y-2 flex-1">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="flex items-center justify-between p-4 bg-background-secondary rounded-lg border border-border-light">
+            {Array.from({ length: 3 }, (_, i) => i).map((i) => (
+              <div key={`inner-${i}`} className="flex items-center justify-between p-4 bg-background-secondary rounded-lg border border-border-light">
                 <div className="flex items-center gap-3 min-w-0 flex-1">
                   <div className="w-6 h-6 bg-background-tertiary rounded animate-pulse flex-shrink-0" />
                   <div className="w-10 h-10 bg-primary/10 rounded-xl animate-pulse flex-shrink-0" />

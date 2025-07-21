@@ -271,8 +271,8 @@ export default function PvPPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">PvP Combat Areas</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {pvpAreas.map((area, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {pvpAreas.map((area) => (
+              <motion.div key={area.name} variants={itemVariants}>
                 <div className={`bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border-2 ${area.borderColor} p-6 h-full`}>
                   {/* Header */}
                   <div className="flex items-start space-x-4 mb-6">
@@ -295,8 +295,8 @@ export default function PvPPage() {
                       Area Features
                     </h4>
                     <div className="space-y-2">
-                      {area.features.map((feature, i) => (
-                        <div key={i} className="flex items-center space-x-2">
+                      {area.features.map((feature) => (
+                        <div key={feature} className="flex items-center space-x-2">
                           <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                           <span className="text-xs text-foreground-muted">{feature}</span>
                         </div>
@@ -310,8 +310,8 @@ export default function PvPPage() {
                       Winning Strategies
                     </h4>
                     <div className="space-y-2">
-                      {area.strategies.map((strategy, i) => (
-                        <div key={i} className="flex items-start space-x-2">
+                      {area.strategies.map((strategy) => (
+                        <div key={strategy} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
                           <span className="text-xs text-foreground-muted">{strategy}</span>
                         </div>
@@ -325,8 +325,8 @@ export default function PvPPage() {
                       Potential Rewards
                     </h4>
                     <div className="flex flex-wrap gap-1">
-                      {area.rewards.map((reward, i) => (
-                        <span key={i} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
+                      {area.rewards.map((reward) => (
+                        <span key={reward} className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">
                           {reward}
                         </span>
                       ))}
@@ -359,8 +359,8 @@ export default function PvPPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {supplyCrates.map((crate, index) => (
-              <div key={index} className="p-4 bg-gray-50 rounded-lg">
+            {supplyCrates.map((crate) => (
+              <div key={crate.item} className="p-4 bg-gray-50 rounded-lg">
                 <div className="flex items-center justify-between mb-2">
                   <h4 className="text-sm font-medium text-foreground">{crate.item}</h4>
                   <RarityBadge rarity={crate.rarity} />
@@ -381,8 +381,8 @@ export default function PvPPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Combat Mastery Tips</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {combatTips.map((category, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {combatTips.map((category) => (
+              <motion.div key={category.category} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-center space-x-3 mb-4">
                     <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -394,8 +394,8 @@ export default function PvPPage() {
                   </div>
                   
                   <div className="space-y-3">
-                    {category.tips.map((tip, i) => (
-                      <div key={i} className="flex items-start space-x-2">
+                    {category.tips.map((tip) => (
+                      <div key={tip} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-sm text-foreground-muted">{tip}</span>
                       </div>
@@ -418,8 +418,8 @@ export default function PvPPage() {
             PvP Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

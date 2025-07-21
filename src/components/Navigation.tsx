@@ -36,9 +36,9 @@ export default function Navigation() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-3">
-          {navLinks.map((link, index) => (
+          {navLinks.map((link) => (
             <motion.a
-              key={index}
+              key={link.href}
               href={link.href}
               className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 text-gray-700 font-medium hover:text-primary hover:bg-white transition-all duration-300 flex items-center gap-2"
               whileHover={{ y: -2, scale: 1.02 }}
@@ -94,9 +94,9 @@ export default function Navigation() {
           exit={{ opacity: 0, y: -20 }}
         >
           <div className="space-y-2">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <motion.a
-                key={index}
+                key={link.href}
                 href={link.href}
                 className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200 text-gray-700 font-medium hover:text-primary hover:bg-white transition-all duration-300 flex items-center gap-2 w-full"
                 onClick={() => setIsOpen(false)}

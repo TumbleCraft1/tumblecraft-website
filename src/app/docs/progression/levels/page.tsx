@@ -221,8 +221,8 @@ export default function LevelsPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {levelBenefits.map((benefit, index) => (
-                    <tr key={index} className="hover:bg-gray-50 transition-colors">
+                  {levelBenefits.map((benefit) => (
+                    <tr key={benefit.level} className="hover:bg-gray-50 transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="text-sm font-medium text-foreground">{benefit.level}</span>
                       </td>
@@ -246,8 +246,8 @@ export default function LevelsPage() {
                       </td>
                       <td className="px-6 py-4">
                         <div className="space-y-1">
-                          {benefit.perks.map((perk, perkIndex) => (
-                            <div key={perkIndex} className="flex items-center space-x-2">
+                          {benefit.perks.map((perk) => (
+                            <div key={perk} className="flex items-center space-x-2">
                               <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                               <span className="text-xs text-foreground-muted">{perk}</span>
                             </div>
@@ -272,8 +272,8 @@ export default function LevelsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">How to Earn Level XP</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {xpSources.map((source, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {xpSources.map((source) => (
+              <motion.div key={source.category} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${source.bgColor} flex items-center justify-center`}>
@@ -287,8 +287,8 @@ export default function LevelsPage() {
                   </div>
                   
                   <div className="space-y-3">
-                    {source.sources.map((activity, i) => (
-                      <div key={i} className="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
+                    {source.sources.map((activity) => (
+                      <div key={activity.activity} className="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
                         <div className="flex-1">
                           <div className="text-sm font-medium text-foreground">{activity.activity}</div>
                           <div className="text-xs text-foreground-muted mt-1">{activity.frequency}</div>
@@ -314,8 +314,8 @@ export default function LevelsPage() {
             Level System Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

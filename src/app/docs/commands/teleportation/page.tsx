@@ -198,8 +198,8 @@ function DetailedCommandCard({ command, description, example, tips }: {
       <div>
         <h5 className="text-xs font-medium text-foreground mb-2">Tips:</h5>
         <ul className="space-y-1">
-          {tips.map((tip, i) => (
-            <li key={i} className="flex items-start space-x-2">
+          {tips.map((tip) => (
+            <li key={tip} className="flex items-start space-x-2">
               <div className="w-1 h-1 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
               <span className="text-xs text-foreground-muted">{tip}</span>
             </li>
@@ -308,8 +308,8 @@ export default function TeleportationCommandsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Teleportation Systems</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {teleportationSystems.map((system, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {teleportationSystems.map((system) => (
+              <motion.div key={system.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${system.bgColor} flex items-center justify-center`}>
@@ -331,8 +331,8 @@ export default function TeleportationCommandsPage() {
                         Commands:
                       </h4>
                       <div className="space-y-1">
-                        {system.commands.map((cmd, i) => (
-                          <code key={i} className="block text-xs bg-gray-100 px-2 py-1 rounded text-primary">
+                        {system.commands.map((cmd) => (
+                          <code key={cmd} className="block text-xs bg-gray-100 px-2 py-1 rounded text-primary">
                             {cmd}
                           </code>
                         ))}
@@ -343,8 +343,8 @@ export default function TeleportationCommandsPage() {
                         Features:
                       </h4>
                       <ul className="space-y-1">
-                        {system.features.map((feature, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {system.features.map((feature) => (
+                          <li key={feature} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                             <span className="text-xs text-foreground-muted">{feature}</span>
                           </li>
@@ -368,8 +368,8 @@ export default function TeleportationCommandsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Command Details</h2>
           
           <div className="space-y-6">
-            {detailedCommands.map((section, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {detailedCommands.map((section) => (
+              <motion.div key={section.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
                   <div className="flex items-center space-x-3 mb-6">
                     <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
@@ -381,9 +381,9 @@ export default function TeleportationCommandsPage() {
                   </div>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-                    {section.commands.map((cmd, i) => (
+                    {section.commands.map((cmd) => (
                       <DetailedCommandCard
-                        key={i}
+                        key={cmd.command}
                         command={cmd.command}
                         description={cmd.description}
                         example={cmd.example}
@@ -408,8 +408,8 @@ export default function TeleportationCommandsPage() {
             Quick Command Reference
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

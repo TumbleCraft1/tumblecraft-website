@@ -243,8 +243,8 @@ export default function AuctionPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Auction Features</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {auctionFeatures.map((feature, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {auctionFeatures.map((feature) => (
+              <motion.div key={feature.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${feature.bgColor} flex items-center justify-center`}>
@@ -266,8 +266,8 @@ export default function AuctionPage() {
                         Features:
                       </h4>
                       <ul className="space-y-1">
-                        {feature.features.map((item, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {feature.features.map((item) => (
+                          <li key={item} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                             <span className="text-xs text-foreground-muted">{item}</span>
                           </li>
@@ -279,8 +279,8 @@ export default function AuctionPage() {
                         Pro Tips:
                       </h4>
                       <ul className="space-y-1">
-                        {feature.tips.map((tip, i) => (
-                          <li key={i} className="flex items-start space-x-2">
+                        {feature.tips.map((tip) => (
+                          <li key={tip} className="flex items-start space-x-2">
                             <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-1 flex-shrink-0" />
                             <span className="text-xs text-foreground-muted">{tip}</span>
                           </li>
@@ -304,8 +304,8 @@ export default function AuctionPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Trading Strategies</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {tradingStrategies.map((strategy, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {tradingStrategies.map((strategy) => (
+              <motion.div key={strategy.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center">
@@ -326,8 +326,8 @@ export default function AuctionPage() {
                       Strategy Tips:
                     </h4>
                     <ul className="space-y-1">
-                      {strategy.tips.map((tip, i) => (
-                        <li key={i} className="flex items-start space-x-2">
+                      {strategy.tips.map((tip) => (
+                        <li key={tip} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
                           <span className="text-xs text-foreground-muted">{tip}</span>
                         </li>
@@ -351,8 +351,8 @@ export default function AuctionPage() {
             Safety & Best Practices
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {safetyTips.map((tip, index) => (
-              <div key={index} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
+            {safetyTips.map((tip) => (
+              <div key={tip.title} className="flex items-start space-x-3 p-4 bg-gray-50 rounded-lg">
                 <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
                   tip.importance === 'critical' ? 'bg-red-100' :
                   tip.importance === 'high' ? 'bg-yellow-100' : 'bg-blue-100'
@@ -386,8 +386,8 @@ export default function AuctionPage() {
             Auction Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

@@ -180,8 +180,8 @@ export default function CommandsPage() {
         >
           <h3 className="text-lg font-semibold text-foreground mb-4">Most Used Commands</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {popularCommands.map((cmd, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+            {popularCommands.map((cmd) => (
+              <div key={cmd.command} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                 <div>
                   <code className="text-sm font-medium text-primary">{cmd.command}</code>
                   <p className="text-xs text-foreground-muted">{cmd.description}</p>
@@ -204,8 +204,8 @@ export default function CommandsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Command Categories</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {commandCategories.map((category, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {commandCategories.map((category) => (
+              <motion.div key={category.title} variants={itemVariants}>
                 <Link href={category.href} className="group block">
                   <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full transition-all duration-300 hover:shadow-xl hover:scale-[1.02] hover:border-gray-300">
                     <div className="space-y-4">

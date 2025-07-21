@@ -174,8 +174,8 @@ function PolicyCard({ title, severity, consequences, description }: {
       <div>
         <h4 className="text-sm font-medium text-foreground mb-2">Consequences:</h4>
         <ul className="space-y-1">
-          {consequences.map((consequence, index) => (
-            <li key={index} className="flex items-center space-x-2">
+          {consequences.map((consequence) => (
+            <li key={consequence} className="flex items-center space-x-2">
               <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
               <span className="text-xs text-foreground-muted">{consequence}</span>
             </li>
@@ -284,8 +284,8 @@ export default function ServerRulesPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Community Guidelines</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {ruleCategories.map((category, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {ruleCategories.map((category) => (
+              <motion.div key={category.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${category.bgColor} flex items-center justify-center`}>
@@ -306,8 +306,8 @@ export default function ServerRulesPage() {
                       Rules:
                     </h4>
                     <ul className="space-y-2">
-                      {category.rules.map((rule, i) => (
-                        <li key={i} className="flex items-start space-x-2">
+                      {category.rules.map((rule) => (
+                        <li key={rule} className="flex items-start space-x-2">
                           <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
                           <span className="text-sm text-foreground-muted">{rule}</span>
                         </li>
@@ -333,8 +333,8 @@ export default function ServerRulesPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {serverPolicies.map((policy, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {serverPolicies.map((policy) => (
+              <motion.div key={policy.title} variants={itemVariants}>
                 <PolicyCard {...policy} />
               </motion.div>
             ))}
@@ -424,8 +424,8 @@ export default function ServerRulesPage() {
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

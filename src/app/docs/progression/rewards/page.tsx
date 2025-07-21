@@ -245,8 +245,8 @@ export default function RewardsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Reward Categories</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {rewardTypes.map((reward, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {rewardTypes.map((reward) => (
+              <motion.div key={reward.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${reward.bgColor} flex items-center justify-center`}>
@@ -277,8 +277,8 @@ export default function RewardsPage() {
                         Requirements:
                       </h4>
                       <ul className="space-y-1">
-                        {reward.requirements.map((req, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {reward.requirements.map((req) => (
+                          <li key={req} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-orange-500 rounded-full" />
                             <span className="text-xs text-foreground-muted">{req}</span>
                           </li>
@@ -291,8 +291,8 @@ export default function RewardsPage() {
                         Typical Rewards:
                       </h4>
                       <ul className="space-y-1">
-                        {reward.rewards.map((item, i) => (
-                          <li key={i} className="flex items-center space-x-2">
+                        {reward.rewards.map((item) => (
+                          <li key={item} className="flex items-center space-x-2">
                             <div className="w-1.5 h-1.5 bg-green-500 rounded-full" />
                             <span className="text-xs text-foreground-muted">{item}</span>
                           </li>
@@ -324,8 +324,8 @@ export default function RewardsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Why Use Rewards?</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {rewardBenefits.map((benefit, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {rewardBenefits.map((benefit) => (
+              <motion.div key={benefit.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 text-center">
                   <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center mx-auto mb-4">
                     <benefit.icon className={`w-6 h-6 ${benefit.color}`} />
@@ -353,8 +353,8 @@ export default function RewardsPage() {
             Maximizing Your Rewards
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {claimingStrategies.map((strategy, index) => (
-              <div key={index} className="flex items-start space-x-4">
+            {claimingStrategies.map((strategy) => (
+              <div key={strategy.title} className="flex items-start space-x-4">
                 <div className="w-10 h-10 rounded-lg bg-gray-50 flex items-center justify-center flex-shrink-0">
                   <strategy.icon className="w-5 h-5 text-gray-600" />
                 </div>
@@ -392,8 +392,8 @@ export default function RewardsPage() {
             Essential Reward Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

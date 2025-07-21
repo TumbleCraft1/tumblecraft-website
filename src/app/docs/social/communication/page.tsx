@@ -272,8 +272,8 @@ export default function CommunicationPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Chat Systems</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {communicationFeatures.map((feature, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {communicationFeatures.map((feature) => (
+              <motion.div key={feature.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${feature.bgColor} flex items-center justify-center`}>
@@ -294,8 +294,8 @@ export default function CommunicationPage() {
                       Features:
                     </h4>
                     <ul className="space-y-1">
-                      {feature.features.map((item, i) => (
-                        <li key={i} className="flex items-center space-x-2">
+                      {feature.features.map((item) => (
+                        <li key={item} className="flex items-center space-x-2">
                           <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                           <span className="text-xs text-foreground-muted">{item}</span>
                         </li>
@@ -308,8 +308,8 @@ export default function CommunicationPage() {
                       Commands:
                     </h4>
                     <div className="space-y-1">
-                      {feature.commands.map((cmd, i) => (
-                        <code key={i} className="block text-xs bg-gray-100 px-2 py-1 rounded text-primary">
+                      {feature.commands.map((cmd) => (
+                        <code key={cmd} className="block text-xs bg-gray-100 px-2 py-1 rounded text-primary">
                           {cmd}
                         </code>
                       ))}
@@ -331,8 +331,8 @@ export default function CommunicationPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Emoji System</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {emojiCategories.map((category, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {emojiCategories.map((category) => (
+              <motion.div key={category.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center">
@@ -353,8 +353,8 @@ export default function CommunicationPage() {
                       Available Emojis:
                     </h4>
                     <div className="grid grid-cols-4 gap-2">
-                      {category.emojis.map((emoji, i) => (
-                        <EmojiCard key={i} emoji={emoji} />
+                      {category.emojis.map((emoji) => (
+                        <EmojiCard key={emoji} emoji={emoji} />
                       ))}
                     </div>
                   </div>
@@ -364,8 +364,8 @@ export default function CommunicationPage() {
                       Use Cases:
                     </h4>
                     <ul className="space-y-1">
-                      {category.examples.map((example, i) => (
-                        <li key={i} className="flex items-center space-x-2">
+                      {category.examples.map((example) => (
+                        <li key={example} className="flex items-center space-x-2">
                           <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full" />
                           <span className="text-xs text-foreground-muted">{example}</span>
                         </li>
@@ -388,8 +388,8 @@ export default function CommunicationPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Best Practices</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {chatTips.map((tip, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {chatTips.map((tip) => (
+              <motion.div key={tip.title} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center">
@@ -406,8 +406,8 @@ export default function CommunicationPage() {
                   </div>
                   
                   <ul className="space-y-2">
-                    {tip.tips.map((item, i) => (
-                      <li key={i} className="flex items-start space-x-2">
+                    {tip.tips.map((item) => (
+                      <li key={item} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-sm text-foreground-muted">{item}</span>
                       </li>
@@ -430,8 +430,8 @@ export default function CommunicationPage() {
             Essential Communication Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {chatCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {chatCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

@@ -255,8 +255,8 @@ export default function WorldsPage() {
           animate="visible"
           className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12"
         >
-          {worlds.map((world, index) => (
-            <motion.div key={index} variants={itemVariants}>
+          {worlds.map((world) => (
+            <motion.div key={world.name} variants={itemVariants}>
               <div className={`bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border-2 ${world.borderColor} p-6 h-full`}>
                 {/* Header */}
                 <div className="flex items-start space-x-4 mb-6">
@@ -286,8 +286,8 @@ export default function WorldsPage() {
                     World Features
                   </h4>
                   <div className="grid grid-cols-1 gap-2">
-                    {world.features.map((feature, i) => (
-                      <div key={i} className="flex items-center space-x-2">
+                    {world.features.map((feature) => (
+                      <div key={feature} className="flex items-center space-x-2">
                         <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                         <span className="text-xs text-foreground-muted">{feature}</span>
                       </div>
@@ -302,8 +302,8 @@ export default function WorldsPage() {
                     Best For
                   </h4>
                   <div className="flex flex-wrap gap-1">
-                    {world.bestFor.map((use, i) => (
-                      <span key={i} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
+                    {world.bestFor.map((use) => (
+                      <span key={use} className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded">
                         {use}
                       </span>
                     ))}
@@ -314,8 +314,8 @@ export default function WorldsPage() {
                 <div className="mb-6">
                   <h4 className="text-sm font-medium text-foreground mb-3">Quick Access Commands</h4>
                   <div className="space-y-2">
-                    {world.commands.map((cmd, i) => (
-                      <code key={i} className="block text-xs bg-gray-100 text-primary px-2 py-1 rounded font-mono">
+                    {world.commands.map((cmd) => (
+                      <code key={cmd} className="block text-xs bg-gray-100 text-primary px-2 py-1 rounded font-mono">
                         {cmd}
                       </code>
                     ))}
@@ -326,8 +326,8 @@ export default function WorldsPage() {
                 <div>
                   <h4 className="text-sm font-medium text-foreground mb-3">Pro Tips</h4>
                   <div className="space-y-2">
-                    {world.tips.map((tip, i) => (
-                      <div key={i} className="flex items-start space-x-2">
+                    {world.tips.map((tip) => (
+                      <div key={tip} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-xs text-foreground-muted">{tip}</span>
                       </div>
@@ -350,8 +350,8 @@ export default function WorldsPage() {
             World Navigation Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

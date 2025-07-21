@@ -205,8 +205,8 @@ export default function WorldSelectionPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Available Worlds</h2>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {worlds.map((world, index) => (
-              <motion.div key={index} variants={itemVariants}>
+            {worlds.map((world) => (
+              <motion.div key={world.name} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
                   <div className="flex items-start space-x-4 mb-4">
                     <div className={`w-12 h-12 rounded-xl ${world.bgColor} flex items-center justify-center`}>
@@ -241,8 +241,8 @@ export default function WorldSelectionPage() {
                       Key Features:
                     </h4>
                     <ul className="grid grid-cols-2 gap-1">
-                      {world.features.map((feature, i) => (
-                        <li key={i} className="flex items-center space-x-2">
+                      {world.features.map((feature) => (
+                        <li key={feature} className="flex items-center space-x-2">
                           <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                           <span className="text-xs text-foreground-muted">{feature}</span>
                         </li>
@@ -339,8 +339,8 @@ export default function WorldSelectionPage() {
             World Navigation Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {quickCommands.map((cmd, index) => (
-              <CommandCard key={index} command={cmd.command} description={cmd.description} />
+            {quickCommands.map((cmd) => (
+              <CommandCard key={cmd.command} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

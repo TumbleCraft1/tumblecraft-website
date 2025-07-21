@@ -177,8 +177,8 @@ function CommandCard({ command }: { command: Command }) {
             <div>
               <h4 className="text-sm font-medium text-foreground mb-2">Examples:</h4>
               <div className="space-y-1">
-                {command.examples.map((example, index) => (
-                  <div key={index} className="flex items-center justify-between">
+                {command.examples.map((example) => (
+                  <div key={example} className="flex items-center justify-between">
                     <code className="text-sm bg-green-50 text-green-800 px-3 py-1 rounded flex-1">
                       {example}
                     </code>

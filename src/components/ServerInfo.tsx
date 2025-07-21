@@ -106,9 +106,9 @@ export default function ServerInfo() {
               </p>
 
               <div className="space-y-6">
-                {smpFeatures.map((feature, index) => (
+                {smpFeatures.map((feature) => (
                   <div 
-                    key={index}
+                    key={feature.title}
                     className="flex items-start gap-4"
                   >
                     <div className="text-primary mt-1">
