@@ -11,8 +11,6 @@ import {
   Users, 
   Heart, 
   Sword,
-  Shield,
-  Bow,
   Wrench,
   Hammer,
   FlaskConical,
@@ -50,7 +48,7 @@ const skillCategories = [
       },
       {
         name: 'Archery',
-        icon: Bow,
+        icon: Target,
         description: 'Improve bow accuracy and damage from range',
         training: 'Shoot arrows at mobs and players',
         abilities: ['Skill Shot', 'Daze', 'Arrow Retrieval']
