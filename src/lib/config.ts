@@ -1,5 +1,5 @@
 export const LEADERBOARD_CONFIG = {
-  API_BASE_URL: process.env.NEXT_PUBLIC_LEADERBOARD_API_URL || 'http://localhost:8080',
+  API_BASE_URL: process.env.NEXT_PUBLIC_LEADERBOARD_API_URL || 'http://103.137.193.5:8012',
   REFRESH_INTERVAL: 5 * 60 * 1000, // 5 minutes in milliseconds
   REQUEST_TIMEOUT: 10000, // 10 seconds
   MAX_RETRIES: 3,
