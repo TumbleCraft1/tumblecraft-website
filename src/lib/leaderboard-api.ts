@@ -178,7 +178,7 @@ export class LeaderboardAPI {
 
   static async getAllLeaderboards(): Promise<LeaderboardsResponse> {
     try {
-      const response = await this.fetchWithTimeout(`${API_BASE_URL}/api/all`)
+      const response = await this.fetchWithTimeout(`/api/leaderboards`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -196,7 +196,7 @@ export class LeaderboardAPI {
 
   static async getCategoryLeaderboard(category: string): Promise<LeaderboardCategory> {
     try {
-      const response = await this.fetchWithTimeout(`${API_BASE_URL}/api/leaderboards/${category}`)
+      const response = await this.fetchWithTimeout(`/api/leaderboards?category=${category}`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
