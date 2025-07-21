@@ -5,42 +5,49 @@ const MAX_RETRIES = 3
 const RETRY_DELAY = 1000
 const REQUEST_TIMEOUT = 15000
 
+// CORS proxy URLs for bypassing Cloudflare Workers IP restrictions
+const CORS_PROXIES = [
+  'https://api.allorigins.win/raw?url=',
+  'https://corsproxy.io/?',
+  'https://api.codetabs.com/v1/proxy?quest='
+]
+
 // Detect if we're running in Cloudflare Workers
 const isCloudflareWorkers = typeof globalThis !== 'undefined' && 'cf' in (globalThis as Record<string, unknown>)
 const isDevelopment = process.env.NODE_ENV === 'development'
 
-// Alternative fetch function for Cloudflare Workers
-async function cloudflareWorkerFetch(url: string, options: RequestInit): Promise<Response> {
-  // In Cloudflare Workers, we need to bypass the IP restriction
-  // Try multiple approaches
+// Alternative fetch function for Cloudflare Workers using CORS proxies
+async function cloudflareWorkerFetch(url: string): Promise<Response> {
+  console.log(`[Cloudflare Workers] Direct fetch blocked, trying CORS proxies for: ${url}`)
   
-  const urlObj = new URL(url)
-  console.log(`[Cloudflare Workers] Original URL: ${url}`)
-  
-  // Approach 1: Try with modified headers that might bypass restrictions
-  const modifiedOptions = {
-    ...options,
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'User-Agent': 'curl/8.5.0', // Mimic curl since that works
-      'Host': urlObj.host,
-      'Connection': 'close'
-    },
-    // Remove Cloudflare-specific configurations that might interfere
-    cf: undefined
+  // Try each CORS proxy in sequence
+  for (let i = 0; i < CORS_PROXIES.length; i++) {
+    const proxyUrl = CORS_PROXIES[i] + encodeURIComponent(url)
+    console.log(`[Cloudflare Workers] Attempt ${i + 1}/${CORS_PROXIES.length} - Proxy: ${proxyUrl}`)
+    
+    try {
+      const response = await fetch(proxyUrl, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'TumbleCraft-Website/1.0'
+        },
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT / 2) // Shorter timeout for proxy attempts
+      })
+      
+      if (response.ok) {
+        console.log(`[Cloudflare Workers] Proxy ${i + 1} succeeded - Status: ${response.status}`)
+        return response
+      } else {
+        console.warn(`[Cloudflare Workers] Proxy ${i + 1} failed - Status: ${response.status}`)
+      }
+    } catch (error) {
+      console.warn(`[Cloudflare Workers] Proxy ${i + 1} error:`, error)
+    }
   }
   
-  console.log(`[Cloudflare Workers] Attempting fetch with curl-like headers to: ${url}`)
-  
-  try {
-    const response = await fetch(url, modifiedOptions)
-    console.log(`[Cloudflare Workers] Response status: ${response.status}`)
-    return response
-  } catch (error) {
-    console.error(`[Cloudflare Workers] Fetch failed:`, error)
-    throw error
-  }
+  // If all proxies fail, throw an error
+  throw new Error('All CORS proxies failed - unable to bypass Cloudflare Workers IP restriction')
 }
 
 interface RetryOptions {
@@ -65,11 +72,23 @@ async function fetchWithRetry(url: string, options: RequestInit, retryOptions: R
       let response: Response
       
       if (isCloudflareWorkers && !isDevelopment) {
-        // In Cloudflare Workers production, try our modified approach
-        response = await cloudflareWorkerFetch(url, {
-          ...options,
-          signal: AbortSignal.timeout(REQUEST_TIMEOUT)
-        })
+        // In Cloudflare Workers production, try direct first, then proxy on failure
+        try {
+          console.log(`[Leaderboard API] Cloudflare Workers: Attempting direct fetch first`)
+          response = await fetch(url, {
+            ...options,
+            signal: AbortSignal.timeout(REQUEST_TIMEOUT)
+          })
+          
+          // If we get a 403, immediately try proxy
+          if (response.status === 403) {
+            console.log(`[Leaderboard API] Direct fetch returned 403, switching to proxy`)
+            response = await cloudflareWorkerFetch(url)
+          }
+        } catch (directError) {
+          console.log(`[Leaderboard API] Direct fetch failed, trying proxy:`, directError)
+          response = await cloudflareWorkerFetch(url)
+        }
       } else {
         // Standard fetch for development or non-CF environments
         response = await fetch(url, {

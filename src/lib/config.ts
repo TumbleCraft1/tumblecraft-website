@@ -1,5 +1,6 @@
 export const LEADERBOARD_CONFIG = {
   API_BASE_URL: process.env.NEXT_PUBLIC_LEADERBOARD_API_URL || 'http://103.137.193.5:8012',
+  PROXY_ENABLED: process.env.NEXT_PUBLIC_ENABLE_CORS_PROXY === 'true',
   REFRESH_INTERVAL: 5 * 60 * 1000, // 5 minutes in milliseconds
   REQUEST_TIMEOUT: 15000, // 15 seconds (increased for Cloudflare Workers)
   MAX_RETRIES: 3,
