@@ -4,9 +4,9 @@ import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { 
-  ArrowLeft, ArrowRight, Shield, MapPin, Users, Lock, 
+  ArrowLeft, ArrowRight, Shield, MapPin, Users, 
   AlertTriangle, Pickaxe, Target, Copy, CheckCircle, 
-  Home, Zap, Settings, Eye, HelpCircle
+  Home, Zap, Eye
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -273,7 +273,8 @@ function CommandCard({ command, description, example }: {
   )
 }
 
-function ClaimingStep({ step, index }: { step: typeof claimingSteps[0]; index: number }) {
+function ClaimingStep({ step, index }: { step: typeof claimingSteps[0]; index?: number }) {
+  void index // Suppress unused warning
   return (
     <motion.div variants={itemVariants}>
       <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6 h-full">
@@ -300,8 +301,8 @@ function ClaimingStep({ step, index }: { step: typeof claimingSteps[0]; index: n
           <div>
             <h4 className="text-sm font-medium text-foreground mb-2">What to do:</h4>
             <ul className="space-y-1">
-              {step.details.map((detail, idx) => (
-                <li key={idx} className="flex items-start space-x-2">
+              {step.details.map((detail) => (
+                <li key={detail} className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm text-foreground-muted">{detail}</span>
                 </li>
@@ -312,8 +313,8 @@ function ClaimingStep({ step, index }: { step: typeof claimingSteps[0]; index: n
           <div>
             <h4 className="text-sm font-medium text-foreground mb-2">Pro tips:</h4>
             <ul className="space-y-1">
-              {step.tips.map((tip, idx) => (
-                <li key={idx} className="flex items-start space-x-2">
+              {step.tips.map((tip) => (
+                <li key={tip} className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm text-foreground-muted">{tip}</span>
                 </li>
@@ -327,7 +328,7 @@ function ClaimingStep({ step, index }: { step: typeof claimingSteps[0]; index: n
 }
 
 function MistakeCard({ mistake: mistakeData }: { mistake: typeof commonMistakes[0] }) {
-  const severityColors = {
+  const severityColors: { [key: string]: string } = {
     Low: 'bg-blue-100 text-blue-800',
     Medium: 'bg-orange-100 text-orange-800',
     High: 'bg-red-100 text-red-800'
@@ -397,7 +398,7 @@ export default function ClaimingLandPage() {
               <h1 className="hero-title">Claiming Your Land</h1>
               <p className="subtitle">
                 Learn how to protect your builds and create your own safe space on TumbleCraft. 
-                This beginner's guide covers everything you need to get started with land claiming.
+This beginner&apos;s guide covers everything you need to get started with land claiming.
               </p>
             </div>
           </div>
@@ -528,7 +529,7 @@ export default function ClaimingLandPage() {
                 Understanding Claimblocks
               </h3>
               <p className="text-foreground-muted">
-                Claimblocks are the "currency" used to claim land. Think of them like money for buying territory.
+                Claimblocks are the &quot;currency&quot; used to claim land. Think of them like money for buying territory.
               </p>
             </div>
           </div>
@@ -539,8 +540,8 @@ export default function ClaimingLandPage() {
                 What Are Claimblocks?
               </h4>
               <ul className="space-y-2">
-                {claimblockInfo.whatAre.map((item, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {claimblockInfo.whatAre.map((item) => (
+                  <li key={item} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{item}</span>
                   </li>
@@ -553,8 +554,8 @@ export default function ClaimingLandPage() {
                 How Many Do You Get?
               </h4>
               <ul className="space-y-2">
-                {claimblockInfo.howMany.map((item, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {claimblockInfo.howMany.map((item) => (
+                  <li key={item} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{item}</span>
                   </li>
@@ -567,8 +568,8 @@ export default function ClaimingLandPage() {
                 How to Get More?
               </h4>
               <ul className="space-y-2">
-                {claimblockInfo.howToGet.map((item, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {claimblockInfo.howToGet.map((item) => (
+                  <li key={item} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{item}</span>
                   </li>
@@ -600,7 +601,7 @@ export default function ClaimingLandPage() {
           </div>
           
           <p className="text-foreground-muted mb-6">
-            Once you've claimed your land, you'll want to invite friends to build with you. 
+            Once you&apos;ve claimed your land, you&apos;ll want to invite friends to build with you. 
             Here are the essential commands every new player should know:
           </p>
           
@@ -631,7 +632,7 @@ export default function ClaimingLandPage() {
           </div>
           
           <p className="text-foreground-muted mb-6">
-            Learn from other players' mistakes! Here are the most common issues new players face when claiming land:
+            Learn from other players&apos; mistakes! Here are the most common issues new players face when claiming land:
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -652,7 +653,7 @@ export default function ClaimingLandPage() {
             Next Steps After Claiming Your Land
           </h3>
           <p className="text-foreground-muted mb-6">
-            Congratulations on claiming your first piece of land! Here's what you can explore next:
+            Congratulations on claiming your first piece of land! Here&apos;s what you can explore next:
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -661,8 +662,8 @@ export default function ClaimingLandPage() {
                 Expand Your Claiming Knowledge:
               </h4>
               <ul className="space-y-2">
-                {nextStepsAfterClaiming.slice(0, 3).map((step, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {nextStepsAfterClaiming.slice(0, 3).map((step) => (
+                  <li key={step} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{step}</span>
                   </li>
@@ -674,8 +675,8 @@ export default function ClaimingLandPage() {
                 Explore Server Features:
               </h4>
               <ul className="space-y-2">
-                {nextStepsAfterClaiming.slice(3).map((step, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {nextStepsAfterClaiming.slice(3).map((step) => (
+                  <li key={step} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{step}</span>
                   </li>

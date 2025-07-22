@@ -292,8 +292,8 @@ function StrategyCard({ strategy }: { strategy: typeof advancedClaimingStrategie
       <div className="mb-4">
         <h4 className="text-sm font-medium text-foreground mb-3">Implementation Strategies:</h4>
         <ul className="space-y-2">
-          {strategy.strategies.map((item, itemIndex) => (
-            <li key={`strategy-${strategy.title.replace(/\s/g, '-')}-item-${itemIndex}`} className="flex items-start space-x-2">
+          {strategy.strategies.map((item) => (
+            <li key={`${strategy.title.replace(/\s/g, '-')}-item-${item}`} className="flex items-start space-x-2">
               <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
               <span className="text-sm text-foreground-muted">{item}</span>
             </li>
@@ -336,8 +336,8 @@ function ClaimTypeCard({ claim }: { claim: typeof claimTypes[0] }) {
       <div className="mb-4">
         <p className="text-sm font-medium text-foreground mb-2">Key Features:</p>
         <ul className="space-y-1">
-          {claim.features.map((feature, featureIndex) => (
-            <li key={`claim-${claim.name.replace(/\s/g, '-')}-feature-${featureIndex}`} className="flex items-center space-x-2 text-xs text-foreground-muted">
+          {claim.features.map((feature) => (
+            <li key={`${claim.name.replace(/\s/g, '-')}-feature-${feature}`} className="flex items-center space-x-2 text-xs text-foreground-muted">
               <div className="w-1 h-1 bg-gray-400 rounded-full" />
               <span>{feature}</span>
             </li>
@@ -375,8 +375,8 @@ function TechniqueCard({ technique }: { technique: typeof expertTechniques[0] })
       </div>
       
       <ul className="space-y-2">
-        {technique.details.map((detail, detailIndex) => (
-          <li key={`technique-${technique.title.replace(/\s/g, '-')}-detail-${detailIndex}`} className="flex items-start space-x-2">
+        {technique.details.map((detail) => (
+          <li key={`${technique.title.replace(/\s/g, '-')}-detail-${detail}`} className="flex items-start space-x-2">
             <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
             <span className="text-sm text-foreground-muted">{detail}</span>
           </li>
@@ -445,7 +445,9 @@ function CommandCard({ cmd }: { cmd: typeof advancedCommands[0] }) {
 }
 
 export default function AdvancedClaimingPage() {
-  const [, _setActiveSection] = useState('strategies')
+  // Active section state for navigation
+  const [activeSection] = useState('strategies')
+  void activeSection // Prevent unused variable warning
 
   return (
     <main className="min-h-screen bg-background">
@@ -674,8 +676,8 @@ export default function AdvancedClaimingPage() {
             Critical Mistakes to Avoid
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {commonMistakes.map((mistake, mistakeIndex) => (
-              <motion.div key={`mistake-${mistakeIndex}`} variants={itemVariants}>
+            {commonMistakes.map((mistake) => (
+              <motion.div key={mistake.mistake.replace(/\s/g, '-')} variants={itemVariants}>
                 <MistakeCard mistake={mistake} />
               </motion.div>
             ))}
@@ -694,8 +696,8 @@ export default function AdvancedClaimingPage() {
             Advanced Claiming Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {advancedCommands.map((cmd, cmdIndex) => (
-              <CommandCard key={`command-${cmdIndex}`} cmd={cmd} />
+            {advancedCommands.map((cmd) => (
+              <CommandCard key={cmd.command} cmd={cmd} />
             ))}
           </div>
         </motion.div>

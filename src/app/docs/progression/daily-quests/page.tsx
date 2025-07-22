@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, Calendar, Star, Trophy, Target, Clock, Zap, CheckCircle, Copy, TrendingUp, Gift, ArrowRight } from 'lucide-react'
+import { ArrowLeft, Calendar, Star, Trophy, Target, Clock, Zap, CheckCircle, Copy, TrendingUp, Gift } from 'lucide-react'
 import { useState } from 'react'
 
 const dailyQuestTypes = [

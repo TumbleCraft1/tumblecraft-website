@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, Sparkles } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 export default function CosmeticsPage() {
   return (

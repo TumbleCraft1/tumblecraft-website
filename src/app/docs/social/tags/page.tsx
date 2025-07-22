@@ -202,8 +202,8 @@ function CommandCard({ command, description }: { command: string; description: s
       </div>
       <button
         onClick={copyCommand}
-        className="p-2 text-gray-400 hover:text-primary transition-colors"
-        title="Copy command"
+        className={`p-2 transition-colors ${copied ? 'text-green-600' : 'text-gray-400 hover:text-primary'}`}
+        title={copied ? "Copied!" : "Copy command"}
       >
         <Copy className="w-4 h-4" />
       </button>

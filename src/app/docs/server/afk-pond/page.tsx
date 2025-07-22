@@ -145,10 +145,10 @@ export default function AFKPondPage() {
                 <p className="text-foreground-muted leading-relaxed mb-4">
                   The AFK Pond is a special designated area on TumbleCraft where players can safely remain 
                   inactive while still earning valuable rewards. This feature allows you to stay connected 
-                  to the server and continue progressing even when you're not actively playing.
+                  to the server and continue progressing even when you&apos;re not actively playing.
                 </p>
                 <p className="text-foreground-muted leading-relaxed">
-                  Whether you're taking a break, doing homework, or just want to keep your presence on the 
+                  Whether you&apos;re taking a break, doing homework, or just want to keep your presence on the 
                   server while away, the AFK Pond provides a secure environment with automatic reward generation.
                 </p>
               </div>
@@ -215,7 +215,7 @@ export default function AFKPondPage() {
                     <div>
                       <h4 className="font-medium text-blue-900 mb-1">Cumulative Benefits</h4>
                       <p className="text-sm text-blue-800">
-                        The longer you stay AFK, the more rewards you accumulate! In 1 hour, you'll 
+                        The longer you stay AFK, the more rewards you accumulate! In 1 hour, you&apos;ll 
                         earn 8 coins (4 × 15-minute intervals) plus 1 Common Key.
                       </p>
                     </div>
@@ -253,7 +253,7 @@ export default function AFKPondPage() {
                     <ol className="space-y-2 text-foreground-muted">
                       <li className="flex items-start space-x-2">
                         <span className="text-primary font-bold min-w-[1.5rem]">1.</span>
-                        <span>Open your chat by pressing 'T' or 'Enter'</span>
+                        <span>Open your chat by pressing &apos;T&apos; or &apos;Enter&apos;</span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <span className="text-primary font-bold min-w-[1.5rem]">2.</span>
@@ -261,7 +261,7 @@ export default function AFKPondPage() {
                       </li>
                       <li className="flex items-start space-x-2">
                         <span className="text-primary font-bold min-w-[1.5rem]">3.</span>
-                        <span>You'll be instantly teleported to the AFK Pond</span>
+                        <span>You&apos;ll be instantly teleported to the AFK Pond</span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <span className="text-primary font-bold min-w-[1.5rem]">4.</span>
@@ -323,13 +323,13 @@ export default function AFKPondPage() {
                       <li className="flex items-start space-x-2">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-foreground-muted text-sm">
-                          <strong>Power Management:</strong> Consider your device's power settings for long sessions
+                          <strong>Power Management:</strong> Consider your device&apos;s power settings for long sessions
                         </span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-foreground-muted text-sm">
-                          <strong>Check Periodically:</strong> Occasionally check to ensure you're still connected
+                          <strong>Check Periodically:</strong> Occasionally check to ensure you&apos;re still connected
                         </span>
                       </li>
                     </ul>
@@ -359,8 +359,8 @@ export default function AFKPondPage() {
                         <h4 className="font-medium text-red-900 mb-2">Important Rules</h4>
                         <ul className="space-y-1 text-sm text-red-800">
                           <li>• No using AFK machines or automated movement devices</li>
-                          <li>• Respect other players' space in the AFK area</li>
-                          <li>• Don't build or place blocks in the AFK Pond</li>
+                          <li>• Respect other players&apos; space in the AFK area</li>
+                          <li>• Don&apos;t build or place blocks in the AFK Pond</li>
                           <li>• Follow all general server rules while AFK</li>
                         </ul>
                       </div>
@@ -400,7 +400,7 @@ export default function AFKPondPage() {
                 
                 <div className="space-y-4">
                   <p className="text-foreground-muted leading-relaxed">
-                    The AFK Pond plays an important role in TumbleCraft's economy by providing a 
+                    The AFK Pond plays an important role in TumbleCraft&apos;s economy by providing a 
                     steady source of coins and Common Keys for all players, regardless of their 
                     active playtime or skill level.
                   </p>
@@ -410,7 +410,7 @@ export default function AFKPondPage() {
                       <h4 className="font-medium text-yellow-900 mb-2">Coin Economy</h4>
                       <p className="text-sm text-yellow-800">
                         The steady flow of coins from AFK rewards helps maintain economic stability 
-                        and gives all players access to the server's trading systems.
+                        and gives all players access to the server&apos;s trading systems.
                       </p>
                     </div>
 

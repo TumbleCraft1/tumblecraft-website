@@ -3,8 +3,8 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, Crown, Shield, Swords, Target, Timer, Trophy, Zap, MapPin, Users, Gift, Calendar, Star, TrendingUp, AlertTriangle, Crosshair } from 'lucide-react'
-import { useState } from 'react'
+import { ArrowLeft, Crown, Shield, Swords, Target, Timer, Trophy, Zap, Users, Gift, Calendar, Star, TrendingUp, AlertTriangle, Crosshair } from 'lucide-react'
+import { ComponentType } from 'react'
 
 const kothFeatures = [
   {
@@ -197,7 +197,7 @@ const itemVariants = {
 function FeatureCard({ title, description, icon: Icon, color, bgColor, features }: {
   title: string
   description: string
-  icon: any
+  icon: ComponentType<{ className?: string }>
   color: string
   bgColor: string
   features: string[]
@@ -238,7 +238,7 @@ function FeatureCard({ title, description, icon: Icon, color, bgColor, features 
 function StrategyCard({ title, description, icon: Icon, tips }: {
   title: string
   description: string
-  icon: any
+  icon: ComponentType<{ className?: string }>
   tips: string[]
 }) {
   return (
@@ -268,7 +268,7 @@ function StrategyCard({ title, description, icon: Icon, tips }: {
 function RuleCard({ rule, description, icon: Icon }: {
   rule: string
   description: string
-  icon: any
+  icon: ComponentType<{ className?: string }>
 }) {
   return (
     <div className="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
@@ -287,7 +287,7 @@ function ScheduleCard({ time, description, frequency, icon: Icon }: {
   time: string
   description: string
   frequency: string
-  icon: any
+  icon: ComponentType<{ className?: string }>
 }) {
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">

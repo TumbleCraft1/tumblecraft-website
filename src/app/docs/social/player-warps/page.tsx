@@ -343,8 +343,8 @@ export default function PlayerWarpsPage() {
                   
                   <div className="space-y-2">
                     <h4 className="text-sm font-medium text-foreground mb-2">Popular Examples:</h4>
-                    {category.examples.map((example, exampleIndex) => (
-                      <div key={`category-${category.title.replace(/\s/g, '-')}-example-${exampleIndex}`} className="flex items-center space-x-2">
+                    {category.examples.map((example) => (
+                      <div key={`category-${category.title.replace(/\s/g, '-')}-example-${example.substring(0, 15).replace(/\s/g, '-')}`} className="flex items-center space-x-2">
                         <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                         <span className="text-sm text-foreground-muted">{example}</span>
                       </div>
@@ -378,8 +378,8 @@ export default function PlayerWarpsPage() {
                 </div>
                 
                 <div className="space-y-2">
-                  {benefit.benefits.map((item, itemIndex) => (
-                    <div key={`benefit-${benefit.title.replace(/\s/g, '-')}-item-${itemIndex}`} className="flex items-start space-x-2">
+                  {benefit.benefits.map((item) => (
+                    <div key={`benefit-${benefit.title.replace(/\s/g, '-')}-item-${item.substring(0, 15).replace(/\s/g, '-')}`} className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-green-400 rounded-full mt-2 flex-shrink-0" />
                       <span className="text-sm text-foreground-muted">{item}</span>
                     </div>
@@ -413,8 +413,8 @@ export default function PlayerWarpsPage() {
                   </div>
                   
                   <div className="space-y-3">
-                    {tipCategory.tips.map((tip, tipIndex) => (
-                      <div key={`category-${tipCategory.category.replace(/\s/g, '-')}-tip-${tipIndex}`} className="flex items-start space-x-2">
+                    {tipCategory.tips.map((tip) => (
+                      <div key={`category-${tipCategory.category.replace(/\s/g, '-')}-tip-${tip.substring(0, 20).replace(/\s/g, '-')}`} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-sm text-foreground-muted">{tip}</span>
                       </div>
@@ -437,8 +437,8 @@ export default function PlayerWarpsPage() {
             Player Warp Commands
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {warpCommands.map((cmd, cmdIndex) => (
-              <CommandCard key={`warp-command-${cmdIndex}`} command={cmd.command} description={cmd.description} />
+            {warpCommands.map((cmd) => (
+              <CommandCard key={`warp-command-${cmd.command.replace(/[^a-zA-Z0-9]/g, '-')}`} command={cmd.command} description={cmd.description} />
             ))}
           </div>
         </motion.div>

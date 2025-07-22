@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowLeft, Shield, Home, MapPin, Users, Zap, Target, Copy, BookOpen, Settings, Lock } from 'lucide-react'
 import { useState } from 'react'
+import React from 'react'
 
 const claimFeatures = [
   {
@@ -273,7 +274,7 @@ function StepCard({ step, title, description, details }: {
 function TipCard({ title, tip, icon: Icon }: {
   title: string
   tip: string
-  icon: any
+  icon: React.ComponentType<{ className?: string }>
 }) {
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
@@ -645,7 +646,7 @@ export default function ClaimingPage() {
           </h3>
           <p className="text-foreground-muted text-center mb-6 max-w-2xl mx-auto">
             Join the server, get your golden shovel, and start protecting your builds today! 
-            Remember to claim responsibly and be respectful of other players' territories.
+            Remember to claim responsibly and be respectful of other players&apos; territories.
           </p>
           <div className="flex justify-center space-x-4">
             <Link 

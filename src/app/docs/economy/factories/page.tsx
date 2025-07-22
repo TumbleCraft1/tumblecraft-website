@@ -48,7 +48,7 @@ export default function FactoriesPage() {
                 <span>Factories - Automated Production</span>
               </h1>
               <p className="subtitle">
-                Master TumbleCraft's automated production system to transform materials and generate passive income.
+                Master TumbleCraft&apos;s automated production system to transform materials and generate passive income.
               </p>
             </div>
           </div>

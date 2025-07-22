@@ -4,9 +4,9 @@ import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { 
-  ArrowLeft, ArrowRight, Home, MapPin, Zap, Target, 
+  ArrowLeft, ArrowRight, Home, MapPin, Zap, Target, Copy,
   AlertTriangle, Clock, Users, Heart, Star, 
-  Copy, CheckCircle, XCircle, Info, Compass, Map
+  XCircle, Info, Compass, Map
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -257,7 +257,7 @@ function CommandCard({ command, description }: { command: string; description: s
 }
 
 function HomeStep({ step, index }: { step: typeof homeSteps[0]; index: number }) {
-  const priorityColors = {
+  const priorityColors: { [key: string]: string } = {
     critical: 'bg-red-100 text-red-800',
     high: 'bg-orange-100 text-orange-800',
     medium: 'bg-blue-100 text-blue-800'
@@ -299,8 +299,8 @@ function HomeStep({ step, index }: { step: typeof homeSteps[0]; index: number })
           <div>
             <h4 className="text-sm font-medium text-foreground mb-2">Key Points:</h4>
             <ul className="space-y-1">
-              {step.actions.map((action, idx) => (
-                <li key={idx} className="flex items-start space-x-2">
+              {step.actions.map((action) => (
+                <li key={action} className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm text-foreground-muted">{action}</span>
                 </li>
@@ -311,8 +311,8 @@ function HomeStep({ step, index }: { step: typeof homeSteps[0]; index: number })
           <div>
             <h4 className="text-sm font-medium text-foreground mb-2">Pro Tips:</h4>
             <ul className="space-y-1">
-              {step.tips.map((tip, idx) => (
-                <li key={idx} className="flex items-start space-x-2">
+              {step.tips.map((tip) => (
+                <li key={tip} className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm text-foreground-muted">{tip}</span>
                 </li>
@@ -365,7 +365,7 @@ export default function FirstHomePage() {
             <div>
               <h1 className="hero-title">Setting Your First Home</h1>
               <p className="subtitle">
-                Master TumbleCraft's home teleportation system - your key to efficient travel and never getting lost again.
+                Master TumbleCraft&apos;s home teleportation system - your key to efficient travel and never getting lost again.
               </p>
             </div>
           </div>
@@ -443,8 +443,8 @@ export default function FirstHomePage() {
                   <h4 className="font-medium text-foreground">{section.category}</h4>
                 </div>
                 <ul className="space-y-2">
-                  {section.tips.map((tip, idx) => (
-                    <li key={idx} className="flex items-start space-x-2">
+                  {section.tips.map((tip) => (
+                    <li key={tip} className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
                       <span className="text-sm text-foreground-muted">{tip}</span>
                     </li>
@@ -532,9 +532,9 @@ export default function FirstHomePage() {
                 <div>
                   <h4 className="text-sm font-medium text-purple-700 mb-2">Naming Strategies:</h4>
                   <ul className="space-y-1 text-sm text-foreground-muted">
-                    <li>• Use prefixes: "farm_wheat", "mine_iron", "shop_main"</li>
+                    <li>• Use prefixes: &quot;farm_wheat&quot;, &quot;mine_iron&quot;, &quot;shop_main&quot;</li>
                     <li>• Include coordinates for remote locations</li>
-                    <li>• Use numbers for similar locations: "outpost1", "outpost2"</li>
+                    <li>• Use numbers for similar locations: &quot;outpost1&quot;, &quot;outpost2&quot;</li>
                     <li>• Keep names short but descriptive</li>
                   </ul>
                 </div>

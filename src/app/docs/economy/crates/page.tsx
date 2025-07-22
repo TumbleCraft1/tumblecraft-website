@@ -119,7 +119,7 @@ export default function CratesPage() {
             <p className="text-foreground-muted leading-relaxed mb-6">
               Crates are special reward boxes that contain various items, materials, cosmetics, and currencies. 
               Each crate requires a specific key to open and offers different tiers of rewards based on the crate type. 
-              From free vote crates to premium superior crates, there's something for every player.
+              From free vote crates to premium superior crates, there&apos;s something for every player.
             </p>
             
             <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
@@ -271,7 +271,7 @@ export default function CratesPage() {
                 </p>
               </div>
               
-              <h3 className="text-lg font-semibold text-foreground mb-4">What You'll Find</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-4">What You&apos;ll Find</h3>
               <ul className="space-y-2">
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-purple-500 rounded-full" />
@@ -334,7 +334,7 @@ export default function CratesPage() {
               </div>
               <h4 className="font-medium text-foreground mb-2">Vote Daily</h4>
               <p className="text-sm text-foreground-muted">
-                Use <code>/vote</code> every day to get free vote keys. It's the most cost-effective way to get rewards.
+                Use <code>/vote</code> every day to get free vote keys. It&apos;s the most cost-effective way to get rewards.
               </p>
             </div>
             <div className="text-center">
@@ -343,7 +343,7 @@ export default function CratesPage() {
               </div>
               <h4 className="font-medium text-foreground mb-2">Save for Better Crates</h4>
               <p className="text-sm text-foreground-muted">
-                Sometimes it's worth saving up for rare or epic keys instead of spending on many common keys.
+                Sometimes it&apos;s worth saving up for rare or epic keys instead of spending on many common keys.
               </p>
             </div>
             <div className="text-center">

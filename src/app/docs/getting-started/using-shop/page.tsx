@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, ShoppingCart, Coins, TrendingUp, Package, Target, DollarSign, Star, AlertTriangle, CheckCircle } from 'lucide-react'
+import { ShoppingCart, Coins, Target, DollarSign, Star, CheckCircle, ArrowLeft, TrendingUp, Package } from 'lucide-react'
 
 const quickSteps = [
   {
@@ -113,6 +113,9 @@ const itemVariants = {
 }
 
 export default function UsingShopPage() {
+  void containerVariants // Suppress unused warning
+  void itemVariants // Suppress unused warning
+  
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
@@ -155,7 +158,7 @@ export default function UsingShopPage() {
                 <span>Using the Shop</span>
               </h1>
               <p className="subtitle">
-                Learn how to use TumbleCraft's shop system to sell resources and earn money for your survival journey.
+                Learn how to use TumbleCraft&apos;s shop system to sell resources and earn money for your survival journey.
               </p>
             </div>
           </div>
@@ -195,7 +198,7 @@ export default function UsingShopPage() {
                 <h4 className="font-semibold text-green-800 mb-2">Why the Shop Matters</h4>
                 <p className="text-green-700 text-sm">
                   The shop is your primary source of income on TumbleCraft. Unlike other servers, 
-                  you can't just mine for diamonds - you need to sell resources to earn money for 
+                  you can&apos;t just mine for diamonds - you need to sell resources to earn money for 
                   equipment, land claims, and other essential features.
                 </p>
               </div>

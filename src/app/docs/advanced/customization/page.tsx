@@ -289,8 +289,8 @@ function CustomizationSystemCard({ system }: { system: typeof customizationSyste
         <div>
           <h4 className="text-sm font-medium text-foreground mb-2">Key Features:</h4>
           <ul className="space-y-1">
-            {system.features.map((feature, featureIndex) => (
-              <li key={`system-${system.name.replace(/\s/g, '-')}-feature-${featureIndex}`} className="flex items-center space-x-2 text-xs text-foreground-muted">
+            {system.features.map((feature) => (
+              <li key={`system-${system.name.replace(/\s/g, '-')}-feature-${feature.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`} className="flex items-center space-x-2 text-xs text-foreground-muted">
                 <div className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
                 <span>{feature}</span>
               </li>
@@ -301,8 +301,8 @@ function CustomizationSystemCard({ system }: { system: typeof customizationSyste
         <div>
           <h4 className="text-sm font-medium text-foreground mb-2">Essential Commands:</h4>
           <div className="space-y-1">
-            {system.commands.map((cmd, cmdIndex) => (
-              <code key={`system-${system.name.replace(/\s/g, '-')}-cmd-${cmdIndex}`} className="block text-xs bg-gray-100 px-2 py-1 rounded font-mono text-gray-700">
+            {system.commands.map((cmd) => (
+              <code key={`system-${system.name.replace(/\s/g, '-')}-cmd-${cmd.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`} className="block text-xs bg-gray-100 px-2 py-1 rounded font-mono text-gray-700">
                 {cmd}
               </code>
             ))}
@@ -312,8 +312,8 @@ function CustomizationSystemCard({ system }: { system: typeof customizationSyste
         <div className={`${system.bgColor} rounded-lg p-3`}>
           <h4 className="text-sm font-medium text-foreground mb-2">How to Obtain:</h4>
           <div className="space-y-1">
-            {system.sources.map((source, sourceIndex) => (
-              <div key={`system-${system.name.replace(/\s/g, '-')}-source-${sourceIndex}`} className="flex items-center space-x-2">
+            {system.sources.map((source) => (
+              <div key={`system-${system.name.replace(/\s/g, '-')}-source-${source.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`} className="flex items-center space-x-2">
                 <div className="w-1 h-1 bg-gray-400 rounded-full" />
                 <span className="text-xs text-foreground-muted">{source}</span>
               </div>
@@ -341,8 +341,8 @@ function TechniqueCard({ technique }: { technique: typeof advancedTechniques[0] 
       <div className="mb-4">
         <h4 className="text-sm font-medium text-foreground mb-3">Advanced Techniques:</h4>
         <ul className="space-y-2">
-          {technique.techniques.map((item, itemIndex) => (
-            <li key={`technique-${technique.title.replace(/\s/g, '-')}-item-${itemIndex}`} className="flex items-start space-x-2">
+          {technique.techniques.map((item) => (
+            <li key={`technique-${technique.title.replace(/\s/g, '-')}-item-${item.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase().substring(0, 20)}`} className="flex items-start space-x-2">
               <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
               <span className="text-sm text-foreground-muted">{item}</span>
             </li>
@@ -374,8 +374,8 @@ function RarityCard({ rarity }: { rarity: typeof toolSkinRarities[0] }) {
       <div>
         <h5 className="text-xs font-medium text-foreground mb-2">Examples:</h5>
         <div className="flex flex-wrap gap-1">
-          {rarity.examples.map((example, exampleIndex) => (
-            <span key={`rarity-${rarity.name.replace(/\s/g, '-')}-example-${exampleIndex}`} className={`text-xs px-2 py-1 rounded ${rarity.bgColor} ${rarity.color}`}>
+          {rarity.examples.map((example) => (
+            <span key={`rarity-${rarity.name.replace(/\s/g, '-')}-example-${example.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`} className={`text-xs px-2 py-1 rounded ${rarity.bgColor} ${rarity.color}`}>
               {example}
             </span>
           ))}
@@ -412,8 +412,8 @@ function CategoryCard({ category }: { category: typeof cosmeticCategories[0] }) 
       <div className="mt-3">
         <h5 className="text-xs font-medium text-foreground mb-2">Popular Items:</h5>
         <div className="flex flex-wrap gap-1">
-          {category.items.slice(0, 3).map((item, itemIndex) => (
-            <span key={`category-${category.name.replace(/\s/g, '-')}-item-${itemIndex}`} className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">
+          {category.items.slice(0, 3).map((item) => (
+            <span key={`category-${category.name.replace(/\s/g, '-')}-item-${item.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`} className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">
               {item}
             </span>
           ))}
@@ -424,8 +424,14 @@ function CategoryCard({ category }: { category: typeof cosmeticCategories[0] }) 
 }
 
 export default function AdvancedCustomizationPage() {
-  const [, setActiveTab] = useState('overview')
-  const [, setSearchTerm] = useState('')
+  const [activeTab, setActiveTab] = useState('overview')
+  const [searchTerm, setSearchTerm] = useState('')
+  
+  // Prevent unused variable warnings
+  void activeTab
+  void setActiveTab
+  void searchTerm
+  void setSearchTerm
 
   return (
     <main className="min-h-screen bg-background">
@@ -469,7 +475,7 @@ export default function AdvancedCustomizationPage() {
                 <span>Advanced Customization</span>
               </h1>
               <p className="subtitle">
-                Master TumbleCraft's complete customization ecosystem. Create unique looks with tool skins, 
+                Master TumbleCraft&apos;s complete customization ecosystem. Create unique looks with tool skins, 
                 cosmetics, player tags, and emojis. Build your personal brand and stand out in the community.
               </p>
             </div>
@@ -597,8 +603,8 @@ export default function AdvancedCustomizationPage() {
                 </div>
                 <p className="text-sm text-foreground-muted">{category.usage}</p>
                 <div className="flex flex-wrap gap-2">
-                  {category.examples.map((example, exampleIndex) => (
-                    <span key={`category-${category.name.replace(/\s/g, '-')}-example-${exampleIndex}`} className="text-lg">{example}</span>
+                  {category.examples.map((example) => (
+                    <span key={`category-${category.name.replace(/\s/g, '-')}-example-${example.codePointAt(0) || Math.random()}`} className="text-lg">{example}</span>
                   ))}
                 </div>
               </div>
@@ -648,7 +654,7 @@ export default function AdvancedCustomizationPage() {
                   <span className="text-sm text-foreground-muted">Opens emoji browser</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <code className="bg-gray-100 px-2 py-1 rounded text-sm">/emoji &lt;name&gt;</code>
+                  <code className="bg-gray-100 px-2 py-1 rounded text-sm">/emoji {"<"}name{">"}</code>
                   <span className="text-sm text-foreground-muted">Direct emoji lookup</span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -661,7 +667,7 @@ export default function AdvancedCustomizationPage() {
               <h4 className="font-medium text-foreground mb-3">Communication Enhancement:</h4>
               <div className="space-y-2 text-sm text-foreground-muted">
                 <p>• Use emojis to convey tone in text messages</p>
-                <p>• Express emotions that words can't capture</p>
+                <p>• Express emotions that words can&apos;t capture</p>
                 <p>• Add personality to announcements and signs</p>
                 <p>• Create visual emphasis in important messages</p>
               </div>

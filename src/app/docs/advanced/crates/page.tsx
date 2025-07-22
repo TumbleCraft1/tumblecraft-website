@@ -311,8 +311,8 @@ function StrategyCard({ strategy }: { strategy: typeof advancedStrategies[0] }) 
       <div>
         <h4 className="text-sm font-medium text-foreground mb-3">Implementation:</h4>
         <ul className="space-y-2">
-          {strategy.strategies.map((item, itemIndex) => (
-            <li key={`strategy-${strategy.title.replace(/\s/g, '-')}-item-${itemIndex}`} className="flex items-start space-x-2">
+          {strategy.strategies.map((item) => (
+            <li key={`${strategy.title.replace(/\s/g, '-')}-item-${item}`} className="flex items-start space-x-2">
               <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
               <span className="text-sm text-foreground-muted">{item}</span>
             </li>
@@ -345,7 +345,9 @@ function TipCard({ tip }: { tip: typeof expertTips[0] }) {
 }
 
 export default function AdvancedCratesPage() {
-  const [, _setSelectedCrate] = useState<string | null>(null)
+  // Selected crate state
+  const [selectedCrate] = useState<string | null>(null)
+  void selectedCrate // Prevent unused variable warning
 
   return (
     <main className="min-h-screen bg-background">
@@ -537,8 +539,8 @@ export default function AdvancedCratesPage() {
         >
           <h2 className="text-2xl font-bold text-foreground mb-6">Expert Tips & Tricks</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {expertTips.map((tip, tipIndex) => (
-              <motion.div key={`tip-${tipIndex}`} variants={itemVariants}>
+            {expertTips.map((tip) => (
+              <motion.div key={tip.title.replace(/\s/g, '-')} variants={itemVariants}>
                 <TipCard tip={tip} />
               </motion.div>
             ))}

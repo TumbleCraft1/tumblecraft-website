@@ -48,7 +48,7 @@ export default function CoinsPage() {
                 <span>Coins - Premium Currency</span>
               </h1>
               <p className="subtitle">
-                Learn about TumbleCraft's premium currency system and how to earn and spend coins effectively.
+                Learn about TumbleCraft&apos;s premium currency system and how to earn and spend coins effectively.
               </p>
             </div>
           </div>
@@ -64,9 +64,9 @@ export default function CoinsPage() {
           <div className="prose max-w-none">
             <h2 className="text-2xl font-bold text-foreground mb-6">What are Coins?</h2>
             <p className="text-foreground-muted leading-relaxed mb-6">
-              Coins are TumbleCraft's premium currency, designed for special purchases and exclusive items. 
+              Coins are TumbleCraft&apos;s premium currency, designed for special purchases and exclusive items. 
               Unlike regular money, coins are more valuable and harder to obtain, making them perfect for 
-              premium items, cosmetics, and special perks that aren't available through normal gameplay.
+              premium items, cosmetics, and special perks that aren&apos;t available through normal gameplay.
             </p>
             
             <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
@@ -161,11 +161,11 @@ export default function CoinsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">The Coinshop</h2>
           <p className="text-foreground-muted leading-relaxed mb-6">
             The coinshop is your gateway to premium items and exclusive perks. Here you can spend 
-            your hard-earned coins on items that aren't available anywhere else on the server.
+            your hard-earned coins on items that aren&apos;t available anywhere else on the server.
           </p>
           
           <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-6">
-            <h3 className="font-semibold text-foreground mb-4">What's Available in the Coinshop?</h3>
+            <h3 className="font-semibold text-foreground mb-4">What&apos;s Available in the Coinshop?</h3>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-yellow-500 rounded-full" />

@@ -5,8 +5,8 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { 
   ArrowLeft, ArrowRight, Shield, Pickaxe, TreePine, Home, 
-  Hammer, Apple, Sword, AlertTriangle, Sun, Moon, 
-  Mountain, Fish, Wheat, Chest, Copy, Heart, Eye
+  AlertTriangle, Moon, Apple, Hammer,
+  Mountain, Copy, Heart, Eye
 } from 'lucide-react'
 import { useState } from 'react'
 
@@ -272,7 +272,7 @@ function CommandCard({ command, description }: { command: string; description: s
 }
 
 function SurvivalStep({ step, index }: { step: typeof survivalSteps[0]; index: number }) {
-  const priorityColors = {
+  const priorityColors: { [key: string]: string } = {
     critical: 'bg-red-100 text-red-800',
     high: 'bg-orange-100 text-orange-800',
     medium: 'bg-blue-100 text-blue-800'
@@ -314,8 +314,8 @@ function SurvivalStep({ step, index }: { step: typeof survivalSteps[0]; index: n
           <div>
             <h4 className="text-sm font-medium text-foreground mb-2">Actions:</h4>
             <ul className="space-y-1">
-              {step.actions.map((action, idx) => (
-                <li key={idx} className="flex items-start space-x-2">
+              {step.actions.map((action) => (
+                <li key={action} className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm text-foreground-muted">{action}</span>
                 </li>
@@ -326,8 +326,8 @@ function SurvivalStep({ step, index }: { step: typeof survivalSteps[0]; index: n
           <div>
             <h4 className="text-sm font-medium text-foreground mb-2">Tips:</h4>
             <ul className="space-y-1">
-              {step.tips.map((tip, idx) => (
-                <li key={idx} className="flex items-start space-x-2">
+              {step.tips.map((tip) => (
+                <li key={tip} className="flex items-start space-x-2">
                   <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-sm text-foreground-muted">{tip}</span>
                 </li>
@@ -548,8 +548,8 @@ export default function BasicSurvivalPage() {
                 Building & Development:
               </h4>
               <ul className="space-y-2">
-                {nextSteps.slice(0, 3).map((step, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {nextSteps.slice(0, 3).map((step) => (
+                  <li key={step} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{step}</span>
                   </li>
@@ -561,8 +561,8 @@ export default function BasicSurvivalPage() {
                 Server Features & Community:
               </h4>
               <ul className="space-y-2">
-                {nextSteps.slice(3).map((step, idx) => (
-                  <li key={idx} className="flex items-start space-x-2">
+                {nextSteps.slice(3).map((step) => (
+                  <li key={step} className="flex items-start space-x-2">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2" />
                     <span className="text-sm text-foreground-muted">{step}</span>
                   </li>

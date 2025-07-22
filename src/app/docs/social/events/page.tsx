@@ -311,8 +311,8 @@ export default function EventsPage() {
                     <div>
                       <h4 className="text-sm font-medium text-foreground mb-2">Success Tips:</h4>
                       <div className="space-y-1">
-                        {event.details.tips.map((tip, tipIndex) => (
-                          <div key={`event-${event.title.replace(/\s/g, '-')}-tip-${tipIndex}`} className="flex items-start space-x-2">
+                        {event.details.tips.map((tip) => (
+                          <div key={`event-${event.title.replace(/\s/g, '-')}-tip-${tip.substring(0, 20).replace(/\s/g, '-')}`} className="flex items-start space-x-2">
                             <div className="w-1 h-1 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
                             <span className="text-xs text-foreground-muted">{tip}</span>
                           </div>
@@ -335,8 +335,8 @@ export default function EventsPage() {
         >
           <h2 className="text-2xl font-bold text-foreground mb-6">Event Schedule</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {eventSchedule.map((schedule, scheduleIndex) => (
-              <div key={`schedule-${scheduleIndex}`} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-4">
+            {eventSchedule.map((schedule) => (
+              <div key={`schedule-${schedule.event.replace(/\s/g, '-')}-${schedule.location.replace(/\s/g, '-')}`} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-4">
                 <div className="flex items-center space-x-3 mb-3">
                   <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
                     <schedule.icon className={`w-4 h-4 ${schedule.color}`} />
@@ -377,15 +377,15 @@ export default function EventsPage() {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {arenaFeatures.map((feature, featureIndex) => (
-              <div key={`arena-feature-${featureIndex}`} className="p-4 bg-gray-50 rounded-xl">
+            {arenaFeatures.map((feature) => (
+              <div key={`arena-feature-${feature.name.replace(/\s/g, '-')}`} className="p-4 bg-gray-50 rounded-xl">
                 <h4 className="font-semibold text-foreground mb-2">{feature.name}</h4>
                 <p className="text-sm text-foreground-muted mb-3">{feature.description}</p>
                 
                 <div className="space-y-2">
                   <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">Benefits:</div>
-                  {feature.benefits.map((benefit, benefitIndex) => (
-                    <div key={`feature-${feature.name.replace(/\s/g, '-')}-benefit-${benefitIndex}`} className="flex items-start space-x-2">
+                  {feature.benefits.map((benefit) => (
+                    <div key={`feature-${feature.name.replace(/\s/g, '-')}-benefit-${benefit.substring(0, 15).replace(/\s/g, '-')}`} className="flex items-start space-x-2">
                       <div className="w-1 h-1 bg-red-400 rounded-full mt-2 flex-shrink-0" />
                       <span className="text-xs text-foreground-muted">{benefit}</span>
                     </div>
@@ -423,8 +423,8 @@ export default function EventsPage() {
                   </div>
                   
                   <div className="space-y-3">
-                    {tipCategory.tips.map((tip, tipIndex) => (
-                      <div key={`category-${tipCategory.category.replace(/\s/g, '-')}-tip-${tipIndex}`} className="flex items-start space-x-2">
+                    {tipCategory.tips.map((tip) => (
+                      <div key={`category-${tipCategory.category.replace(/\s/g, '-')}-tip-${tip.substring(0, 20).replace(/\s/g, '-')}`} className="flex items-start space-x-2">
                         <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0" />
                         <span className="text-sm text-foreground-muted">{tip}</span>
                       </div>

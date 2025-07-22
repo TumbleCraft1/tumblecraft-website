@@ -333,7 +333,7 @@ export default function JoiningCommunityPage() {
           
           <div className="text-center space-y-4">
             <p className="text-foreground-muted">
-              You've completed the getting started guide! You now have all the knowledge needed to thrive on TumbleCraft. 
+              You&apos;ve completed the getting started guide! You now have all the knowledge needed to thrive on TumbleCraft. 
               Remember, the community is here to help you grow and succeed.
             </p>
             
