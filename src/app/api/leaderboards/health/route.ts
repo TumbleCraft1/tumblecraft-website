@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const LEADERBOARD_API_BASE = process.env.NEXT_PUBLIC_LEADERBOARD_API_URL || 'http://103.137.193.5:8012'
+const LEADERBOARD_API_BASE = process.env.NEXT_PUBLIC_LEADERBOARD_API_URL || 'http://n1336.pufferfish.host:25646'
 const HEALTH_CHECK_TIMEOUT = 5000
 
 export async function GET() {
