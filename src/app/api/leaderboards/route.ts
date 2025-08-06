@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const LEADERBOARD_API_BASE = process.env.NEXT_PUBLIC_LEADERBOARD_API_URL || 'http://n1336.pufferfish.host:25646'
+const LEADERBOARD_API_BASE = 'http://n1336.pufferfish.host:25646'
 const MAX_RETRIES = 3
 const RETRY_DELAY = 1000
 const REQUEST_TIMEOUT = 15000
