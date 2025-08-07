@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const LEADERBOARD_API_BASE = 'http://n1336.pufferfish.host:25646'
+const LEADERBOARD_API_BASE = 'https://api.tumblecraft.gg'
 const HEALTH_CHECK_TIMEOUT = 5000
 
 export async function GET() {

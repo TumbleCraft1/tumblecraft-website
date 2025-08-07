@@ -1,5 +1,5 @@
 export const LEADERBOARD_CONFIG = {
-  API_BASE_URL: 'http://n1336.pufferfish.host:25646',
+  API_BASE_URL: 'https://api.tumblecraft.gg',
   PROXY_ENABLED: process.env.NEXT_PUBLIC_ENABLE_CORS_PROXY === 'true',
   REFRESH_INTERVAL: 5 * 60 * 1000, // 5 minutes in milliseconds
   REQUEST_TIMEOUT: 15000, // 15 seconds (increased for Cloudflare Workers)
