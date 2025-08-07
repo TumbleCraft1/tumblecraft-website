@@ -180,7 +180,7 @@ export class LeaderboardAPI {
     
     try {
       console.log('[LeaderboardAPI] Starting getAllLeaderboards request')
-      const response = await this.fetchWithTimeout(`/api/leaderboards`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards`)
       
       if (!response.ok) {
         // Try to parse error response for detailed information
@@ -232,7 +232,7 @@ export class LeaderboardAPI {
     
     try {
       console.log(`[LeaderboardAPI] Starting getCategoryLeaderboard request for: ${category}`)
-      const response = await this.fetchWithTimeout(`/api/leaderboards?category=${category}`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards?category=${category}`)
       
       if (!response.ok) {
         // Try to parse error response for detailed information
@@ -280,7 +280,7 @@ export class LeaderboardAPI {
   static async getServerStatus(): Promise<{ status: 'online' | 'offline', details?: Record<string, unknown> }> {
     try {
       console.log('[LeaderboardAPI] Checking server status via health endpoint')
-      const response = await this.fetchWithTimeout(`/api/leaderboards/health`, LEADERBOARD_CONFIG.HEALTH_CHECK_TIMEOUT)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/health`, LEADERBOARD_CONFIG.HEALTH_CHECK_TIMEOUT)
       
       if (response.ok) {
         const healthData = await response.json() as { status?: string; [key: string]: unknown }

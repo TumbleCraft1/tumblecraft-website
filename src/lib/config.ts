@@ -1,6 +1,5 @@
 export const LEADERBOARD_CONFIG = {
   API_BASE_URL: 'https://api.tumblecraft.gg',
-  PROXY_ENABLED: process.env.NEXT_PUBLIC_ENABLE_CORS_PROXY === 'true',
   REFRESH_INTERVAL: 5 * 60 * 1000, // 5 minutes in milliseconds
   REQUEST_TIMEOUT: 15000, // 15 seconds (increased for Cloudflare Workers)
   MAX_RETRIES: 3,
@@ -18,10 +17,6 @@ export const LEADERBOARD_CONFIG = {
   
   // Cache settings
   CACHE_DURATION: 2 * 60 * 1000, // 2 minutes
-  
-  // Development settings
-  DEV_MODE: process.env.NODE_ENV === 'development',
-  LOG_LEVEL: process.env.NODE_ENV === 'development' ? 'debug' : 'error'
 }
 
 export const FALLBACK_DATA = {
