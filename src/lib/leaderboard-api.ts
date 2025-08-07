@@ -180,31 +180,47 @@ export class LeaderboardAPI {
     
     try {
       console.log('[LeaderboardAPI] Starting getAllLeaderboards request')
-      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards`)
       
-      if (!response.ok) {
-        // Try to parse error response for detailed information
+      // First get the list of available categories
+      const categoriesResponse = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards`)
+      
+      if (!categoriesResponse.ok) {
         let errorDetails = 'Unknown error'
         try {
-          const errorData = await response.json() as { message?: string; error?: string }
-          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+          const errorData = await categoriesResponse.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${categoriesResponse.status}`
           console.error(`[LeaderboardAPI] Server error response:`, errorData)
         } catch {
-          errorDetails = `HTTP error! status: ${response.status}`
+          errorDetails = `HTTP error! status: ${categoriesResponse.status}`
         }
         throw new Error(errorDetails)
       }
       
-      const data = await response.json() as AllLeaderboardsResponse
+      const categoriesData = await categoriesResponse.json() as { categories: string[] }
+      console.log('[LeaderboardAPI] Available categories:', categoriesData.categories)
+      
+      // Fetch data for each category concurrently
+      const categoryPromises = categoriesData.categories.map(async (categoryName) => {
+        try {
+          return await this.getCategoryLeaderboard(categoryName)
+        } catch (error) {
+          console.warn(`[LeaderboardAPI] Failed to fetch ${categoryName}:`, error)
+          // Return a placeholder category if one fails
+          return {
+            category: categoryName,
+            display_name: this.getCategoryInfo(categoryName).displayName,
+            rankings: [],
+            last_updated: new Date().toISOString(),
+            total_entries: 0
+          }
+        }
+      })
+      
+      const leaderboards = await Promise.all(categoryPromises)
       const duration = Date.now() - startTime
       
-      console.log(`[LeaderboardAPI] Successfully fetched leaderboards in ${duration}ms`)
+      console.log(`[LeaderboardAPI] Successfully fetched ${leaderboards.length} leaderboards in ${duration}ms`)
       
-      // Convert the object format to array format expected by the frontend
-      const leaderboards = Object.values(data).map(category => ({
-        ...category,
-        rankings: this.deduplicatePlayersByUUID(category.rankings)
-      }))
       return { leaderboards }
     } catch (error) {
       const duration = Date.now() - startTime
@@ -232,7 +248,7 @@ export class LeaderboardAPI {
     
     try {
       console.log(`[LeaderboardAPI] Starting getCategoryLeaderboard request for: ${category}`)
-      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards?category=${category}`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards/${category}`)
       
       if (!response.ok) {
         // Try to parse error response for detailed information
@@ -254,7 +270,7 @@ export class LeaderboardAPI {
       
       return {
         ...data,
-        rankings: this.deduplicatePlayersByUUID(data.rankings)
+        rankings: this.deduplicatePlayersByUUID(data.rankings || [])
       }
     } catch (error) {
       const duration = Date.now() - startTime
