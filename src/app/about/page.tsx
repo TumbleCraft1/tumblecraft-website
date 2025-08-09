@@ -1,11 +1,13 @@
 'use client'
 
 import Navigation from '@/components/Navigation'
-import { MessageCircle, Sparkles } from 'lucide-react'
+import { MessageCircle, Sparkles, X } from 'lucide-react'
 import { useBetaForm } from '@/context/BetaFormContext'
+import { useState } from 'react'
 
 export default function AboutPage() {
   const { openForm } = useBetaForm()
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -36,6 +38,46 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Image Gallery */}
+      <section className="py-8">
+        <div className="container mx-auto px-6 max-w-7xl">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="col-span-2 row-span-2 cursor-pointer group overflow-hidden rounded-xl">
+              <img 
+                src="/screenshot-7.png" 
+                alt="TumbleCraft server gameplay featuring modern builds and active community"
+                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                onClick={() => setSelectedImage("/screenshot-7.png")}
+              />
+            </div>
+            <div className="aspect-square cursor-pointer group overflow-hidden rounded-xl">
+              <img 
+                src="/screenshot-3.png" 
+                alt="Advanced team mechanics and collaboration features"
+                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                onClick={() => setSelectedImage("/screenshot-3.png")}
+              />
+            </div>
+            <div className="aspect-square cursor-pointer group overflow-hidden rounded-xl">
+              <img 
+                src="/screenshot-4.png" 
+                alt="Server events and community activities"
+                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                onClick={() => setSelectedImage("/screenshot-4.png")}
+              />
+            </div>
+            <div className="col-span-2 cursor-pointer group overflow-hidden rounded-xl">
+              <img 
+                src="/screenshot-5.png" 
+                alt="High-quality server infrastructure and polished user interface"
+                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                onClick={() => setSelectedImage("/screenshot-5.png")}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="py-12">
         <div className="container mx-auto px-6 max-w-3xl text-center">
@@ -62,6 +104,29 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-7xl max-h-full">
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Full size server screenshot"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
