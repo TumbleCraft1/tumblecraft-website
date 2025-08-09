@@ -1,9 +1,11 @@
 'use client'
 
 import Navigation from '@/components/Navigation'
-import { MessageCircleMore, Sparkles, Trophy } from 'lucide-react'
+import { MessageCircle, Sparkles } from 'lucide-react'
+import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function AboutPage() {
+  const { openForm } = useBetaForm()
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -13,8 +15,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <h1 className="hero-title">Why TumbleCraft</h1>
           <p className="subtitle mt-4">
-            A clean, modern SMP focused on progression that feels fair, social systems that make teaming easy,
-            and seasonal events that stay exciting without grind walls.
+            We're engineered with the single thought of making the best SMP experience possible. 
           </p>
         </div>
       </section>
@@ -25,24 +26,13 @@ export default function AboutPage() {
           {[
             { title: 'Fair Progression', desc: 'Earn it in-game. No pay-to-win. Rewards tuned for fun.' },
             { title: 'Social-first', desc: 'Teams, events, and tools that bring players together.' },
-            { title: 'Polished UX', desc: 'Readable UI, smooth motion, and consistently high quality.' },
+            { title: 'Polished UX', desc: 'Endless content and QOL updates, with a focus on player experience.' },
           ].map((v) => (
             <div key={v.title} className="game-card">
               <div className="text-lg font-semibold text-primary">{v.title}</div>
               <div className="text-foreground-secondary mt-1">{v.desc}</div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Proof Strip */}
-      <section className="py-4">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <div className="feature-card flex flex-wrap items-center justify-center gap-6">
-            <div className="flex items-center gap-2"><Trophy className="w-5 h-5 text-primary" /><span className="text-sm text-foreground-muted">99.95% Uptime</span></div>
-            <div className="flex items-center gap-2"><Sparkles className="w-5 h-5 text-accent" /><span className="text-sm text-foreground-muted">Weekly Updates</span></div>
-            <div className="flex items-center gap-2"><MessageCircleMore className="w-5 h-5 text-primary" /><span className="text-sm text-foreground-muted">Active Discord</span></div>
-          </div>
         </div>
       </section>
 
@@ -61,9 +51,13 @@ export default function AboutPage() {
                 rel="noopener noreferrer"
                 className="btn-or-discord min-w-[200px]"
               >
+                <MessageCircle className="w-5 h-5" />
                 Join Discord
               </a>
-              <a href="#apply" className="btn-or-server min-w-[200px]">Apply For Beta</a>
+              <button onClick={openForm} className="btn-or-server min-w-[200px]">
+                <Sparkles className="w-5 h-5" />
+                Apply For Beta
+              </button>
             </div>
           </div>
         </div>

@@ -346,11 +346,6 @@ body {
   box-shadow: 0 2px 8px var(--shadow-light);
 }
 
-.game-card:hover {
-  border-color: var(--color-primary);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px var(--shadow-medium);
-}
 
 /* Feature Card Variant */
 .feature-card {
@@ -362,11 +357,6 @@ body {
   box-shadow: 0 4px 16px var(--shadow-light);
 }
 
-.feature-card:hover {
-  border-color: var(--color-accent);
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px var(--shadow-medium);
-}
 
 /* Particle Background Animation */
 @keyframes float {
