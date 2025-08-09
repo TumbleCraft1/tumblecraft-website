@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { BookOpen, Command, Coins, Users, TrendingUp, Zap, Info, ArrowRight } from 'lucide-react'
+import { BookOpen, Command, Coins, Users, TrendingUp, Zap, Info, ArrowRight, Sword } from 'lucide-react'
 
 const categories = [
   {
@@ -59,13 +59,22 @@ const categories = [
     color: 'text-orange-600',
     bgColor: 'bg-orange-50 dark:bg-orange-900/20',
     features: ['PvP & Arena', 'Factories', 'Crates', 'Customization']
+  },
+  {
+    title: 'Elite Mobs System',
+    description: 'Advanced combat with scaling mobs, custom loot, and epic boss battles',
+    icon: Sword,
+    href: '/docs/elite-mobs',
+    color: 'text-red-600',
+    bgColor: 'bg-red-50 dark:bg-red-900/20',
+    features: ['Commands & Guild', 'Mechanics & Powers', 'Boss Loot', 'Enchanting']
   }
 ]
 
 const quickLinks = [
   { title: 'Essential Commands', href: '/docs/commands/essential', icon: Command },
   { title: 'How to Start', href: '/docs/getting-started/welcome', icon: BookOpen },
-  { title: 'Economy Overview', href: '/docs/economy/overview', icon: Coins },
+  { title: 'Elite Mobs Guide', href: '/docs/elite-mobs', icon: Sword },
   { title: 'Server Rules', href: '/docs/server/rules', icon: Info }
 ]
 
