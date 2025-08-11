@@ -3,8 +3,12 @@
 import Navigation from '@/components/Navigation'
 import { MessageCircle, X } from 'lucide-react'
 import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function AboutPage() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  
   if (process.env.NODE_ENV === 'production') {
     return (
       <main className="min-h-screen flex items-center justify-center">
@@ -12,17 +16,16 @@ export default function AboutPage() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Page Not Found</h1>
           <p className="text-gray-600 mb-6">This page is only available in development.</p>
-          <a
+          <Link
             href="/"
             className="inline-flex items-center px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
           >
             Return Home
-          </a>
+          </Link>
         </div>
       </main>
     )
   }
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   return (
     <main className="min-h-screen">
       <Navigation />
@@ -32,7 +35,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <h1 className="hero-title">Why TumbleCraft</h1>
           <p className="subtitle mt-4">
-            We're engineered with the single thought of making the best SMP experience possible. 
+            We&apos;re engineered with the single thought of making the best SMP experience possible. 
           </p>
         </div>
       </section>
@@ -58,35 +61,43 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="col-span-2 row-span-2 cursor-pointer group overflow-hidden rounded-xl">
-              <img 
+              <Image 
                 src="/screenshot-7.png" 
                 alt="TumbleCraft server gameplay featuring modern builds and active community"
                 className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 onClick={() => setSelectedImage("/screenshot-7.png")}
+                width={800}
+                height={600}
               />
             </div>
             <div className="aspect-square cursor-pointer group overflow-hidden rounded-xl">
-              <img 
+              <Image 
                 src="/screenshot-3.png" 
                 alt="Advanced team mechanics and collaboration features"
                 className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 onClick={() => setSelectedImage("/screenshot-3.png")}
+                width={400}
+                height={400}
               />
             </div>
             <div className="aspect-square cursor-pointer group overflow-hidden rounded-xl">
-              <img 
+              <Image 
                 src="/screenshot-4.png" 
                 alt="Server events and community activities"
                 className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 onClick={() => setSelectedImage("/screenshot-4.png")}
+                width={400}
+                height={400}
               />
             </div>
             <div className="col-span-2 cursor-pointer group overflow-hidden rounded-xl">
-              <img 
+              <Image 
                 src="/screenshot-5.png" 
                 alt="High-quality server infrastructure and polished user interface"
                 className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 onClick={() => setSelectedImage("/screenshot-5.png")}
+                width={800}
+                height={400}
               />
             </div>
           </div>
@@ -129,11 +140,13 @@ export default function AboutPage() {
             >
               <X className="w-8 h-8" />
             </button>
-            <img
+            <Image
               src={selectedImage}
               alt="Full size server screenshot"
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
+              width={1200}
+              height={800}
             />
           </div>
         </div>

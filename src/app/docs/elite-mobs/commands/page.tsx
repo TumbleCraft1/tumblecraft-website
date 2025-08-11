@@ -193,7 +193,7 @@ export default function EliteMobsCommandsPage() {
           <h2 className="text-2xl font-bold text-foreground mb-6">Player Commands</h2>
           
           <div className="space-y-4">
-            {commands.map((cmd, index) => (
+            {commands.map((cmd) => (
               <motion.div key={cmd.command} variants={itemVariants}>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200 p-6">
                   <div className="flex items-start space-x-4">
@@ -247,7 +247,7 @@ export default function EliteMobsCommandsPage() {
           </div>
           
           <div className="space-y-4">
-            {adminCommands.map((cmd, index) => (
+            {adminCommands.map((cmd) => (
               <div key={cmd.command} className="bg-gray-50 rounded-lg p-4">
                 <div className="flex items-center space-x-3 mb-2">
                   <code className="text-primary font-mono bg-white px-3 py-1 rounded border">

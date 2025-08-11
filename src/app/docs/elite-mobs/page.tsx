@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Sword, Crown, Coins, Zap, Shield, Users, ArrowLeft } from 'lucide-react'
+import { ArrowRight, Sword, Crown, Zap, Shield, Users, ArrowLeft } from 'lucide-react'
 import Image from 'next/image'
 
 const containerVariants = {

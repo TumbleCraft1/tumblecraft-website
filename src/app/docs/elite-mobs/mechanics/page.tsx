@@ -251,8 +251,8 @@ export default function EliteMobsMechanicsPage() {
                         <div>
                           <h4 className="font-semibold text-foreground mb-3">Key Features:</h4>
                           <ul className="space-y-2">
-                            {mechanic.details.map((detail, index) => (
-                              <li key={index} className="flex items-center space-x-2 text-sm text-foreground-muted">
+                            {mechanic.details.map((detail) => (
+                              <li key={detail} className="flex items-center space-x-2 text-sm text-foreground-muted">
                                 <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0" />
                                 <span>{detail}</span>
                               </li>
@@ -336,8 +336,8 @@ export default function EliteMobsMechanicsPage() {
               <div key={section.title}>
                 <h3 className="text-lg font-semibold text-foreground mb-4">{section.title}</h3>
                 <div className="space-y-3">
-                  {section.tips.map((tip, index) => (
-                    <div key={index} className="flex items-start space-x-3">
+                  {section.tips.map((tip) => (
+                    <div key={tip} className="flex items-start space-x-3">
                       <Target className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                       <p className="text-sm text-foreground-muted">
                         {tip}

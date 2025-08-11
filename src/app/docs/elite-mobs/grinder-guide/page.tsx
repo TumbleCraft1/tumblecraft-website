@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, ArrowLeft, Cog, Target, Shield, Zap, AlertTriangle, TrendingUp, Clock, MapPin } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Cog, Target, Shield, Zap, AlertTriangle, TrendingUp, Clock } from 'lucide-react'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -340,8 +340,8 @@ export default function GrinderGuidePage() {
                         <div>
                           <h4 className="font-semibold text-foreground mb-3">Requirements:</h4>
                           <ul className="space-y-1">
-                            {grinder.requirements.map((req, index) => (
-                              <li key={index} className="flex items-center space-x-2 text-sm text-foreground-muted">
+                            {grinder.requirements.map((req) => (
+                              <li key={req} className="flex items-center space-x-2 text-sm text-foreground-muted">
                                 <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0" />
                                 <span>{req}</span>
                               </li>
@@ -352,8 +352,8 @@ export default function GrinderGuidePage() {
                         <div>
                           <h4 className="font-semibold text-foreground mb-3">Advantages:</h4>
                           <ul className="space-y-1">
-                            {grinder.pros.map((pro, index) => (
-                              <li key={index} className="flex items-center space-x-2 text-sm text-green-600">
+                            {grinder.pros.map((pro) => (
+                              <li key={pro} className="flex items-center space-x-2 text-sm text-green-600">
                                 <div className="w-1.5 h-1.5 bg-green-500 rounded-full flex-shrink-0" />
                                 <span>{pro}</span>
                               </li>
@@ -364,8 +364,8 @@ export default function GrinderGuidePage() {
                         <div>
                           <h4 className="font-semibold text-foreground mb-3">Disadvantages:</h4>
                           <ul className="space-y-1">
-                            {grinder.cons.map((con, index) => (
-                              <li key={index} className="flex items-center space-x-2 text-sm text-red-600">
+                            {grinder.cons.map((con) => (
+                              <li key={con} className="flex items-center space-x-2 text-sm text-red-600">
                                 <div className="w-1.5 h-1.5 bg-red-500 rounded-full flex-shrink-0" />
                                 <span>{con}</span>
                               </li>
@@ -403,8 +403,8 @@ export default function GrinderGuidePage() {
                 </p>
                 
                 <ul className="space-y-2">
-                  {principle.tips.map((tip, index) => (
-                    <li key={index} className="flex items-start space-x-2 text-sm text-foreground-muted">
+                  {principle.tips.map((tip) => (
+                    <li key={tip} className="flex items-start space-x-2 text-sm text-foreground-muted">
                       <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0" />
                       <span>{tip}</span>
                     </li>
@@ -447,8 +447,8 @@ export default function GrinderGuidePage() {
                   </p>
                   
                   <ul className="space-y-2">
-                    {step.tasks.map((task, taskIndex) => (
-                      <li key={taskIndex} className="flex items-start space-x-2 text-sm text-foreground-muted">
+                    {step.tasks.map((task) => (
+                      <li key={task} className="flex items-start space-x-2 text-sm text-foreground-muted">
                         <div className="w-1 h-1 bg-gray-400 rounded-full mt-2 flex-shrink-0" />
                         <span>{task}</span>
                       </li>
@@ -478,8 +478,8 @@ export default function GrinderGuidePage() {
                   <div>
                     <h4 className="text-sm font-medium text-foreground-secondary mb-2">Common Causes:</h4>
                     <ul className="space-y-1">
-                      {issue.causes.map((cause, index) => (
-                        <li key={index} className="text-sm text-foreground-muted">
+                      {issue.causes.map((cause) => (
+                        <li key={cause} className="text-sm text-foreground-muted">
                           • {cause}
                         </li>
                       ))}
@@ -489,8 +489,8 @@ export default function GrinderGuidePage() {
                   <div>
                     <h4 className="text-sm font-medium text-foreground-secondary mb-2">Solutions:</h4>
                     <ul className="space-y-1">
-                      {issue.solutions.map((solution, index) => (
-                        <li key={index} className="text-sm text-green-600">
+                      {issue.solutions.map((solution) => (
+                        <li key={solution} className="text-sm text-green-600">
                           ✓ {solution}
                         </li>
                       ))}
@@ -515,8 +515,8 @@ export default function GrinderGuidePage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {safetyGuidelines.map((guideline, index) => (
-              <div key={index} className="flex items-start space-x-3">
+            {safetyGuidelines.map((guideline) => (
+              <div key={guideline} className="flex items-start space-x-3">
                 <AlertTriangle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-red-700">{guideline}</p>
               </div>
@@ -536,8 +536,8 @@ export default function GrinderGuidePage() {
               🎉 Elite Mobs Mastery Complete!
             </h3>
             <p className="text-foreground-muted mb-6">
-              You've now learned everything needed to master the Elite Mobs system. From basic commands 
-              to advanced grinding strategies, you're ready to take on any challenge.
+              You&apos;ve now learned everything needed to master the Elite Mobs system. From basic commands 
+              to advanced grinding strategies, you&apos;re ready to take on any challenge.
             </p>
             <div className="flex items-center justify-center space-x-4">
               <Link 

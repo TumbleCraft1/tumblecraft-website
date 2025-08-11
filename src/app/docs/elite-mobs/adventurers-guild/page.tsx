@@ -277,8 +277,8 @@ export default function AdventurersGuildPage() {
                         <div>
                           <h4 className="font-semibold text-foreground mb-3">Services Offered:</h4>
                           <ul className="space-y-2">
-                            {npc.services.map((service, index) => (
-                              <li key={index} className="flex items-center space-x-2 text-sm text-foreground-muted">
+                            {npc.services.map((service) => (
+                              <li key={service} className="flex items-center space-x-2 text-sm text-foreground-muted">
                                 <div className="w-1.5 h-1.5 bg-gray-400 rounded-full flex-shrink-0" />
                                 <span>{service}</span>
                               </li>
