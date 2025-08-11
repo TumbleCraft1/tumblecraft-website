@@ -3,12 +3,18 @@
 import { LeaderboardsResponse } from '@/lib/leaderboard-api'
 import { useLeaderboardData } from '@/hooks/useLeaderboardData'
 import Navigation from '@/components/Navigation'
+import PardonAppearanceModal from '@/components/PardonAppearanceModal'
 import LeaderboardGrid from '@/components/leaderboards/LeaderboardGrid'
 import { LeaderboardSkeleton, ErrorState, EmptyState } from '@/components/leaderboards/LoadingStates'
+import { useEffect, useState } from 'react'
 
 export default function LeaderboardsPage() {
   const { data, loading, error, refresh } = useLeaderboardData()
+  const [showModal, setShowModal] = useState(false)
 
+  useEffect(() => {
+    setShowModal(true)
+  }, [])
 
   const handleRetry = () => {
     refresh()
@@ -18,6 +24,7 @@ export default function LeaderboardsPage() {
     return (
       <main className="min-h-screen bg-background">
         <Navigation />
+        <PardonAppearanceModal show={showModal} onClose={() => setShowModal(false)} />
         <div className="container mx-auto px-6 pt-24 pb-12">
           <div className="text-center mb-12">
             <h1 className="hero-title mb-6">
@@ -35,6 +42,7 @@ export default function LeaderboardsPage() {
     return (
       <main className="min-h-screen bg-background">
         <Navigation />
+        <PardonAppearanceModal show={showModal} onClose={() => setShowModal(false)} />
         <div className="flex items-center justify-center min-h-screen pt-24">
           <ErrorState onRetry={handleRetry} />
         </div>
@@ -46,6 +54,7 @@ export default function LeaderboardsPage() {
     return (
       <main className="min-h-screen bg-background">
         <Navigation />
+        <PardonAppearanceModal show={showModal} onClose={() => setShowModal(false)} />
         <div className="flex items-center justify-center min-h-screen pt-24">
           <EmptyState />
         </div>
@@ -56,6 +65,7 @@ export default function LeaderboardsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
+      <PardonAppearanceModal show={showModal} onClose={() => setShowModal(false)} />
       <div className="pt-24">
         <LeaderboardGrid data={data as LeaderboardsResponse} />
       </div>

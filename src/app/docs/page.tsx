@@ -1,8 +1,10 @@
 'use client'
 
 import Navigation from '@/components/Navigation'
+import PardonAppearanceModal from '@/components/PardonAppearanceModal'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { BookOpen, Command, Coins, Users, TrendingUp, Zap, Info, ArrowRight, Sword } from 'lucide-react'
 
 const categories = [
@@ -97,9 +99,16 @@ const itemVariants = {
 }
 
 export default function DocsPage() {
+  const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    setShowModal(true)
+  }, [])
+
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
+      <PardonAppearanceModal show={showModal} onClose={() => setShowModal(false)} />
       
       <div className="container mx-auto px-6 pt-24 pb-12">
         {/* Hero Section */}
