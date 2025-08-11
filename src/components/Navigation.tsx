@@ -28,7 +28,7 @@ export default function Navigation() {
           whileHover={{ scale: 1.05 }}
         >
           <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">T</span>
+            <span className="text-white font-bold text-sm">TC</span>
           </div>
           <span className="text-lg font-bold text-gray-900">TumbleCraft</span>
         </motion.a>
