@@ -1,9 +1,36 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { UserPlus } from 'lucide-react'
+import { UserPlus, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
 
 export default function HeroSection() {
+  const images = [
+    '/screenshot-1.png',
+    '/screenshot-2.png',
+    '/screenshot-3.png',
+    '/screenshot-4.png',
+    '/screenshot-5.png',
+    '/screenshot-6.png',
+    '/screenshot-7.png'
+  ]
+
+  const [currentImage, setCurrentImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length)
+    }, 4000)
+    return () => clearInterval(interval)
+  }, [images.length])
+
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImage((prev) => (prev - 1 + images.length) % images.length)
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -23,68 +50,100 @@ export default function HeroSection() {
 
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'url(/screenshot-2.png)',
-          filter: 'brightness(0.3) blur(1px)'
-        }}
-      ></div>
-      
-      {/* Animated Background Grid - InvestorFuse Enhanced */}
-      <div className="absolute inset-0 grid-pattern opacity-15"></div>
-      <div className="absolute inset-0 grid-pattern-accent opacity-5"></div>
-      
-      
-
-      {/* Main Hero Content */}
-      <motion.div 
-        className="container mx-auto px-6 text-center z-10 max-w-6xl"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-
-        {/* Main Title */}
-        <motion.h1 
-          className="hero-title mb-6"
-          variants={itemVariants}
-        >
-          The next generation of Minecraft servers is here.
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p 
-          className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
-          variants={itemVariants}
-        >
-          Built by software veterans with deep ties to tech creators and 
-          gaming culture - TumbleCraft is redefining what SMP should feel like.
-        </motion.p>
-
-        {/* CTA Section */}
-        <motion.div 
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
-          variants={itemVariants}
-        >
-          <motion.a
-            href="https://discord.gg/HYrTBqMKCM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-or-discord min-w-[200px]"
-            whileHover={{ 
-              scale: 1.02
-            }}
-            whileTap={{ scale: 0.98 }}
+    <section className="relative min-h-screen flex items-center justify-center bg-white">
+      <div className="container mx-auto px-6 z-10 max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left: Text Content */}
+          <motion.div 
+            className="text-left"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <UserPlus className="w-5 h-5" />
-            Join The Waitlist
-          </motion.a>
-        </motion.div>
+            {/* Main Title */}
+            <motion.h1 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+              variants={itemVariants}
+            >
+              The next generation<br />of Minecraft servers is <span className="text-orange-500">here</span>.
+            </motion.h1>
 
-      </motion.div>
+            {/* Subtitle */}
+            <motion.p 
+              className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed"
+              variants={itemVariants}
+            >
+              Built by software veterans with deep ties to<br />tech creators - redefining what SMP should feel like.
+            </motion.p>
+
+            {/* CTA Section */}
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4"
+              variants={itemVariants}
+            >
+              <motion.a
+                href="https://discord.gg/HYrTBqMKCM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-or-discord min-w-[200px]"
+                whileHover={{ 
+                  scale: 1.02
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <UserPlus className="w-5 h-5" />
+                Join The Waitlist
+              </motion.a>
+            </motion.div>
+          </motion.div>
+
+          {/* Right: Image Carousel */}
+          <motion.div 
+            className="relative"
+            variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+              <img 
+                src={images[currentImage]} 
+                alt={`TumbleCraft Server Screenshot ${currentImage + 1}`} 
+                className="w-full h-full object-cover"
+              />
+              
+              {/* Navigation Arrows */}
+              <button 
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              
+              <button 
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {images.map((image, index) => (
+                  <button
+                    key={`carousel-dot-${image}`}
+                    onClick={() => setCurrentImage(index)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      index === currentImage ? 'bg-white' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
 
     </section>
   )

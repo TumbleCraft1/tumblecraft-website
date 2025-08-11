@@ -46,10 +46,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col h-screen`}
       >
         <Providers>
-          <div className="flex-1">
+          <div className="flex-1 overflow-hidden">
             {children}
           </div>
           <Footer />
