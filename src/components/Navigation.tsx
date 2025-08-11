@@ -8,7 +8,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-    ...(process.env.NODE_ENV === 'development' ? [{ href: '/about', label: 'About', icon: <Info className="w-4 h-4" /> }] : []),
+    { href: '/about', label: 'About', icon: <Info className="w-4 h-4" /> },
     { href: '/docs', label: 'Documentation', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/leaderboards', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
     // { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
