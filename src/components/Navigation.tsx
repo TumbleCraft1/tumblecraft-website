@@ -35,7 +35,7 @@ export default function Navigation() {
         {/* Logo - Center on mobile, left on desktop */}
         <motion.a 
           href="/"
-          className="flex items-center gap-2 sm:gap-3 bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full shadow-lg border border-gray-200 absolute left-1/2 transform -translate-x-1/2 sm:relative sm:left-auto sm:transform-none"
+          className="flex items-center gap-2 sm:gap-3 bg-white/90 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full shadow-lg border border-gray-200 absolute left-1/2 -translate-x-1/2 sm:relative sm:left-auto sm:translate-x-0"
           whileHover={{ scale: 1.05 }}
         >
           <div className="flex items-center gap-1 sm:gap-2">
