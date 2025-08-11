@@ -1,6 +1,7 @@
 'use client'
 
 import { Heart, BookOpen, Trophy } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -18,20 +19,20 @@ export default function Footer() {
           </a>
           
           <div className="flex items-center gap-6">
-            <a 
+            <Link 
               href="/docs" 
               className="text-white/70 hover:text-white transition-colors flex items-center gap-2"
             >
               <BookOpen className="w-4 h-4" />
               Documentation
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/leaderboards" 
               className="text-white/70 hover:text-white transition-colors flex items-center gap-2"
             >
               <Trophy className="w-4 h-4" />
               Leaderboards
-            </a>
+            </Link>
           </div>
         </div>
       </div>
