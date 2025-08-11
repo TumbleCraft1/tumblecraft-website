@@ -51,7 +51,7 @@ export default function HeroSection() {
 
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white">
+    <section className="relative min-h-screen flex items-center justify-center bg-white pb-0">
       <div className="container mx-auto px-6 z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
@@ -101,12 +101,12 @@ export default function HeroSection() {
 
           {/* Right: Image Carousel */}
           <motion.div 
-            className="relative"
+            className="relative mb-0"
             variants={itemVariants}
             initial="hidden"
             animate="visible"
           >
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl mb-0">
               <Image 
                 src={images[currentImage]} 
                 alt={`TumbleCraft Server Screenshot ${currentImage + 1}`} 
