@@ -253,9 +253,9 @@ body {
   box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
-/* Discord Button (Keeps Discord brand color) */
+/* Discord Button (Uses orange color to match "here" text) */
 .btn-or-discord {
-  background: #5865f2;
+  background: #f97316;
   color: var(--color-white);
   font-weight: 600;
   padding: 12px 20px;
@@ -272,9 +272,9 @@ body {
 }
 
 .btn-or-discord:hover {
-  background: #4752c4;
+  background: #ea580c;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
 }
 
 /* Server/Action Button - Uses InvestorFuse Accent */

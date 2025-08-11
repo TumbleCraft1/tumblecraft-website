@@ -154,7 +154,7 @@ export default function AboutPage() {
               className="btn-or-discord min-w-[200px]"
             >
               <UserPlus className="w-5 h-5" />
-              Join The Waitlist
+              Join Waitlist
             </a>
           </div>
         </div>

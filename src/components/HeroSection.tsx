@@ -94,7 +94,7 @@ export default function HeroSection() {
                 whileTap={{ scale: 0.98 }}
               >
                 <UserPlus className="w-5 h-5" />
-                Join The Waitlist
+                Join Waitlist
               </motion.a>
             </motion.div>
           </motion.div>

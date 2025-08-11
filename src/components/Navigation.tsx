@@ -2,15 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Menu, X, Trophy, BookOpen, Info } from 'lucide-react'
+import { Menu, X, Info, UserPlus } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
     { href: '/about', label: 'About', icon: <Info className="w-4 h-4" /> },
-    { href: '/docs', label: 'Documentation', icon: <BookOpen className="w-4 h-4" /> },
-    { href: '/leaderboards', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
     // { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
   ]
 
@@ -27,10 +25,10 @@ export default function Navigation() {
           className="flex items-center gap-3 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg border border-gray-200"
           whileHover={{ scale: 1.05 }}
         >
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-sm">TC</span>
+          <div className="flex items-center gap-2">
+            <span className="bg-orange-500 text-white text-sm font-bold px-3 py-1 rounded-full">BETA</span>
+            <span className="text-lg font-bold text-gray-900">TumbleCraft</span>
           </div>
-          <span className="text-lg font-bold text-gray-900">TumbleCraft</span>
         </motion.a>
 
         {/* Desktop Navigation */}
@@ -47,7 +45,19 @@ export default function Navigation() {
               {link.label}
             </motion.a>
           ))}
-
+          
+          {/* Join Waitlist CTA */}
+          <motion.a
+            href="https://discord.gg/HYrTBqMKCM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-or-discord px-4 py-2 rounded-full shadow-lg flex items-center gap-2"
+            whileHover={{ y: -2, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <UserPlus className="w-4 h-4" />
+            Join Waitlist
+          </motion.a>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,7 +93,19 @@ export default function Navigation() {
                 {link.label}
               </motion.a>
             ))}
-
+            
+            {/* Join Waitlist CTA Mobile */}
+            <motion.a
+              href="https://discord.gg/HYrTBqMKCM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-or-discord px-4 py-2 rounded-full shadow-lg flex items-center gap-2 w-full"
+              onClick={() => setIsOpen(false)}
+              whileHover={{ x: 5 }}
+            >
+              <UserPlus className="w-4 h-4" />
+              Join Waitlist
+            </motion.a>
           </div>
         </motion.div>
       )}

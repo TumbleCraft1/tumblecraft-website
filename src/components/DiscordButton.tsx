@@ -11,7 +11,7 @@ interface DiscordButtonProps {
 export default function DiscordButton({ 
   href = "https://discord.gg/N7hEkd82", 
   className = "", 
-  children = "Join The Waitlist" 
+  children = "Join Waitlist" 
 }: DiscordButtonProps) {
   return (
     <a
