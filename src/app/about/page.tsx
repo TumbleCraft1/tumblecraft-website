@@ -1,118 +1,92 @@
 'use client'
 
 import Navigation from '@/components/Navigation'
-import { MessageCircle, X } from 'lucide-react'
-import { useState } from 'react'
+import { MessageCircle } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function AboutPage() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  
-  if (process.env.NODE_ENV === 'production') {
-    return (
-      <main className="min-h-screen flex items-center justify-center">
-        <Navigation />
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Page Not Found</h1>
-          <p className="text-gray-600 mb-6">This page is only available in development.</p>
-          <Link
-            href="/"
-            className="inline-flex items-center px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Return Home
-          </Link>
-        </div>
-      </main>
-    )
-  }
   return (
     <main className="min-h-screen">
       <Navigation />
 
-      {/* Minimalist Hero */}
-      <section className="pt-36 pb-12">
+      {/* Hero Section */}
+      <section className="pt-36 pb-16">
         <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h1 className="hero-title">Why TumbleCraft</h1>
+          <h1 className="hero-title">About TumbleCraft</h1>
           <p className="subtitle mt-4">
-            We&apos;re engineered with the single thought of making the best SMP experience possible. 
+            A next-generation Minecraft experience built by BuiltForNiko.com
           </p>
         </div>
       </section>
 
-      {/* Three-Panel Value Row */}
-      <section className="py-4">
-        <div className="container mx-auto px-6 max-w-6xl grid md:grid-cols-3 gap-6">
-          {[
-            { title: 'Fair Progression', desc: 'Earn it in-game. No pay-to-win. Rewards tuned for fun.' },
-            { title: 'Social-first', desc: 'Teams, events, and tools that bring players together.' },
-            { title: 'Polished UX', desc: 'Endless content and QOL updates, with a focus on player experience.' },
-          ].map((v) => (
-            <div key={v.title} className="game-card">
-              <div className="text-lg font-semibold text-primary">{v.title}</div>
-              <div className="text-foreground-secondary mt-1">{v.desc}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Image Gallery */}
+      {/* Main Content */}
       <section className="py-8">
-        <div className="container mx-auto px-6 max-w-7xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="col-span-2 row-span-2 cursor-pointer group overflow-hidden rounded-xl">
-              <Image 
-                src="/screenshot-7.png" 
-                alt="TumbleCraft server gameplay featuring modern builds and active community"
-                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                onClick={() => setSelectedImage("/screenshot-7.png")}
-                width={800}
-                height={600}
-              />
-            </div>
-            <div className="aspect-square cursor-pointer group overflow-hidden rounded-xl">
-              <Image 
-                src="/screenshot-3.png" 
-                alt="Advanced team mechanics and collaboration features"
-                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                onClick={() => setSelectedImage("/screenshot-3.png")}
-                width={400}
-                height={400}
-              />
-            </div>
-            <div className="aspect-square cursor-pointer group overflow-hidden rounded-xl">
-              <Image 
-                src="/screenshot-4.png" 
-                alt="Server events and community activities"
-                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                onClick={() => setSelectedImage("/screenshot-4.png")}
-                width={400}
-                height={400}
-              />
-            </div>
-            <div className="col-span-2 cursor-pointer group overflow-hidden rounded-xl">
-              <Image 
-                src="/screenshot-5.png" 
-                alt="High-quality server infrastructure and polished user interface"
-                className="rounded-xl w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                onClick={() => setSelectedImage("/screenshot-5.png")}
-                width={800}
-                height={400}
-              />
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="feature-card text-left">
+            <div className="space-y-6 text-foreground-secondary leading-relaxed">
+              <p>
+                TumbleCraft is a next-generation Minecraft experience built by <strong><a href="https://builtforniko.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">BuiltForNiko</a></strong>. We're a team of software engineers, gaming enthusiasts, and community builders who are tired of low-effort servers popping up for a week and vanishing. We're here to set a new standard for Minecraft SMP.
+              </p>
+              
+              <p>
+                Our vision is to blend the depth of classic RPGs with the freedom and creativity that Minecraft provides.
+              </p>
+              
+              <div>
+                <p className="mb-4">We're creating a persistent, player-driven world with:</p>
+                <ul className="space-y-2 ml-6">
+                  <li className="flex items-start">
+                    <span className="text-primary font-semibold mr-2">•</span>
+                    <span>1,000+ Quests: Spanning storylines, skill training, and world events.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary font-semibold mr-2">•</span>
+                    <span>Epic Boss Fights: Unique mechanics and cooperative challenges.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary font-semibold mr-2">•</span>
+                    <span>Custom Skilling System: Mining, fishing, combat, and more, with unique skillcapes and perks.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary font-semibold mr-2">•</span>
+                    <span>Balanced PvP & PvE: Designed for both competitive and casual players.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary font-semibold mr-2">•</span>
+                    <span>Authentic SMP Feel: Community-focused gameplay with long-term progression.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary font-semibold mr-2">•</span>
+                    <span>Custom Features & Events: Economy balancing, player shops, tournaments, and more.</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <p>
+                We're still in active development, and the journey is just getting started. 
+                Every feature we launch is tested, refined, and balanced with player feedback, 
+                so our community directly shapes the world we're building.
+              </p>
+              
+              <p>
+                If you've been looking for a server where progress matters, adventure thrives, 
+                and the creators care deeply, welcome to TumbleCraft. 
+                We're building the experience we want to play and you're invited to shape it.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Final CTA */}
+      {/* CTA Section */}
       <section className="py-12">
         <div className="container mx-auto px-6 max-w-3xl text-center">
           <div className="feature-card">
-            <h2 className="section-title mb-2">Jump in</h2>
-            <p className="text-foreground-secondary">
-              Join our Discord to connect with the community and get updates.
+            <h2 className="section-title mb-2">Join the Journey</h2>
+            <p className="text-foreground-secondary mb-6">
+              Connect with our community and help shape the future of TumbleCraft.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="https://discord.gg/HYrTBqMKCM"
                 target="_blank"
@@ -126,31 +100,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Image Modal */}
-      {selectedImage && (
-        <div 
-          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-7xl max-h-full">
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-            >
-              <X className="w-8 h-8" />
-            </button>
-            <Image
-              src={selectedImage}
-              alt="Full size server screenshot"
-              className="max-w-full max-h-full object-contain rounded-lg"
-              onClick={(e) => e.stopPropagation()}
-              width={1200}
-              height={800}
-            />
-          </div>
-        </div>
-      )}
     </main>
   )
 }
