@@ -3,11 +3,9 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Menu, X, Trophy, MessageCircle, BookOpen, Info } from 'lucide-react'
-import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const { openForm } = useBetaForm()
 
   const navLinks = [
     { href: '/about', label: 'About', icon: <Info className="w-4 h-4" /> },
@@ -63,15 +61,6 @@ export default function Navigation() {
             DISCORD
           </motion.a>
 
-          {/* Apply for Beta Button */}
-          <motion.button
-            onClick={openForm}
-            className="bg-[#FF8C00] hover:bg-[#FF7700] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2"
-            whileHover={{ y: -2, scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            APPLY FOR BETA
-          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -121,17 +110,6 @@ export default function Navigation() {
               DISCORD
             </motion.a>
 
-            {/* Mobile Apply for Beta Button */}
-            <motion.button
-              onClick={() => {
-                openForm()
-                setIsOpen(false)
-              }}
-              className="bg-[#FF8C00] hover:bg-[#FF7700] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2 w-full"
-              whileHover={{ x: 5 }}
-            >
-              APPLY FOR BETA
-            </motion.button>
           </div>
         </motion.div>
       )}

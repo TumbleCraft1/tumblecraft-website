@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, ArrowLeft, Crown, Sword, Shield, Bow, Sparkles, Zap, Search, Star } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Crown, Sword, Shield, BowArrow, Sparkles, Zap, Search, Star } from 'lucide-react'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -94,7 +94,7 @@ const featuredItems = [
     enchantments: ['Power VIII', 'Infinity', 'Hunter V', 'Punch IV'],
     specialAbility: 'Mark of the Hunter: Tagged mobs take additional damage',
     dropSource: 'Elite Rangers',
-    icon: Bow,
+    icon: BowArrow,
     color: 'text-green-600',
     bgColor: 'bg-green-50'
   },

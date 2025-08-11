@@ -1,12 +1,10 @@
 'use client'
 
 import Navigation from '@/components/Navigation'
-import { MessageCircle, Sparkles, X } from 'lucide-react'
-import { useBetaForm } from '@/context/BetaFormContext'
+import { MessageCircle, X } from 'lucide-react'
 import { useState } from 'react'
 
 export default function AboutPage() {
-  const { openForm } = useBetaForm()
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   return (
     <main className="min-h-screen">
@@ -84,7 +82,7 @@ export default function AboutPage() {
           <div className="feature-card">
             <h2 className="section-title mb-2">Jump in</h2>
             <p className="text-foreground-secondary">
-              Join our Discord to get updates and apply for beta access.
+              Join our Discord to connect with the community and get updates.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
@@ -96,10 +94,6 @@ export default function AboutPage() {
                 <MessageCircle className="w-5 h-5" />
                 Join Discord
               </a>
-              <button onClick={openForm} className="btn-or-server min-w-[200px]">
-                <Sparkles className="w-5 h-5" />
-                Apply For Beta
-              </button>
             </div>
           </div>
         </div>

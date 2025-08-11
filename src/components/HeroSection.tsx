@@ -1,11 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MessageCircle, Sparkles } from 'lucide-react'
-import { useBetaForm } from '@/context/BetaFormContext'
+import { MessageCircle } from 'lucide-react'
 
 export default function HeroSection() {
-  const { openForm } = useBetaForm()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -84,17 +82,6 @@ export default function HeroSection() {
             <MessageCircle className="w-5 h-5" />
             Join Discord
           </motion.a>
-          <motion.button
-            onClick={openForm}
-            className="btn-or-server min-w-[200px]"
-            whileHover={{ 
-              scale: 1.02
-            }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Sparkles className="w-5 h-5" />
-            Apply For Beta
-          </motion.button>
         </motion.div>
 
       </motion.div>

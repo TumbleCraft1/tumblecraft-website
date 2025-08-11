@@ -1,12 +1,10 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Zap, Users2, Trophy, Sparkles } from 'lucide-react'
+import { Shield, Zap, Users2, Trophy } from 'lucide-react'
 import Image from 'next/image'
-import { useBetaForm } from '@/context/BetaFormContext'
 
 export default function ServerInfo() {
-  const { openForm } = useBetaForm()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -91,7 +89,7 @@ export default function ServerInfo() {
               </div>
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
-                  <Sparkles className="w-8 h-8 text-background" />
+                  <Shield className="w-8 h-8 text-background" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold text-primary mb-2">SMP Server</h3>
@@ -135,14 +133,6 @@ export default function ServerInfo() {
                 </div>
               </div>
 
-              <motion.button
-                onClick={openForm}
-                className="btn-or-server w-full"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Apply For Beta
-              </motion.button>
             </div>
           </motion.div>
         </div>
