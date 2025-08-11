@@ -7,9 +7,11 @@ import { X, Hammer } from 'lucide-react'
 interface PardonAppearanceModalProps {
   show: boolean
   onClose: () => void
+  noBlur?: boolean
+  autoDismiss?: number // auto dismiss after this many milliseconds
 }
 
-export default function PardonAppearanceModal({ show, onClose }: PardonAppearanceModalProps) {
+export default function PardonAppearanceModal({ show, onClose, noBlur = false, autoDismiss }: PardonAppearanceModalProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -30,6 +32,17 @@ export default function PardonAppearanceModal({ show, onClose }: PardonAppearanc
     }
   }, [show, onClose])
 
+  // Auto dismiss effect
+  useEffect(() => {
+    if (show && autoDismiss) {
+      const timer = setTimeout(() => {
+        onClose()
+      }, autoDismiss)
+
+      return () => clearTimeout(timer)
+    }
+  }, [show, autoDismiss, onClose])
+
   return (
     <AnimatePresence>
       {show && (
@@ -41,7 +54,7 @@ export default function PardonAppearanceModal({ show, onClose }: PardonAppearanc
         >
           {/* Backdrop */}
           <motion.div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+            className={`absolute inset-0 bg-black/50 ${noBlur ? '' : 'backdrop-blur-sm'}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

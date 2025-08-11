@@ -1,10 +1,17 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Navigation from '@/components/Navigation'
+import PardonAppearanceModal from '@/components/PardonAppearanceModal'
 import { Swords, Users, Trophy, Zap, Star, Calendar, UserPlus } from 'lucide-react'
 import Image from 'next/image'
 
 export default function AboutPage() {
+  const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    setShowModal(true)
+  }, [])
 
   const features = [
     {
@@ -48,6 +55,12 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen">
       <Navigation />
+      <PardonAppearanceModal 
+        show={showModal} 
+        onClose={() => setShowModal(false)}
+        noBlur={true}
+        autoDismiss={5000}
+      />
 
 
       {/* Story Section */}
