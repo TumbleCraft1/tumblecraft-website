@@ -1,6 +1,6 @@
 'use client'
 
-import { MessageCircle } from 'lucide-react'
+import { UserPlus } from 'lucide-react'
 
 interface DiscordButtonProps {
   href?: string
@@ -11,7 +11,7 @@ interface DiscordButtonProps {
 export default function DiscordButton({ 
   href = "https://discord.gg/N7hEkd82", 
   className = "", 
-  children = "JOIN OUR DISCORD" 
+  children = "Join The Waitlist" 
 }: DiscordButtonProps) {
   return (
     <a
@@ -20,7 +20,7 @@ export default function DiscordButton({
       rel="noopener noreferrer"
       className={`btn-or-discord ${className}`}
     >
-      <MessageCircle className="w-5 h-5" />
+      <UserPlus className="w-5 h-5" />
       {children}
     </a>
   )

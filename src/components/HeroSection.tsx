@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { MessageCircle } from 'lucide-react'
+import { UserPlus } from 'lucide-react'
 
 export default function HeroSection() {
 
@@ -79,8 +79,8 @@ export default function HeroSection() {
             }}
             whileTap={{ scale: 0.98 }}
           >
-            <MessageCircle className="w-5 h-5" />
-            Join Discord
+            <UserPlus className="w-5 h-5" />
+            Join The Waitlist
           </motion.a>
         </motion.div>
 

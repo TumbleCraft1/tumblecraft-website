@@ -5,6 +5,23 @@ import { MessageCircle, X } from 'lucide-react'
 import { useState } from 'react'
 
 export default function AboutPage() {
+  if (process.env.NODE_ENV === 'production') {
+    return (
+      <main className="min-h-screen flex items-center justify-center">
+        <Navigation />
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Page Not Found</h1>
+          <p className="text-gray-600 mb-6">This page is only available in development.</p>
+          <a
+            href="/"
+            className="inline-flex items-center px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Return Home
+          </a>
+        </div>
+      </main>
+    )
+  }
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   return (
     <main className="min-h-screen">

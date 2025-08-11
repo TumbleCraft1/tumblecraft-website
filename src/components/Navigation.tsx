@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Menu, X, Trophy, MessageCircle, BookOpen, Info } from 'lucide-react'
+import { Menu, X, Trophy, UserPlus, BookOpen, Info } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   const navLinks = [
-    { href: '/about', label: 'About', icon: <Info className="w-4 h-4" /> },
+    ...(process.env.NODE_ENV === 'development' ? [{ href: '/about', label: 'About', icon: <Info className="w-4 h-4" /> }] : []),
     { href: '/docs', label: 'Documentation', icon: <BookOpen className="w-4 h-4" /> },
     { href: '/leaderboards', label: 'Leaderboards', icon: <Trophy className="w-4 h-4" /> },
     // { href: '/jobs', label: 'Jobs', icon: <Briefcase className="w-4 h-4" /> },
@@ -57,8 +57,8 @@ export default function Navigation() {
             whileHover={{ y: -2, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <MessageCircle className="w-4 h-4" />
-            DISCORD
+            <UserPlus className="w-4 h-4" />
+            JOIN THE WAITLIST
           </motion.a>
 
         </div>
@@ -106,8 +106,8 @@ export default function Navigation() {
               onClick={() => setIsOpen(false)}
               whileHover={{ x: 5 }}
             >
-              <MessageCircle className="w-4 h-4" />
-              DISCORD
+              <UserPlus className="w-4 h-4" />
+              JOIN THE WAITLIST
             </motion.a>
 
           </div>
