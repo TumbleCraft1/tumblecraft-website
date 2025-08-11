@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Menu, X, Trophy, UserPlus, BookOpen, Info } from 'lucide-react'
+import { Menu, X, Trophy, BookOpen, Info } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -47,19 +47,6 @@ export default function Navigation() {
               {link.label}
             </motion.a>
           ))}
-          
-          {/* Discord Button */}
-          <motion.a
-            href="https://discord.gg/HYrTBqMKCM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#5865F2] hover:bg-[#4752C4] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2"
-            whileHover={{ y: -2, scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <UserPlus className="w-4 h-4" />
-            JOIN THE WAITLIST
-          </motion.a>
 
         </div>
 
@@ -96,19 +83,6 @@ export default function Navigation() {
                 {link.label}
               </motion.a>
             ))}
-            
-            {/* Mobile Discord Button */}
-            <motion.a
-              href="https://discord.gg/HYrTBqMKCM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#5865F2] hover:bg-[#4752C4] px-4 py-2 rounded-full shadow-lg text-white font-medium transition-all duration-300 flex items-center gap-2 w-full"
-              onClick={() => setIsOpen(false)}
-              whileHover={{ x: 5 }}
-            >
-              <UserPlus className="w-4 h-4" />
-              JOIN THE WAITLIST
-            </motion.a>
 
           </div>
         </motion.div>
