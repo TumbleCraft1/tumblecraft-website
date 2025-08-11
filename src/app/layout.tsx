@@ -20,20 +20,20 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "TumbleCraft | Minecraft SMP & Prison Server",
+  title: "TumbleCraft",
   description: "Built by software veterans with deep ties to tech creators and gaming culture - TumbleCraft is redefining what SMP should feel like.",
-  keywords: "Minecraft, SMP, Prison Server, Survival Multiplayer, Gaming Community, TumbleCraft",
+  keywords: "Minecraft, SMP, Survival Multiplayer, Gaming Community, TumbleCraft",
   authors: [{ name: "TumbleCraft Team" }],
   robots: "index, follow",
   openGraph: {
-    title: "TumbleCraft | Minecraft SMP & Prison Server",
+    title: "TumbleCraft | Minecraft SMP",
     description: "Built by software veterans with deep ties to tech creators and gaming culture - TumbleCraft is redefining what SMP should feel like.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "TumbleCraft | Minecraft SMP & Prison Server",
+    title: "TumbleCraft | Minecraft SMP",
     description: "Built by software veterans with deep ties to tech creators and gaming culture - TumbleCraft is redefining what SMP should feel like.",
   },
 };

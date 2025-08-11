@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { UserPlus, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function HeroSection() {
   const images = [
@@ -106,10 +107,11 @@ export default function HeroSection() {
             animate="visible"
           >
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
-              <img 
+              <Image 
                 src={images[currentImage]} 
                 alt={`TumbleCraft Server Screenshot ${currentImage + 1}`} 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
               
               {/* Navigation Arrows */}
