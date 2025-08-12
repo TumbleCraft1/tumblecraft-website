@@ -24,6 +24,129 @@ export interface AllLeaderboardsResponse {
   [category: string]: LeaderboardCategory
 }
 
+// Enhanced Player Profile Interfaces
+export interface PlayerProfile {
+  player_name: string
+  player_uuid: string
+  first_seen: string
+  last_seen: string
+  statistics: PlayerStatistic[]
+  achievements: PlayerAchievement[]
+  rank_history: PlayerRankHistory[]
+  total_achievements: number
+  highest_ranks: Record<string, number>
+  current_streaks: Record<string, number>
+  total_playtime?: number
+  performance_score: number
+  last_updated: string
+}
+
+export interface PlayerRankHistory {
+  category: string
+  position: number
+  value: string
+  formatted_value: string
+  timestamp: string
+  trend_direction: 'up' | 'down' | 'same' | 'new'
+  position_change: number
+}
+
+export interface PlayerAchievement {
+  id: string
+  name: string
+  description: string
+  category?: string
+  tier: 'bronze' | 'silver' | 'gold' | 'diamond' | 'legend'
+  icon: string
+  earned_at: string
+  is_featured: boolean
+  requirements: Record<string, unknown>
+}
+
+export interface PlayerComparison {
+  target_player: string
+  comparing_player: string
+  category_comparisons: CategoryComparison[]
+  overall_summary: ComparisonSummary
+  last_updated: string
+}
+
+export interface CategoryComparison {
+  category: string
+  display_name: string
+  target_rank: number
+  comparing_rank: number
+  target_value: string
+  comparing_value: string
+  rank_difference: number
+  percentage_difference?: number
+  who_is_leading: 'target' | 'comparing' | 'tied'
+}
+
+export interface ComparisonSummary {
+  categories_target_leads: number
+  categories_comparing_leads: number
+  categories_tied: number
+  overall_leader: string
+  performance_gap: number
+}
+
+export interface LeaderboardAnalytics {
+  category: string
+  display_name: string
+  total_players: number
+  active_players: number
+  average_score: number
+  median_score: number
+  top_percentile_threshold: Record<string, number>
+  growth_rate: number
+  competition_level: 'low' | 'medium' | 'high' | 'extreme'
+  recent_changes: RankChange[]
+  last_updated: string
+}
+
+export interface RankChange {
+  player_name: string
+  player_uuid: string
+  old_rank?: number
+  new_rank: number
+  change_type: 'new_entry' | 'rank_up' | 'rank_down' | 'returned'
+  positions_changed: number
+  timestamp: string
+}
+
+export interface GlobalStats {
+  total_categories: number
+  total_players: number
+  active_players: number
+  total_achievements_earned: number
+  most_competitive_category: string
+  fastest_growing_category: string
+  recent_milestones: GlobalMilestone[]
+  leaderboard_health: Record<string, string>
+  last_updated: string
+}
+
+export interface GlobalMilestone {
+  milestone_type: string
+  player_name?: string
+  category?: string
+  description: string
+  timestamp: string
+  value?: string
+}
+
+// Enhanced Player Statistics (extends existing)
+export interface PlayerStatistic {
+  category: string
+  display_name: string
+  position: string
+  value: string
+  formatted_value: string
+  percentile?: number // Add percentile ranking
+  trend?: 'improving' | 'declining' | 'stable'
+}
+
 export interface CategoryInfo {
   name: string
   displayName: string
@@ -36,121 +159,144 @@ export const CATEGORY_INFO: Record<string, CategoryInfo> = {
   money: {
     name: 'money',
     displayName: 'Top Money',
-    icon: '💰',
+    icon: 'DollarSign',
     description: 'Richest players on the server',
     color: 'from-yellow-400 to-yellow-600'
   },
   playtime: {
     name: 'playtime',
     displayName: 'Top Playtime',
-    icon: '⏰',
+    icon: 'Clock',
     description: 'Most dedicated players',
     color: 'from-blue-400 to-blue-600'
   },
   coins: {
     name: 'coins',
     displayName: 'Top Coins',
-    icon: '🪙',
+    icon: 'Coins',
     description: 'Most coins collected',
     color: 'from-amber-400 to-amber-600'
   },
   votes: {
     name: 'votes',
     displayName: 'Top Votes',
-    icon: '🗳️',
+    icon: 'Vote',
     description: 'Most server votes',
     color: 'from-purple-400 to-purple-600'
   },
   kills: {
     name: 'kills',
     displayName: 'Top Kills',
-    icon: '⚔️',
+    icon: 'Sword',
     description: 'Most player kills',
     color: 'from-red-400 to-red-600'
   },
   deaths: {
     name: 'deaths',
     displayName: 'Top Deaths',
-    icon: '💀',
+    icon: 'Skull',
     description: 'Most deaths recorded',
     color: 'from-gray-400 to-gray-600'
   },
   quests: {
     name: 'quests',
     displayName: 'Top Quests',
-    icon: '📋',
+    icon: 'ScrollText',
     description: 'Most quests completed',
     color: 'from-green-400 to-green-600'
   },
   factories: {
     name: 'factories',
     displayName: 'Top Factories',
-    icon: '🏭',
+    icon: 'Factory',
     description: 'Most factories built',
     color: 'from-indigo-400 to-indigo-600'
   },
   mobs: {
     name: 'mobs',
     displayName: 'Top Mob Kills',
-    icon: '👹',
+    icon: 'Zap',
     description: 'Most mobs defeated',
     color: 'from-orange-400 to-orange-600'
   },
   mined: {
     name: 'mined',
     displayName: 'Top Blocks Mined',
-    icon: '⛏️',
+    icon: 'Pickaxe',
     description: 'Most blocks mined',
     color: 'from-stone-400 to-stone-600'
   },
   timesincedeath: {
     name: 'timesincedeath',
     displayName: 'Time Since Death',
-    icon: '🛡️',
+    icon: 'Shield',
     description: 'Longest survival streak',
     color: 'from-emerald-400 to-emerald-600'
   },
   falls: {
     name: 'falls',
     displayName: 'Top Falls',
-    icon: '🪂',
+    icon: 'Plane',
     description: 'Most fall damage taken',
     color: 'from-sky-400 to-sky-600'
   },
   chests: {
     name: 'chests',
     displayName: 'Top Chests Opened',
-    icon: '📦',
+    icon: 'Package',
     description: 'Most chests opened',
     color: 'from-brown-400 to-brown-600'
   },
   jumps: {
     name: 'jumps',
     displayName: 'Top Jumps',
-    icon: '🦘',
+    icon: 'MoveUp',
     description: 'Most jumps performed',
     color: 'from-lime-400 to-lime-600'
   },
   crafted: {
     name: 'crafted',
     displayName: 'Top Crafted Items',
-    icon: '🔨',
+    icon: 'Hammer',
     description: 'Most items crafted',
     color: 'from-orange-400 to-orange-600'
   },
   animalsbred: {
     name: 'animalsbred',
     displayName: 'Animals Bred',
-    icon: '🐄',
+    icon: 'Heart',
     description: 'Most animals bred',
     color: 'from-pink-400 to-pink-600'
   },
   sleptinbed: {
     name: 'sleptinbed',
     displayName: 'Sleep in Bed',
-    icon: '🛏️',
+    icon: 'Bed',
     description: 'Most nights slept',
     color: 'from-violet-400 to-violet-600'
+  }
+}
+
+export const ACHIEVEMENT_CATEGORIES = {
+  RANK: {
+    name: 'Ranking Achievements',
+    description: 'Achievements based on leaderboard positions',
+    icon: 'Trophy'
+  },
+  VALUE: {
+    name: 'Milestone Achievements', 
+    description: 'Achievements for reaching specific values',
+    icon: 'Target'
+  },
+  STREAK: {
+    name: 'Consistency Achievements',
+    description: 'Achievements for maintaining positions over time',
+    icon: 'Flame'
+  },
+  MULTI: {
+    name: 'Multi-Category Achievements',
+    description: 'Achievements spanning multiple categories',
+    icon: 'Star'
   }
 }
 
@@ -293,6 +439,134 @@ export class LeaderboardAPI {
     }
   }
 
+  static async getPlayerProfile(playerUuid: string): Promise<PlayerProfile> {
+    const startTime = Date.now()
+    
+    try {
+      console.log(`[LeaderboardAPI] Fetching player profile for: ${playerUuid}`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/player/${playerUuid}/profile`)
+      
+      if (!response.ok) {
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
+      }
+      
+      const data = await response.json() as PlayerProfile
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched player profile in ${duration}ms`)
+      return data
+    } catch (error) {
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch player profile after ${duration}ms:`, errorMessage)
+      throw new Error(`Failed to fetch player profile: ${errorMessage}`)
+    }
+  }
+
+  static async getPlayerComparison(uuid1: string, uuid2: string): Promise<PlayerComparison> {
+    const startTime = Date.now()
+    
+    try {
+      console.log(`[LeaderboardAPI] Comparing players: ${uuid1} vs ${uuid2}`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/compare/${uuid1}/${uuid2}`)
+      
+      if (!response.ok) {
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
+      }
+      
+      const data = await response.json() as PlayerComparison
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched comparison in ${duration}ms`)
+      return data
+    } catch (error) {
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch comparison after ${duration}ms:`, errorMessage)
+      throw new Error(`Failed to fetch player comparison: ${errorMessage}`)
+    }
+  }
+
+  static async getLeaderboardAnalytics(category: string): Promise<LeaderboardAnalytics> {
+    const startTime = Date.now()
+    
+    try {
+      console.log(`[LeaderboardAPI] Fetching analytics for: ${category}`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/analytics/${category}`)
+      
+      if (!response.ok) {
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
+      }
+      
+      const data = await response.json() as LeaderboardAnalytics
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched analytics in ${duration}ms`)
+      return data
+    } catch (error) {
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch analytics after ${duration}ms:`, errorMessage)
+      throw new Error(`Failed to fetch analytics: ${errorMessage}`)
+    }
+  }
+
+  static async getGlobalStats(): Promise<GlobalStats> {
+    const startTime = Date.now()
+    
+    try {
+      console.log(`[LeaderboardAPI] Fetching global statistics`)
+      const response = await this.fetchWithTimeout(`${LEADERBOARD_CONFIG.API_BASE_URL}/api/global-stats`)
+      
+      if (!response.ok) {
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
+      }
+      
+      const data = await response.json() as GlobalStats
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched global stats in ${duration}ms`)
+      return data
+    } catch (error) {
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch global stats after ${duration}ms:`, errorMessage)
+      throw new Error(`Failed to fetch global statistics: ${errorMessage}`)
+    }
+  }
+
   static async getServerStatus(): Promise<{ status: 'online' | 'offline', details?: Record<string, unknown> }> {
     try {
       console.log('[LeaderboardAPI] Checking server status via health endpoint')
@@ -356,5 +630,68 @@ export class LeaderboardAPI {
     }
     
     return Array.from(seen.values()).sort((a, b) => a.position - b.position)
+  }
+  
+  static getTierColor(tier: string): string {
+    switch (tier) {
+      case 'bronze': return 'from-orange-400 to-orange-600'
+      case 'silver': return 'from-gray-300 to-gray-500'
+      case 'gold': return 'from-yellow-400 to-yellow-600'
+      case 'diamond': return 'from-cyan-400 to-cyan-600'
+      case 'legend': return 'from-purple-400 to-purple-600'
+      default: return 'from-gray-400 to-gray-600'
+    }
+  }
+  
+  static getTierIcon(tier: string): string {
+    switch (tier) {
+      case 'bronze': return 'Medal'
+      case 'silver': return 'Medal'
+      case 'gold': return 'Medal'
+      case 'diamond': return 'Gem'
+      case 'legend': return 'Crown'
+      default: return 'Award'
+    }
+  }
+  
+  static getCompetitionLevelColor(level: string): string {
+    switch (level) {
+      case 'low': return 'text-green-500'
+      case 'medium': return 'text-yellow-500'
+      case 'high': return 'text-orange-500'
+      case 'extreme': return 'text-red-500'
+      default: return 'text-gray-500'
+    }
+  }
+  
+  static getTrendIcon(direction: string): string {
+    switch (direction) {
+      case 'up': return 'TrendingUp'
+      case 'down': return 'TrendingDown'
+      case 'same': return 'ArrowRight'
+      case 'new': return 'Sparkles'
+      default: return 'BarChart3'
+    }
+  }
+  
+  static formatTimeAgo(timestamp: string): string {
+    const now = Date.now()
+    const time = new Date(timestamp).getTime()
+    const diff = now - time
+    
+    const seconds = Math.floor(diff / 1000)
+    const minutes = Math.floor(seconds / 60)
+    const hours = Math.floor(minutes / 60)
+    const days = Math.floor(hours / 24)
+    
+    if (days > 0) return `${days}d ago`
+    if (hours > 0) return `${hours}h ago`
+    if (minutes > 0) return `${minutes}m ago`
+    return 'Just now'
+  }
+  
+  static calculatePercentileRank(rank: number, totalPlayers: number): number {
+    if (totalPlayers <= 1) return 100
+    return Math.max(0, Math.round(((totalPlayers - rank) / (totalPlayers - 1)) * 100))
   }
 }
