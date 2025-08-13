@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)",
+      "mcp__playwright__browser_take_screenshot",
+      "Bash(ls:*)",
+      "Bash(rg:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm lint:*)",
+      "mcp__playwright__browser_navigate",
+      "Bash(node:*)",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_click",
+      "WebFetch(domain:opennext.js.org)",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_close",
+      "mcp__playwright__browser_snapshot",
+      "Bash(find:*)",
+      "Bash(curl:*)",
+      "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_navigate_back",
+      "mcp__playwright__browser_install",
+      "Bash(npm run lint)",
+      "Bash(git commit:*)",
+      "Bash(pnpm add:*)"
+    ],
+    "deny": [],
+    "additionalDirectories": [
+      "/home/ashank/Projects/Tumble/leaderboard-plugin/",
+      "C:\\Users\\Ashank\\Documents\\Projects\\Tumble\\leaderboard-plugin\\"
+    ]
+  }
+}

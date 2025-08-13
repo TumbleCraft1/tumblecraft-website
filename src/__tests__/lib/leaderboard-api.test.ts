@@ -70,7 +70,7 @@ describe('LeaderboardAPI', () => {
       ]
 
       // Access private method via bracket notation for testing
-      const deduplicated = (LeaderboardAPI as any).deduplicatePlayersByUUID(rankings)
+      const deduplicated = (LeaderboardAPI as any).deduplicatePlayersByUUID(rankings) // eslint-disable-line @typescript-eslint/no-explicit-any
       
       expect(deduplicated).toHaveLength(2)
       expect(deduplicated[0].player_uuid).toBe('uuid-1')

@@ -4,7 +4,7 @@ import { LeaderboardCategory, CategoryInfo } from '@/lib/leaderboard-api'
 
 // Mock the PlayerRanking component
 jest.mock('@/components/leaderboards/PlayerRanking', () => {
-  return function MockPlayerRanking({ player, rank }: any) {
+  return function MockPlayerRanking({ player, rank }: { player: any; rank: number }) { // eslint-disable-line @typescript-eslint/no-explicit-any
     return (
       <div data-testid="player-ranking">
         Rank {rank}: {player.player_name} - {player.formatted_value}

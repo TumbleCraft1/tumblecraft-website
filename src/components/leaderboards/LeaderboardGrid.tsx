@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
-import { Trophy, Medal, Award, ExternalLink, User, TrendingUp, Calendar, Users } from 'lucide-react'
+import { Trophy, Medal, Award, ExternalLink, User, TrendingUp, Calendar, Users, ChevronDown } from 'lucide-react'
 import { LeaderboardsResponse, LeaderboardPlayer, CATEGORY_INFO } from '@/lib/leaderboard-api'
 import * as Icons from 'lucide-react'
 
@@ -13,7 +13,25 @@ interface LeaderboardGridProps {
 
 export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
   const [activeTab, setActiveTab] = useState(data.leaderboards?.[0]?.category || '')
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isDropdownOpen])
 
   const activeCategory = data.leaderboards?.find(cat => cat.category === activeTab)
   const categoryInfo = activeCategory ? CATEGORY_INFO[activeCategory.category] || {
@@ -61,43 +79,81 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
         </p>
       </motion.div>
 
-      {/* Tab Navigation */}
+      {/* Category Dropdown */}
       <div className="mb-8">
-        <div className="border-b border-border-light">
-          <nav className="-mb-px flex flex-wrap gap-2 overflow-x-auto">
-            {data.leaderboards?.map((category) => {
-              const categoryInfo = CATEGORY_INFO[category.category] || {
-                name: category.category,
-                displayName: category.display_name,
-                icon: 'BarChart3',
-                description: 'Server statistic',
-                color: 'from-gray-400 to-gray-600'
-              }
-              const isActive = activeTab === category.category
-              const IconComponent = getIconComponent(categoryInfo.icon)
-              
-              return (
-                <button
-                  key={category.category}
-                  onClick={() => setActiveTab(category.category)}
-                  className={`
-                    flex items-center gap-2 py-3 px-4 border-b-2 font-medium text-sm whitespace-nowrap transition-colors
-                    ${isActive 
-                      ? 'border-primary text-primary' 
-                      : 'border-transparent text-foreground-muted hover:text-foreground hover:border-border'
-                    }
-                  `}
-                >
-                  <IconComponent size={18} />
-                  {categoryInfo.displayName}
-                  <span className="text-xs bg-background-tertiary px-2 py-1 rounded-full flex items-center gap-1">
-                    <Users size={10} />
-                    {category.total_entries}
-                  </span>
-                </button>
-              )
-            })}
-          </nav>
+        <div ref={dropdownRef} className="relative inline-block w-full max-w-md">
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="w-full flex items-center justify-between gap-3 py-4 px-6 bg-card border border-border-light rounded-xl font-medium text-sm hover:bg-background-secondary transition-all duration-200 shadow-md hover:shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              {categoryInfo && (
+                <>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-r ${categoryInfo.color}`}>
+                    {React.createElement(getIconComponent(categoryInfo.icon), { size: 16, className: 'text-white' })}
+                  </div>
+                  <div className="text-left">
+                    <span className="font-semibold text-foreground">{categoryInfo.displayName}</span>
+                    <div className="text-xs text-foreground-muted flex items-center gap-1">
+                      <Users size={10} />
+                      {activeCategory?.total_entries} players
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+            <ChevronDown 
+              size={20} 
+              className={`text-foreground-muted transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
+            />
+          </button>
+
+          {isDropdownOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute top-full left-0 right-0 mt-2 bg-card border border-border-light rounded-xl shadow-xl z-10 max-h-80 overflow-y-auto"
+            >
+              {data.leaderboards?.map((category) => {
+                const categoryInfo = CATEGORY_INFO[category.category] || {
+                  name: category.category,
+                  displayName: category.display_name,
+                  icon: 'BarChart3',
+                  description: 'Server statistic',
+                  color: 'from-gray-400 to-gray-600'
+                }
+                const isActive = activeTab === category.category
+                const IconComponent = getIconComponent(categoryInfo.icon)
+                
+                return (
+                  <button
+                    key={category.category}
+                    onClick={() => {
+                      setActiveTab(category.category)
+                      setIsDropdownOpen(false)
+                    }}
+                    className={`
+                      w-full flex items-center gap-3 py-3 px-4 text-left hover:bg-background-secondary transition-colors
+                      ${isActive ? 'bg-background-secondary' : ''}
+                    `}
+                  >
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-r ${categoryInfo.color}`}>
+                      <IconComponent size={16} className="text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-medium text-foreground">{categoryInfo.displayName}</div>
+                      <div className="text-xs text-foreground-muted">{categoryInfo.description}</div>
+                    </div>
+                    <div className="text-xs bg-background-tertiary text-foreground-muted px-2 py-1 rounded-full flex items-center gap-1">
+                      <Users size={10} />
+                      {category.total_entries}
+                    </div>
+                  </button>
+                )
+              })}
+            </motion.div>
+          )}
         </div>
       </div>
 
