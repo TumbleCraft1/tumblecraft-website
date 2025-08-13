@@ -71,9 +71,10 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="hero-title mb-6">
-          🏆 Leaderboards
-        </h1>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <Trophy size={48} className="text-primary" />
+          <h1 className="hero-title">Leaderboards</h1>
+        </div>
         <p className="subtitle max-w-3xl mx-auto">
           See how you stack up against the competition! Our leaderboards track the top players in various categories across the TumbleCraft server.
         </p>
@@ -89,7 +90,7 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
             <div className="flex items-center gap-3">
               {categoryInfo && (
                 <>
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-r ${categoryInfo.color}`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-primary`}>
                     {React.createElement(getIconComponent(categoryInfo.icon), { size: 16, className: 'text-white' })}
                   </div>
                   <div className="text-left">
@@ -113,7 +114,7 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="absolute top-full left-0 right-0 mt-2 bg-card border border-border-light rounded-xl shadow-xl z-10 max-h-80 overflow-y-auto"
+              className="absolute top-full left-0 right-0 mt-2 bg-white border border-border-light rounded-xl shadow-xl z-10 max-h-80 overflow-y-auto"
             >
               {data.leaderboards?.map((category) => {
                 const categoryInfo = CATEGORY_INFO[category.category] || {
@@ -121,7 +122,7 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
                   displayName: category.display_name,
                   icon: 'BarChart3',
                   description: 'Server statistic',
-                  color: 'from-gray-400 to-gray-600'
+                  color: 'bg-gray-500'
                 }
                 const isActive = activeTab === category.category
                 const IconComponent = getIconComponent(categoryInfo.icon)
@@ -134,11 +135,11 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
                       setIsDropdownOpen(false)
                     }}
                     className={`
-                      w-full flex items-center gap-3 py-3 px-4 text-left hover:bg-background-secondary transition-colors
-                      ${isActive ? 'bg-background-secondary' : ''}
+                      w-full flex items-center gap-3 py-3 px-4 text-left hover:bg-gray-100 transition-colors
+                      ${isActive ? 'bg-gray-100' : 'bg-white'}
                     `}
                   >
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-gradient-to-r ${categoryInfo.color}`}>
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center bg-primary`}>
                       <IconComponent size={16} className="text-white" />
                     </div>
                     <div className="flex-1">
@@ -168,7 +169,7 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
         >
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-gradient-to-r ${categoryInfo.color}`}>
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-primary`}>
                 {React.createElement(getIconComponent(categoryInfo.icon), { size: 24, className: 'text-white' })}
               </div>
               <div>
