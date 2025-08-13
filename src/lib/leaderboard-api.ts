@@ -161,119 +161,119 @@ export const CATEGORY_INFO: Record<string, CategoryInfo> = {
     displayName: 'Top Money',
     icon: 'DollarSign',
     description: 'Richest players on the server',
-    color: 'from-yellow-400 to-yellow-600'
+    color: 'bg-yellow-500'
   },
   playtime: {
     name: 'playtime',
     displayName: 'Top Playtime',
     icon: 'Clock',
     description: 'Most dedicated players',
-    color: 'from-blue-400 to-blue-600'
+    color: 'bg-blue-500'
   },
   coins: {
     name: 'coins',
     displayName: 'Top Coins',
     icon: 'Coins',
     description: 'Most coins collected',
-    color: 'from-amber-400 to-amber-600'
+    color: 'bg-amber-500'
   },
   votes: {
     name: 'votes',
     displayName: 'Top Votes',
     icon: 'Vote',
     description: 'Most server votes',
-    color: 'from-purple-400 to-purple-600'
+    color: 'bg-purple-500'
   },
   kills: {
     name: 'kills',
     displayName: 'Top Kills',
     icon: 'Sword',
     description: 'Most player kills',
-    color: 'from-red-400 to-red-600'
+    color: 'bg-red-500'
   },
   deaths: {
     name: 'deaths',
     displayName: 'Top Deaths',
     icon: 'Skull',
     description: 'Most deaths recorded',
-    color: 'from-gray-400 to-gray-600'
+    color: 'bg-gray-500'
   },
   quests: {
     name: 'quests',
     displayName: 'Top Quests',
     icon: 'ScrollText',
     description: 'Most quests completed',
-    color: 'from-green-400 to-green-600'
+    color: 'bg-green-500'
   },
   factories: {
     name: 'factories',
     displayName: 'Top Factories',
     icon: 'Factory',
     description: 'Most factories built',
-    color: 'from-indigo-400 to-indigo-600'
+    color: 'bg-indigo-500'
   },
   mobs: {
     name: 'mobs',
     displayName: 'Top Mob Kills',
     icon: 'Zap',
     description: 'Most mobs defeated',
-    color: 'from-orange-400 to-orange-600'
+    color: 'bg-orange-500'
   },
   mined: {
     name: 'mined',
     displayName: 'Top Blocks Mined',
     icon: 'Pickaxe',
     description: 'Most blocks mined',
-    color: 'from-stone-400 to-stone-600'
+    color: 'bg-stone-500'
   },
   timesincedeath: {
     name: 'timesincedeath',
     displayName: 'Time Since Death',
     icon: 'Shield',
     description: 'Longest survival streak',
-    color: 'from-emerald-400 to-emerald-600'
+    color: 'bg-emerald-500'
   },
   falls: {
     name: 'falls',
     displayName: 'Top Falls',
     icon: 'Plane',
     description: 'Most fall damage taken',
-    color: 'from-sky-400 to-sky-600'
+    color: 'bg-sky-500'
   },
   chests: {
     name: 'chests',
     displayName: 'Top Chests Opened',
     icon: 'Package',
     description: 'Most chests opened',
-    color: 'from-brown-400 to-brown-600'
+    color: 'bg-brown-500'
   },
   jumps: {
     name: 'jumps',
     displayName: 'Top Jumps',
     icon: 'MoveUp',
     description: 'Most jumps performed',
-    color: 'from-lime-400 to-lime-600'
+    color: 'bg-lime-500'
   },
   crafted: {
     name: 'crafted',
     displayName: 'Top Crafted Items',
     icon: 'Hammer',
     description: 'Most items crafted',
-    color: 'from-orange-400 to-orange-600'
+    color: 'bg-orange-500'
   },
   animalsbred: {
     name: 'animalsbred',
     displayName: 'Animals Bred',
     icon: 'Heart',
     description: 'Most animals bred',
-    color: 'from-pink-400 to-pink-600'
+    color: 'bg-pink-500'
   },
   sleptinbed: {
     name: 'sleptinbed',
     displayName: 'Sleep in Bed',
     icon: 'Bed',
     description: 'Most nights slept',
-    color: 'from-violet-400 to-violet-600'
+    color: 'bg-violet-500'
   }
 }
 
@@ -612,7 +612,7 @@ export class LeaderboardAPI {
       displayName: category.charAt(0).toUpperCase() + category.slice(1),
       icon: '📊',
       description: 'Server statistics',
-      color: 'from-gray-400 to-gray-600'
+      color: 'bg-gray-500'
     }
   }
 
@@ -634,12 +634,12 @@ export class LeaderboardAPI {
   
   static getTierColor(tier: string): string {
     switch (tier) {
-      case 'bronze': return 'from-orange-400 to-orange-600'
-      case 'silver': return 'from-gray-300 to-gray-500'
-      case 'gold': return 'from-yellow-400 to-yellow-600'
-      case 'diamond': return 'from-cyan-400 to-cyan-600'
-      case 'legend': return 'from-purple-400 to-purple-600'
-      default: return 'from-gray-400 to-gray-600'
+      case 'bronze': return 'bg-orange-500'
+      case 'silver': return 'bg-gray-400'
+      case 'gold': return 'bg-yellow-500'
+      case 'diamond': return 'bg-cyan-500'
+      case 'legend': return 'bg-purple-500'
+      default: return 'bg-gray-500'
     }
   }
   

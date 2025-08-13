@@ -197,7 +197,12 @@ export default function EnchantingPage() {
               <ArrowLeft className="w-5 h-5" />
             </Link>
             <div>
-              <h1 className="hero-title">✨ Elite Enchanting System</h1>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
+                  <Sparkles size={32} className="text-white" />
+                </div>
+                <h1 className="hero-title">Elite Enchanting System</h1>
+              </div>
               <p className="subtitle">
                 Master the art of applying elite enchantments with risk management and strategy
               </p>

@@ -110,12 +110,12 @@ describe('LeaderboardAPI', () => {
 
   describe('getTierColor', () => {
     it('returns correct colors for tiers', () => {
-      expect(LeaderboardAPI.getTierColor('bronze')).toBe('from-orange-400 to-orange-600')
-      expect(LeaderboardAPI.getTierColor('silver')).toBe('from-gray-300 to-gray-500')
-      expect(LeaderboardAPI.getTierColor('gold')).toBe('from-yellow-400 to-yellow-600')
-      expect(LeaderboardAPI.getTierColor('diamond')).toBe('from-cyan-400 to-cyan-600')
-      expect(LeaderboardAPI.getTierColor('legend')).toBe('from-purple-400 to-purple-600')
-      expect(LeaderboardAPI.getTierColor('unknown')).toBe('from-gray-400 to-gray-600')
+      expect(LeaderboardAPI.getTierColor('bronze')).toBe('bg-orange-500')
+      expect(LeaderboardAPI.getTierColor('silver')).toBe('bg-gray-400')
+      expect(LeaderboardAPI.getTierColor('gold')).toBe('bg-yellow-500')
+      expect(LeaderboardAPI.getTierColor('diamond')).toBe('bg-cyan-500')
+      expect(LeaderboardAPI.getTierColor('legend')).toBe('bg-purple-500')
+      expect(LeaderboardAPI.getTierColor('unknown')).toBe('bg-gray-500')
     })
   })
 

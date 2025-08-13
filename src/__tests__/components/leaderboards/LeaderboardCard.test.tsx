@@ -55,7 +55,7 @@ const mockCategoryInfo: CategoryInfo = {
   displayName: 'Top Money',
   icon: '💰',
   description: 'Richest players on the server',
-  color: 'from-yellow-400 to-yellow-600'
+  color: 'bg-yellow-500'
 }
 
 describe('LeaderboardCard', () => {

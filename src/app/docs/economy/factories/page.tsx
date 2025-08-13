@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, Factory, Cog, TrendingUp, Package, ArrowRight, Clock } from 'lucide-react'
+import { ArrowLeft, Factory, Cog, TrendingUp, Package, ArrowRight, Clock, Zap } from 'lucide-react'
 
 export default function FactoriesPage() {
   return (
@@ -203,7 +203,10 @@ export default function FactoriesPage() {
             </div>
             
             <div className="border border-gray-200 rounded-lg p-4">
-              <h3 className="font-semibold text-foreground mb-3">⚡ Energy Factories</h3>
+              <div className="flex items-center gap-2 mb-3">
+                <Zap size={20} className="text-primary" />
+                <h3 className="font-semibold text-foreground">Energy Factories</h3>
+              </div>
               <p className="text-sm text-foreground-muted mb-3">
                 Generate power for other factory operations
               </p>

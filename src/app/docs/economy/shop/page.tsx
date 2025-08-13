@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, ShoppingCart, DollarSign, TrendingUp, Copy, Wheat, Pickaxe, Star, Target, Clock, Trophy } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, DollarSign, TrendingUp, Copy, Wheat, Pickaxe, Star, Target, Clock, Trophy, Lightbulb } from 'lucide-react'
 import { useState } from 'react'
 
 const bestResources = [
@@ -278,9 +278,12 @@ export default function ShopPage() {
                   </p>
                   
                   <div className="bg-blue-50 rounded-lg p-3">
-                    <p className="text-xs text-blue-700 font-medium">
-                      💡 {strategy.tip}
-                    </p>
+                    <div className="flex items-center space-x-2">
+                      <Lightbulb className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <p className="text-xs text-blue-700 font-medium">
+                        {strategy.tip}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </motion.div>

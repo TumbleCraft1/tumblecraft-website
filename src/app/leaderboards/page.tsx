@@ -2,6 +2,7 @@
 
 import { LeaderboardsResponse } from '@/lib/leaderboard-api'
 import { useLeaderboardData } from '@/hooks/useLeaderboardData'
+import { Trophy } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import PardonAppearanceModal from '@/components/PardonAppearanceModal'
 import LeaderboardGrid from '@/components/leaderboards/LeaderboardGrid'
@@ -27,9 +28,12 @@ export default function LeaderboardsPage() {
         <PardonAppearanceModal show={showModal} onClose={() => setShowModal(false)} />
         <div className="container mx-auto px-6 pt-24 pb-12">
           <div className="text-center mb-12">
-            <h1 className="hero-title mb-6">
-              🏆 Leaderboards
-            </h1>
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
+                <Trophy size={32} className="text-white" />
+              </div>
+              <h1 className="hero-title">Leaderboards</h1>
+            </div>
             <p className="subtitle">Loading leaderboard data...</p>
           </div>
           <LeaderboardSkeleton />

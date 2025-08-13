@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Copy, Terminal, Info, ArrowLeft, CheckCircle } from 'lucide-react'
+import { ArrowRight, Copy, Terminal, Info, ArrowLeft, CheckCircle, Lightbulb } from 'lucide-react'
 import { useState } from 'react'
 
 interface Command {
@@ -352,8 +352,9 @@ export default function EssentialCommandsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h3 className="text-xl font-semibold text-foreground mb-4 text-center">
-            💡 Pro Tips
+          <h3 className="text-xl font-semibold text-foreground mb-4 text-center flex items-center justify-center space-x-2">
+            <Lightbulb className="w-6 h-6 text-primary" />
+            <span>Pro Tips</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowLeft, Coins, ShoppingCart, Trophy, Gift, Star } from 'lucide-react'
+import { ArrowLeft, Coins, ShoppingCart, Trophy, Gift, Star, Lightbulb } from 'lucide-react'
 
 export default function CoinsPage() {
   return (
@@ -204,9 +204,10 @@ export default function CoinsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <h3 className="text-xl font-semibold text-foreground mb-4 text-center">
-            💡 Coin Management Tips
-          </h3>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Lightbulb size={24} className="text-primary" />
+            <h3 className="text-xl font-semibold text-foreground">Coin Management Tips</h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
             <div>
               <h4 className="font-medium text-foreground mb-2">Save Wisely</h4>

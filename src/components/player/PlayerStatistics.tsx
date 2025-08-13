@@ -20,10 +20,10 @@ export default function PlayerStatistics({ profile, showTopCategories = false }:
 
   const getRankBadgeColor = (position: string) => {
     const rank = parseInt(position) || 999
-    if (rank === 1) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white'
-    if (rank <= 3) return 'bg-gradient-to-r from-gray-300 to-gray-500 text-white'
-    if (rank <= 10) return 'bg-gradient-to-r from-orange-400 to-orange-600 text-white'
-    if (rank <= 50) return 'bg-gradient-to-r from-blue-400 to-blue-600 text-white'
+    if (rank === 1) return 'bg-yellow-500 text-white'
+    if (rank <= 3) return 'bg-gray-400 text-white'
+    if (rank <= 10) return 'bg-orange-500 text-white'
+    if (rank <= 50) return 'bg-blue-500 text-white'
     return 'bg-background-tertiary text-foreground-muted'
   }
 
@@ -68,7 +68,7 @@ export default function PlayerStatistics({ profile, showTopCategories = false }:
             displayName: stat.display_name,
             icon: 'BarChart3',
             description: 'Server statistic',
-            color: 'from-gray-400 to-gray-600'
+            color: 'bg-gray-500'
           }
           
           const trend = getTrendIndicator(stat.category)
@@ -87,7 +87,7 @@ export default function PlayerStatistics({ profile, showTopCategories = false }:
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4 flex-1">
                   {/* Category Icon */}
-                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${categoryInfo.color} flex items-center justify-center text-white`}>
+                  <div className={`w-12 h-12 rounded-lg ${categoryInfo.color} flex items-center justify-center text-white`}>
                     <span className="text-xl font-bold">
                       {categoryInfo.displayName.charAt(0)}
                     </span>
@@ -116,7 +116,7 @@ export default function PlayerStatistics({ profile, showTopCategories = false }:
                   {/* Best Rank */}
                   {highestRank < parseInt(stat.position) && (
                     <div className="text-center">
-                      <div className="inline-block px-3 py-1 rounded-full text-sm font-bold bg-gradient-to-r from-green-400 to-green-600 text-white">
+                      <div className="inline-block px-3 py-1 rounded-full text-sm font-bold bg-green-500 text-white">
                         #{highestRank}
                       </div>
                       <div className="text-xs text-foreground-muted mt-1">Best</div>
@@ -149,7 +149,7 @@ export default function PlayerStatistics({ profile, showTopCategories = false }:
                     initial={{ width: 0 }}
                     animate={{ width: `${percentile}%` }}
                     transition={{ duration: 0.8, delay: index * 0.1 }}
-                    className={`h-2 rounded-full bg-gradient-to-r ${categoryInfo.color}`}
+                    className={`h-2 rounded-full ${categoryInfo.color}`}
                   />
                 </div>
               </div>

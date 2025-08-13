@@ -68,9 +68,9 @@ export default function PlayerHistory({ profile, limit }: PlayerHistoryProps) {
   }
 
   const getRankBadgeColor = (position: number) => {
-    if (position === 1) return 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white'
-    if (position <= 3) return 'bg-gradient-to-r from-gray-300 to-gray-500 text-white'
-    if (position <= 10) return 'bg-gradient-to-r from-orange-400 to-orange-600 text-white'
+    if (position === 1) return 'bg-yellow-500 text-white'
+    if (position <= 3) return 'bg-gray-400 text-white'
+    if (position <= 10) return 'bg-orange-500 text-white'
     return 'bg-background-tertiary text-foreground-muted'
   }
 
@@ -123,7 +123,7 @@ export default function PlayerHistory({ profile, limit }: PlayerHistoryProps) {
                     displayName: entry.category,
                     icon: 'BarChart3',
                     description: 'Server statistic',
-                    color: 'from-gray-400 to-gray-600'
+                    color: 'bg-gray-500'
                   }
                   
                   const TrendIcon = TREND_ICONS[entry.trend_direction as keyof typeof TREND_ICONS] || ArrowRight
@@ -140,7 +140,7 @@ export default function PlayerHistory({ profile, limit }: PlayerHistoryProps) {
                     >
                       <div className="flex items-center gap-4">
                         {/* Category Icon */}
-                        <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${categoryInfo.color} flex items-center justify-center flex-shrink-0`}>
+                        <div className={`w-10 h-10 rounded-lg ${categoryInfo.color} flex items-center justify-center flex-shrink-0`}>
                           <span className="text-white text-sm font-bold">
                             {categoryInfo.displayName.charAt(0)}
                           </span>

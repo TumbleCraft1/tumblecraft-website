@@ -18,11 +18,11 @@ const TIER_ICONS = {
 }
 
 const TIER_COLORS = {
-  'bronze': 'from-orange-400 to-orange-600',
-  'silver': 'from-gray-300 to-gray-500',
-  'gold': 'from-yellow-400 to-yellow-600',
-  'diamond': 'from-cyan-400 to-cyan-600',
-  'legend': 'from-purple-400 to-purple-600'
+  'bronze': 'bg-orange-500',
+  'silver': 'bg-gray-400',
+  'gold': 'bg-yellow-500',
+  'diamond': 'bg-cyan-500',
+  'legend': 'bg-purple-500'
 }
 
 export default function PlayerAchievements({ profile, limit }: PlayerAchievementsProps) {
@@ -89,7 +89,7 @@ export default function PlayerAchievements({ profile, limit }: PlayerAchievement
           
           return (
             <div key={tier} className="text-center">
-              <div className={`w-12 h-12 mx-auto mb-2 rounded-lg bg-gradient-to-r ${color} flex items-center justify-center`}>
+              <div className={`w-12 h-12 mx-auto mb-2 rounded-lg ${color} flex items-center justify-center`}>
                 <TierIcon size={20} className="text-white" />
               </div>
               <div className="text-lg font-bold text-foreground">{count}</div>
@@ -119,7 +119,7 @@ export default function PlayerAchievements({ profile, limit }: PlayerAchievement
               >
                 <div className="flex items-start gap-4">
                   {/* Achievement Icon */}
-                  <div className={`w-16 h-16 rounded-lg bg-gradient-to-r ${tierColor} flex items-center justify-center flex-shrink-0 relative`}>
+                  <div className={`w-16 h-16 rounded-lg ${tierColor} flex items-center justify-center flex-shrink-0 relative`}>
                     <TierIcon size={24} className="text-white" />
                     {achievement.is_featured && (
                       <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary rounded-full flex items-center justify-center">

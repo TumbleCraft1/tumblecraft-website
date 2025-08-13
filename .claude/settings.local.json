@@ -26,12 +26,22 @@
       "mcp__playwright__browser_install",
       "Bash(npm run lint)",
       "Bash(git commit:*)",
-      "Bash(pnpm add:*)"
+      "Bash(pnpm add:*)",
+      "Bash(claude mcp:*)",
+      "Bash(npx playwright:*)",
+      "Bash(pnpm dev:*)"
     ],
     "deny": [],
     "additionalDirectories": [
-      "/home/ashank/Projects/Tumble/leaderboard-plugin/",
       "C:\\Users\\Ashank\\Documents\\Projects\\Tumble\\leaderboard-plugin\\"
     ]
+  },
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
   }
 }

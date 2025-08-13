@@ -127,12 +127,12 @@ export default function PlayerProfileHeader({ profile }: PlayerProfileHeaderProp
             initial={{ width: 0 }}
             animate={{ width: `${profile.performance_score}%` }}
             transition={{ duration: 1, delay: 0.2 }}
-            className={`h-3 rounded-full bg-gradient-to-r ${
-              profile.performance_score >= 90 ? 'from-purple-400 to-purple-600' :
-              profile.performance_score >= 75 ? 'from-blue-400 to-blue-600' :
-              profile.performance_score >= 60 ? 'from-green-400 to-green-600' :
-              profile.performance_score >= 40 ? 'from-yellow-400 to-yellow-600' :
-              'from-red-400 to-red-600'
+            className={`h-3 rounded-full ${
+              profile.performance_score >= 90 ? 'bg-purple-500' :
+              profile.performance_score >= 75 ? 'bg-blue-500' :
+              profile.performance_score >= 60 ? 'bg-green-500' :
+              profile.performance_score >= 40 ? 'bg-yellow-500' :
+              'bg-red-500'
             }`}
           />
         </div>

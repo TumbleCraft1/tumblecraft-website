@@ -415,15 +415,13 @@ body {
 
 /* Clean Grid Pattern - Using InvestorFuse Primary */
 .grid-pattern {
-  background-image: 
-    radial-gradient(circle at 1px 1px, var(--color-primary-10) 1px, transparent 0);
+  background-color: var(--color-primary-10);
   background-size: 20px 20px;
 }
 
 /* Accent Grid Pattern - Using InvestorFuse Accent */
 .grid-pattern-accent {
-  background-image: 
-    radial-gradient(circle at 1px 1px, var(--color-accent-10) 1px, transparent 0);
+  background-color: var(--color-accent-10);
   background-size: 20px 20px;
 }
 
@@ -555,7 +553,7 @@ body {
   left: 0;
   right: 0;
   height: 30%;
-  background: linear-gradient(to bottom, transparent 0%, var(--background-secondary) 100%);
+  background: var(--background-secondary);
   pointer-events: none;
 }
 
@@ -570,13 +568,13 @@ body {
   left: 0;
   right: 0;
   height: 30%;
-  background: linear-gradient(to top, transparent 0%, var(--background-secondary) 100%);
+  background: var(--background-secondary);
   pointer-events: none;
 }
 
 /* Hero specific blending */
 .hero-blend-bottom {
-  background: linear-gradient(to bottom, transparent 0%, transparent 70%, var(--background-secondary) 100%);
+  background: var(--background-secondary);
 }
 
 /* ============================================

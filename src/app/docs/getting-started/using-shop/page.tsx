@@ -3,7 +3,7 @@
 import Navigation from '@/components/Navigation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ShoppingCart, Coins, Target, DollarSign, Star, CheckCircle, ArrowLeft, TrendingUp, Package } from 'lucide-react'
+import { ShoppingCart, Coins, Target, DollarSign, Star, CheckCircle, ArrowLeft, TrendingUp, Package, Lightbulb, TreePine, Pickaxe, Wheat, Sword } from 'lucide-react'
 
 const quickSteps = [
   {
@@ -42,7 +42,7 @@ const bestItems = [
     items: ['Oak Wood', 'Birch Wood', 'Spruce Wood', 'Any Wood Type'],
     profit: 'High',
     effort: 'Low',
-    icon: '🌲',
+    icon: TreePine,
     tip: 'Easy to gather, always in demand'
   },
   {
@@ -50,7 +50,7 @@ const bestItems = [
     items: ['Cobblestone', 'Stone', 'Coal', 'Iron Ore'],
     profit: 'Medium',
     effort: 'Medium',
-    icon: '⛏️',
+    icon: Pickaxe,
     tip: 'Mining gives good variety of sellables'
   },
   {
@@ -58,7 +58,7 @@ const bestItems = [
     items: ['Wheat', 'Carrots', 'Potatoes', 'Bread'],
     profit: 'Medium',
     effort: 'Low',
-    icon: '🌾',
+    icon: Wheat,
     tip: 'Set up a farm for steady income'
   },
   {
@@ -66,7 +66,7 @@ const bestItems = [
     items: ['String', 'Bones', 'Gunpowder', 'Leather'],
     profit: 'High',
     effort: 'High',
-    icon: '⚔️',
+    icon: Sword,
     tip: 'Fight monsters at night for valuable drops'
   }
 ]
@@ -219,7 +219,9 @@ export default function UsingShopPage() {
             {bestItems.map((category) => (
               <div key={category.category} className="border border-gray-200 rounded-lg p-6">
                 <div className="flex items-center space-x-3 mb-4">
-                  <span className="text-2xl">{category.icon}</span>
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <category.icon className="w-6 h-6 text-green-600" />
+                  </div>
                   <div>
                     <h3 className="font-semibold text-foreground">{category.category}</h3>
                     <div className="flex items-center space-x-4 text-sm">
@@ -251,9 +253,12 @@ export default function UsingShopPage() {
                 </div>
                 
                 <div className="bg-blue-50 border border-blue-200 rounded p-3">
-                  <p className="text-sm text-blue-700">
-                    <strong>💡 Tip:</strong> {category.tip}
-                  </p>
+                  <div className="flex items-center space-x-2">
+                    <Lightbulb className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                    <p className="text-sm text-blue-700">
+                      <strong>Tip:</strong> {category.tip}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

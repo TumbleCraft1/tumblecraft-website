@@ -193,7 +193,12 @@ export default function EliteMobsMechanicsPage() {
               <ArrowLeft className="w-5 h-5" />
             </Link>
             <div>
-              <h1 className="hero-title">⚡ Elite Mobs Mechanics</h1>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
+                  <Zap size={32} className="text-white" />
+                </div>
+                <h1 className="hero-title">Elite Mobs Mechanics</h1>
+              </div>
               <p className="subtitle">
                 Deep dive into how elite mobs work: scaling, powers, spawning, and combat systems
               </p>
