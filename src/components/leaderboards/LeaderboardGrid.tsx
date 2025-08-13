@@ -4,7 +4,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/navigation'
 import { Trophy, Medal, Award, ExternalLink, User, TrendingUp, Calendar, Users, ChevronDown } from 'lucide-react'
-import { LeaderboardsResponse, LeaderboardPlayer, CATEGORY_INFO } from '@/lib/leaderboard-api'
+import { LeaderboardsResponse, LeaderboardPlayer, PaginatedLeaderboardCategory, CATEGORY_INFO } from '@/lib/leaderboard-api'
+import { useLeaderboardData } from '@/hooks/useLeaderboardData'
+import Pagination from '@/components/ui/Pagination'
 import * as Icons from 'lucide-react'
 
 interface LeaderboardGridProps {
@@ -14,8 +16,33 @@ interface LeaderboardGridProps {
 export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
   const [activeTab, setActiveTab] = useState(data.leaderboards?.[0]?.category || '')
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [itemsPerPage, setItemsPerPage] = useState(25)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
+
+  // Use pagination hook for the active category
+  const {
+    data: paginatedData,
+    loading: paginatedLoading,
+    error: paginatedError,
+    currentPage,
+    totalPages,
+    hasNextPage,
+    hasPreviousPage,
+    setPage
+  } = useLeaderboardData({
+    category: activeTab,
+    usePagination: true,
+    limit: itemsPerPage,
+    page: 1 // Reset to page 1 when items per page changes
+  })
+
+  // Reset to page 1 when items per page changes
+  useEffect(() => {
+    if (setPage && currentPage !== 1) {
+      setPage(1)
+    }
+  }, [itemsPerPage, setPage, currentPage])
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -33,6 +60,7 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
     }
   }, [isDropdownOpen])
 
+  // Get category info from original data for dropdown
   const activeCategory = data.leaderboards?.find(cat => cat.category === activeTab)
   const categoryInfo = activeCategory ? CATEGORY_INFO[activeCategory.category] || {
     name: activeCategory.category,
@@ -41,6 +69,19 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
     description: 'Server statistic',
     color: 'from-gray-400 to-gray-600'
   } : null
+
+  // Use paginated data for display, fallback to original data info
+  const currentCategoryData = paginatedData && 'page' in paginatedData 
+    ? paginatedData as PaginatedLeaderboardCategory
+    : null
+
+  const displayCategoryInfo = currentCategoryData ? CATEGORY_INFO[currentCategoryData.category] || {
+    name: currentCategoryData.category,
+    displayName: currentCategoryData.display_name,
+    icon: 'BarChart3',
+    description: 'Server statistic',
+    color: 'from-gray-400 to-gray-600'
+  } : categoryInfo
 
   const handlePlayerClick = (player: LeaderboardPlayer) => {
     router.push(`/player/${player.player_uuid}?name=${encodeURIComponent(player.player_name)}`)
@@ -159,7 +200,7 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
       </div>
 
       {/* Active Category Table */}
-      {activeCategory && categoryInfo && (
+      {(currentCategoryData || activeCategory) && displayCategoryInfo && (
         <motion.div
           key={activeTab}
           initial={{ opacity: 0, y: 20 }}
@@ -170,11 +211,11 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-4">
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-primary`}>
-                {React.createElement(getIconComponent(categoryInfo.icon), { size: 24, className: 'text-white' })}
+                {React.createElement(getIconComponent(displayCategoryInfo.icon), { size: 24, className: 'text-white' })}
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-foreground">{categoryInfo.displayName}</h2>
-                <p className="text-foreground-muted">{categoryInfo.description}</p>
+                <h2 className="text-2xl font-bold text-foreground">{displayCategoryInfo.displayName}</h2>
+                <p className="text-foreground-muted">{displayCategoryInfo.description}</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -182,95 +223,123 @@ export default function LeaderboardGrid({ data }: LeaderboardGridProps) {
                 <div className="flex items-center gap-1 text-sm text-foreground-muted">
                   <Calendar size={14} />
                   <span>
-                    Last updated: {activeCategory.last_updated && activeCategory.last_updated !== '' 
-                      ? new Date(parseInt(activeCategory.last_updated) * 1000).toLocaleString()
+                    Last updated: {(currentCategoryData?.last_updated || activeCategory?.last_updated) && (currentCategoryData?.last_updated || activeCategory?.last_updated) !== '' 
+                      ? new Date(parseInt((currentCategoryData?.last_updated || activeCategory?.last_updated || '0')) * 1000).toLocaleString()
                       : 'Unknown'}
                   </span>
                 </div>
                 <div className="flex items-center gap-1 text-sm text-foreground-muted mt-1">
                   <TrendingUp size={14} />
-                  <span>{activeCategory.total_entries} competitive players</span>
+                  <span>{currentCategoryData?.total_entries || activeCategory?.total_entries || 0} competitive players</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Table */}
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border-light">
-                  <th className="text-left py-3 px-4 font-semibold text-foreground-muted">Rank</th>
-                  <th className="text-left py-3 px-4 font-semibold text-foreground-muted">Player</th>
-                  <th className="text-right py-3 px-4 font-semibold text-foreground-muted">Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {activeCategory.rankings.map((player: LeaderboardPlayer, index: number) => {
-                  const RankIcon = getRankIcon(player.position)
-                  const rankColor = getRankColor(player.position)
-                  
-                  return (
-                    <motion.tr
-                      key={player.player_uuid}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.05 }}
-                      onClick={() => handlePlayerClick(player)}
-                      className="border-b border-border-light/50 hover:bg-background-secondary/50 transition-colors cursor-pointer group"
-                    >
-                      <td className="py-4 px-4">
-                        <div className="flex items-center gap-2">
-                          {player.position <= 3 && (
-                            <RankIcon size={20} className={rankColor} />
-                          )}
-                          <span className={`font-bold ${
-                            player.position === 1 ? 'text-yellow-500' :
-                            player.position === 2 ? 'text-gray-400' :
-                            player.position === 3 ? 'text-amber-600' :
-                            'text-foreground'
-                          }`}>
-                            #{player.position}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="py-4 px-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center relative">
-                            <User size={16} className="text-primary" />
-                            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                              <ExternalLink size={8} className="text-white" />
-                            </div>
-                          </div>
-                          <div>
-                            <span className="font-medium text-foreground group-hover:text-primary transition-colors">
-                              {player.player_name}
-                            </span>
-                            <div className="text-xs text-foreground-muted group-hover:text-primary/70 transition-colors">
-                              Click to view profile
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="py-4 px-4 text-right">
-                        <div className="flex items-center justify-end gap-2">
-                          <span className="font-bold text-primary text-lg">
-                            {player.formatted_value}
-                          </span>
-                          <ExternalLink size={16} className="text-foreground-muted opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </div>
-                      </td>
-                    </motion.tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {activeCategory.rankings.length === 0 && (
-            <div className="text-center py-12 text-foreground-muted">
-              <p className="text-lg">No players found for this category</p>
+          {paginatedLoading ? (
+            <div className="text-center py-12">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+              <p className="text-foreground-muted mt-4">Loading players...</p>
             </div>
+          ) : paginatedError ? (
+            <div className="text-center py-12 text-red-500">
+              <p className="text-lg">Error loading data: {paginatedError}</p>
+            </div>
+          ) : (
+            <>
+              {/* Table */}
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border-light">
+                      <th className="text-left py-3 px-4 font-semibold text-foreground-muted">Rank</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground-muted">Player</th>
+                      <th className="text-right py-3 px-4 font-semibold text-foreground-muted">Value</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(currentCategoryData?.rankings || activeCategory?.rankings || []).map((player: LeaderboardPlayer, index: number) => {
+                      const RankIcon = getRankIcon(player.position)
+                      const rankColor = getRankColor(player.position)
+                      
+                      return (
+                        <motion.tr
+                          key={player.player_uuid}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                          onClick={() => handlePlayerClick(player)}
+                          className="border-b border-border-light/50 hover:bg-background-secondary/50 transition-colors cursor-pointer group"
+                        >
+                          <td className="py-4 px-4">
+                            <div className="flex items-center gap-2">
+                              {player.position <= 3 && (
+                                <RankIcon size={20} className={rankColor} />
+                              )}
+                              <span className={`font-bold ${
+                                player.position === 1 ? 'text-yellow-500' :
+                                player.position === 2 ? 'text-gray-400' :
+                                player.position === 3 ? 'text-amber-600' :
+                                'text-foreground'
+                              }`}>
+                                #{player.position}
+                              </span>
+                            </div>
+                          </td>
+                          <td className="py-4 px-4">
+                            <div className="flex items-center gap-3">
+                              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center relative">
+                                <User size={16} className="text-primary" />
+                                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                  <ExternalLink size={8} className="text-white" />
+                                </div>
+                              </div>
+                              <div>
+                                <span className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                  {player.player_name}
+                                </span>
+                                <div className="text-xs text-foreground-muted group-hover:text-primary/70 transition-colors">
+                                  Click to view profile
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                          <td className="py-4 px-4 text-right">
+                            <div className="flex items-center justify-end gap-2">
+                              <span className="font-bold text-primary text-lg">
+                                {player.formatted_value}
+                              </span>
+                              <ExternalLink size={16} className="text-foreground-muted opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </div>
+                          </td>
+                        </motion.tr>
+                      )
+                    })}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Pagination */}
+              {currentCategoryData && currentPage && totalPages && setPage && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  hasNextPage={hasNextPage || false}
+                  hasPreviousPage={hasPreviousPage || false}
+                  onPageChange={setPage}
+                  itemsPerPage={itemsPerPage}
+                  onItemsPerPageChange={setItemsPerPage}
+                  totalItems={currentCategoryData.total_entries}
+                  isLoading={paginatedLoading}
+                />
+              )}
+
+              {(!currentCategoryData?.rankings || currentCategoryData.rankings.length === 0) && !paginatedLoading && (
+                <div className="text-center py-12 text-foreground-muted">
+                  <p className="text-lg">No players found for this category</p>
+                </div>
+              )}
+            </>
           )}
         </motion.div>
       )}

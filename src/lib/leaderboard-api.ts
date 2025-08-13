@@ -16,6 +16,19 @@ export interface LeaderboardCategory {
   total_entries: number
 }
 
+export interface PaginatedLeaderboardCategory {
+  category: string
+  display_name: string
+  rankings: LeaderboardPlayer[]
+  last_updated: string
+  total_entries: number
+  page: number
+  limit: number
+  total_pages: number
+  has_next_page: boolean
+  has_previous_page: boolean
+}
+
 export interface LeaderboardsResponse {
   leaderboards: LeaderboardCategory[]
 }
@@ -423,6 +436,57 @@ export class LeaderboardAPI {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error'
       
       console.error(`[LeaderboardAPI] Failed to fetch ${category} leaderboard after ${duration}ms:`, errorMessage)
+      
+      // Provide more specific error messages based on error type
+      if (errorMessage.includes('timeout') || errorMessage.includes('aborted')) {
+        throw new Error(`Request timed out while fetching ${category} leaderboard. Please try again.`)
+      } else if (errorMessage.includes('Network') || errorMessage.includes('fetch')) {
+        throw new Error(`Unable to connect to server for ${category} leaderboard. Please check your connection.`)
+      } else if (errorMessage.includes('504') || errorMessage.includes('Gateway')) {
+        throw new Error(`The ${category} leaderboard is temporarily unavailable. Please try again in a few moments.`)
+      } else if (errorMessage.includes('503') || errorMessage.includes('Service')) {
+        throw new Error(`The ${category} leaderboard service is temporarily down. Please try again later.`)
+      } else {
+        throw new Error(`Failed to fetch ${category} leaderboard: ${errorMessage}`)
+      }
+    }
+  }
+
+  static async getCategoryLeaderboardPaginated(category: string, page: number = 1, limit: number = 25): Promise<PaginatedLeaderboardCategory> {
+    const startTime = Date.now()
+    
+    try {
+      console.log(`[LeaderboardAPI] Starting paginated getCategoryLeaderboard request for: ${category} (page ${page}, limit ${limit})`)
+      const url = `${LEADERBOARD_CONFIG.API_BASE_URL}/api/leaderboards/${category}?page=${page}&limit=${limit}`
+      const response = await this.fetchWithTimeout(url)
+      
+      if (!response.ok) {
+        // Try to parse error response for detailed information
+        let errorDetails = 'Unknown error'
+        try {
+          const errorData = await response.json() as { message?: string; error?: string }
+          errorDetails = errorData.message || errorData.error || `HTTP ${response.status}`
+          console.error(`[LeaderboardAPI] Server error response for ${category}:`, errorData)
+        } catch {
+          errorDetails = `HTTP error! status: ${response.status}`
+        }
+        throw new Error(errorDetails)
+      }
+      
+      const data = await response.json() as PaginatedLeaderboardCategory
+      const duration = Date.now() - startTime
+      
+      console.log(`[LeaderboardAPI] Successfully fetched paginated ${category} leaderboard in ${duration}ms`)
+      
+      return {
+        ...data,
+        rankings: this.deduplicatePlayersByUUID(data.rankings || [])
+      }
+    } catch (error) {
+      const duration = Date.now() - startTime
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      
+      console.error(`[LeaderboardAPI] Failed to fetch paginated ${category} leaderboard after ${duration}ms:`, errorMessage)
       
       // Provide more specific error messages based on error type
       if (errorMessage.includes('timeout') || errorMessage.includes('aborted')) {

@@ -29,7 +29,8 @@
       "Bash(pnpm add:*)",
       "Bash(claude mcp:*)",
       "Bash(npx playwright:*)",
-      "Bash(pnpm dev:*)"
+      "Bash(pnpm dev:*)",
+      "Bash(pnpm run:*)"
     ],
     "deny": [],
     "additionalDirectories": [

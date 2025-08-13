@@ -1,38 +1,51 @@
 'use client'
 
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { LeaderboardAPI, LeaderboardsResponse, LeaderboardCategory } from '@/lib/leaderboard-api'
+import { LeaderboardAPI, LeaderboardsResponse, LeaderboardCategory, PaginatedLeaderboardCategory } from '@/lib/leaderboard-api'
 import { LEADERBOARD_CONFIG } from '@/lib/config'
 
 interface UseLeaderboardDataOptions {
   autoRefresh?: boolean
   refreshInterval?: number
   category?: string
+  usePagination?: boolean
+  page?: number
+  limit?: number
 }
 
 interface UseLeaderboardDataResult {
-  data: LeaderboardsResponse | LeaderboardCategory | null
+  data: LeaderboardsResponse | LeaderboardCategory | PaginatedLeaderboardCategory | null
   loading: boolean
   error: string | null
   refreshing: boolean
   lastUpdated: Date | null
   refresh: () => Promise<void>
   serverStatus: 'online' | 'offline' | 'unknown'
+  // Pagination-specific fields
+  currentPage?: number
+  totalPages?: number
+  hasNextPage?: boolean
+  hasPreviousPage?: boolean
+  setPage?: (page: number) => void
 }
 
 export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): UseLeaderboardDataResult {
   const {
     autoRefresh = LEADERBOARD_CONFIG.ENABLE_AUTO_REFRESH,
     refreshInterval = LEADERBOARD_CONFIG.REFRESH_INTERVAL,
-    category
+    category,
+    usePagination = false,
+    page: initialPage = 1,
+    limit = 25
   } = options
 
-  const [data, setData] = useState<LeaderboardsResponse | LeaderboardCategory | null>(null)
+  const [data, setData] = useState<LeaderboardsResponse | LeaderboardCategory | PaginatedLeaderboardCategory | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [refreshing, setRefreshing] = useState(false)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
   const [serverStatus, setServerStatus] = useState<'online' | 'offline' | 'unknown'>('unknown')
+  const [currentPage, setCurrentPage] = useState(initialPage)
   
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const mountedRef = useRef(true)
@@ -40,23 +53,25 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
   const requestInProgressRef = useRef<boolean>(false)
 
   // Single fetch function to handle all data fetching
-  const fetchData = useCallback(async (isRefresh = false) => {
+  const fetchData = useCallback(async (isRefresh = false, pageToFetch?: number) => {
     // Prevent concurrent requests for the same category
     if (requestInProgressRef.current && !isRefresh) {
       return
     }
     
-    // Check if we already have fresh data for this category
+    // Check if we already have fresh data for this category and page
     const categoryChanged = currentCategoryRef.current !== category
-    if (!isRefresh && !categoryChanged && data) {
+    const pageChanged = usePagination && pageToFetch !== undefined && pageToFetch !== currentPage
+    
+    if (!isRefresh && !categoryChanged && !pageChanged && data) {
       return
     }
     
     currentCategoryRef.current = category
     requestInProgressRef.current = true
     
-    // Don't abort during category changes - let both requests complete
-    // This prevents race conditions during client-side navigation
+    // Update current page if provided
+    const targetPage = pageToFetch ?? currentPage
     
     try {
       setError(null)
@@ -67,10 +82,14 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
         setLoading(true)
       }
 
-      let response: LeaderboardsResponse | LeaderboardCategory
+      let response: LeaderboardsResponse | LeaderboardCategory | PaginatedLeaderboardCategory
       
       if (category) {
-        response = await LeaderboardAPI.getCategoryLeaderboard(category)
+        if (usePagination) {
+          response = await LeaderboardAPI.getCategoryLeaderboardPaginated(category, targetPage, limit)
+        } else {
+          response = await LeaderboardAPI.getCategoryLeaderboard(category)
+        }
       } else {
         response = await LeaderboardAPI.getAllLeaderboards()
       }
@@ -79,6 +98,11 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
       setData(response)
       setLastUpdated(new Date())
       setServerStatus('online')
+      
+      // Update current page for paginated requests
+      if (usePagination && pageToFetch !== undefined) {
+        setCurrentPage(pageToFetch)
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch data'
       if (mountedRef.current) {
@@ -91,10 +115,14 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
       setRefreshing(false)
       requestInProgressRef.current = false
     }
-  }, [category, data])
+  }, [category, data, usePagination, currentPage, limit])
 
   const refresh = useCallback(async () => {
     await fetchData(true)
+  }, [fetchData])
+
+  const setPage = useCallback(async (page: number) => {
+    await fetchData(false, page)
   }, [fetchData])
 
   // Check server status periodically
@@ -152,6 +180,9 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
     }
   }, [])
 
+  // Extract pagination info from data if it's a paginated response
+  const paginatedData = data && 'page' in data ? data as PaginatedLeaderboardCategory : null
+
   return {
     data,
     loading,
@@ -159,6 +190,12 @@ export function useLeaderboardData(options: UseLeaderboardDataOptions = {}): Use
     refreshing,
     lastUpdated,
     refresh,
-    serverStatus
+    serverStatus,
+    // Pagination fields
+    currentPage: usePagination ? currentPage : undefined,
+    totalPages: paginatedData?.total_pages,
+    hasNextPage: paginatedData?.has_next_page,
+    hasPreviousPage: paginatedData?.has_previous_page,
+    setPage: usePagination ? setPage : undefined
   }
 }
