@@ -8,7 +8,7 @@ import Navigation from '@/components/Navigation'
 import PardonAppearanceModal from '@/components/PardonAppearanceModal'
 import { LeaderboardAPI, PlayerProfile } from '@/lib/leaderboard-api'
 import PlayerProfileHeader from '@/components/player/PlayerProfileHeader'
-import PlayerStatistics from '@/components/player/PlayerStatistics'
+import PlayerKPIDashboard from '@/components/player/PlayerKPIDashboard'
 import PlayerHistory from '@/components/player/PlayerHistory'
 import { ErrorState, LoadingStates } from '@/components/leaderboards/LoadingStates'
 
@@ -75,7 +75,7 @@ export default function PlayerProfilePage() {
 
   const tabs = [
     { id: 'overview', name: 'Overview', icon: BarChart3 },
-    { id: 'statistics', name: 'Statistics', icon: TrendingUp },
+    { id: 'statistics', name: 'KPI Analysis', icon: TrendingUp },
     { id: 'history', name: 'History', icon: History }
   ]
 
@@ -125,7 +125,7 @@ export default function PlayerProfilePage() {
           {activeTab === 'overview' && (
             <div className="grid lg:grid-cols-2 gap-8">
               <div>
-                <PlayerStatistics profile={profile} showTopCategories={true} />
+                <PlayerKPIDashboard profile={profile} showTopCategories={true} />
               </div>
               <div>
                 <PlayerHistory profile={profile} limit={10} />
@@ -134,7 +134,7 @@ export default function PlayerProfilePage() {
           )}
 
           {activeTab === 'statistics' && (
-            <PlayerStatistics profile={profile} showTopCategories={false} />
+            <PlayerKPIDashboard profile={profile} showTopCategories={false} />
           )}
 
           {activeTab === 'history' && (

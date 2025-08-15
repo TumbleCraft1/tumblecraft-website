@@ -30,7 +30,8 @@
       "Bash(claude mcp:*)",
       "Bash(npx playwright:*)",
       "Bash(pnpm dev:*)",
-      "Bash(pnpm run:*)"
+      "Bash(pnpm run:*)",
+      "WebSearch"
     ],
     "deny": [],
     "additionalDirectories": [
