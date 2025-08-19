@@ -2,6 +2,7 @@
 
 import Navigation from '@/components/Navigation'
 import PardonAppearanceModal from '@/components/PardonAppearanceModal'
+import { shouldShowRenovationModal } from '@/utils/modalUtils'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -102,7 +103,7 @@ export default function DocsPage() {
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    setShowModal(true)
+    setShowModal(shouldShowRenovationModal())
   }, [])
 
   return (

@@ -7,6 +7,7 @@ import Navigation from '@/components/Navigation'
 import PardonAppearanceModal from '@/components/PardonAppearanceModal'
 import LeaderboardGrid from '@/components/leaderboards/LeaderboardGrid'
 import { LeaderboardSkeleton, ErrorState, EmptyState } from '@/components/leaderboards/LoadingStates'
+import { shouldShowRenovationModal } from '@/utils/modalUtils'
 import { useEffect, useState } from 'react'
 
 export default function LeaderboardsPage() {
@@ -14,7 +15,7 @@ export default function LeaderboardsPage() {
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    setShowModal(true)
+    setShowModal(shouldShowRenovationModal())
   }, [])
 
   const handleRetry = () => {

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Navigation from '@/components/Navigation'
 import PardonAppearanceModal from '@/components/PardonAppearanceModal'
+import { shouldShowRenovationModal } from '@/utils/modalUtils'
 import { Swords, Users, Trophy, Zap, Star, Calendar, UserPlus } from 'lucide-react'
 import Image from 'next/image'
 
@@ -10,7 +11,7 @@ export default function AboutPage() {
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    setShowModal(true)
+    setShowModal(shouldShowRenovationModal())
   }, [])
 
   const features = [

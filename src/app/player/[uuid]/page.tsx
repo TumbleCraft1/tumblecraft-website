@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { BarChart3, TrendingUp, History } from 'lucide-react'
 import Navigation from '@/components/Navigation'
 import PardonAppearanceModal from '@/components/PardonAppearanceModal'
+import { shouldShowRenovationModal } from '@/utils/modalUtils'
 import { LeaderboardAPI, PlayerProfile } from '@/lib/leaderboard-api'
 import PlayerProfileHeader from '@/components/player/PlayerProfileHeader'
 import PlayerKPIDashboard from '@/components/player/PlayerKPIDashboard'
@@ -23,7 +24,7 @@ export default function PlayerProfilePage() {
   const [activeTab, setActiveTab] = useState('overview')
 
   useEffect(() => {
-    setShowModal(true)
+    setShowModal(shouldShowRenovationModal())
   }, [])
 
   useEffect(() => {
