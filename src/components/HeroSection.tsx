@@ -51,7 +51,7 @@ export default function HeroSection() {
 
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white pb-0">
+    <section className="relative h-full flex items-center justify-center bg-white pb-0">
       <div className="container mx-auto px-3 sm:px-6 z-10 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           

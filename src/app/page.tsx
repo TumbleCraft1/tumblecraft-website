@@ -15,7 +15,7 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen">
+    <main className="h-full overflow-hidden">
       <Navigation />
       <PardonAppearanceModal 
         show={showModal} 
