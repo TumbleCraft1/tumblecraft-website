@@ -12,7 +12,7 @@ export default function Footer() {
             href="https://builtforniko.com" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-white font-bold hover:text-white/80 transition-colors text-xs flex items-center order-2 sm:order-1"
+            className="text-white font-black hover:text-white/80 transition-colors text-xs flex items-center order-2 sm:order-1"
           >
             Built For Niko With
             <Heart className="inline-block w-3 h-3 mx-1" fill="red" stroke="red" />
