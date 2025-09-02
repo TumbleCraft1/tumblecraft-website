@@ -6,7 +6,7 @@ import { shouldShowRenovationModal } from '@/utils/modalUtils'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { BookOpen, Command, Coins, Users, TrendingUp, Zap, Info, ArrowRight, Sword } from 'lucide-react'
+import { BookOpen, Command, Coins, Users, TrendingUp, Zap, ArrowRight, Sword, Book } from 'lucide-react'
 
 const categories = [
   {
@@ -71,6 +71,15 @@ const categories = [
     color: 'text-red-600',
     bgColor: 'bg-red-50 dark:bg-red-900/20',
     features: ['Commands & Guild', 'Mechanics & Powers', 'Boss Loot', 'Enchanting']
+  },
+  {
+    title: 'Minecraft Wiki',
+    description: 'Complete reference for vanilla Minecraft mobs, items, and game mechanics',
+    icon: Book,
+    href: '/docs/minecraft-wiki',
+    color: 'text-emerald-600',
+    bgColor: 'bg-emerald-50 dark:bg-emerald-900/20',
+    features: ['Mob Guides', 'Item Database', 'Game Mechanics', 'Comprehensive Details']
   }
 ]
 
@@ -78,7 +87,7 @@ const quickLinks = [
   { title: 'Essential Commands', href: '/docs/commands/essential', icon: Command },
   { title: 'How to Start', href: '/docs/getting-started/welcome', icon: BookOpen },
   { title: 'Elite Mobs Guide', href: '/docs/elite-mobs', icon: Sword },
-  { title: 'Server Rules', href: '/docs/server/rules', icon: Info }
+  { title: 'Minecraft Wiki', href: '/docs/minecraft-wiki', icon: Book }
 ]
 
 const containerVariants = {
