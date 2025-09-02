@@ -51,6 +51,7 @@ export default function MinecraftWikiPage() {
               <h2 className="text-xl font-semibold mt-6 mb-4 border-b border-gray-300 pb-1">Contents</h2>
               <ol className="list-decimal ml-6 text-blue-600">
                 <li className="mb-1"><a href="#mobs" className="hover:underline">Mobs</a></li>
+                <li className="mb-1"><a href="#plugins" className="hover:underline">Plugins</a></li>
                 <li className="mb-1"><a href="#items-blocks" className="hover:underline">Items & Blocks</a></li>
                 <li className="mb-1"><a href="#mechanics" className="hover:underline">Game Mechanics</a></li>
               </ol>
@@ -85,6 +86,38 @@ export default function MinecraftWikiPage() {
 
               <p className="mb-4">
                 <Link href="/docs/minecraft-wiki/mobs" className="text-blue-600 hover:underline">→ Main article: Mobs</Link>
+              </p>
+            </div>
+
+            {/* Plugins Section */}
+            <div className="mb-8" id="plugins">
+              <h2 className="text-xl font-semibold mt-6 mb-4 border-b border-gray-300 pb-1">Plugins</h2>
+              <p className="mb-4 text-black leading-relaxed">
+                <strong>Minecraft plugins</strong> are server-side modifications that extend gameplay functionality. 
+                They can add new features, modify existing mechanics, and enhance the player experience.
+              </p>
+              
+              <div className="bg-gray-50 border border-gray-300 p-4 mb-4">
+                <div className="font-semibold mb-2">Featured Plugin: <a href="/docs/minecraft-wiki/plugins/betterstructures" className="text-blue-600 hover:underline">BetterStructures</a></div>
+                <p className="text-sm text-gray-700">
+                  A powerful structure generation plugin by MagmaGuy that adds custom buildings to Minecraft worlds. 
+                  Uses intelligent topology scanning and integrates with EliteMobs and other popular plugins.
+                </p>
+                <div className="mt-2">
+                  <Link href="/docs/minecraft-wiki/plugins/betterstructures" className="text-blue-600 hover:underline text-sm">Read more →</Link>
+                </div>
+              </div>
+
+              <h3 className="text-lg font-semibold mt-4 mb-2">Plugin Categories</h3>
+              <ul className="list-disc ml-6 mb-4 text-black">
+                <li className="mb-1"><strong><a href="/docs/minecraft-wiki/plugins" className="text-blue-600 hover:underline">Structure generation</a></strong> - Plugins that add custom buildings and structures</li>
+                <li className="mb-1"><strong>Combat enhancement</strong> - Advanced combat systems and boss battles</li>
+                <li className="mb-1"><strong>World building</strong> - Tools for creating and modifying worlds</li>
+                <li className="mb-1"><strong>Server management</strong> - Administration and utility plugins</li>
+              </ul>
+
+              <p className="mb-4">
+                <Link href="/docs/minecraft-wiki/plugins" className="text-blue-600 hover:underline">→ Main article: Plugins</Link>
               </p>
             </div>
 
@@ -154,6 +187,7 @@ export default function MinecraftWikiPage() {
                   <div className="font-semibold text-gray-800 mb-1">Main Sections</div>
                   <ul className="text-xs space-y-1 ml-2">
                     <li><a href="/docs/minecraft-wiki/mobs" className="text-blue-600 hover:underline">Mobs</a></li>
+                    <li><a href="/docs/minecraft-wiki/plugins" className="text-blue-600 hover:underline">Plugins</a></li>
                     <li><span className="text-gray-500">Items & Blocks (Coming Soon)</span></li>
                     <li><span className="text-gray-500">Game Mechanics (Coming Soon)</span></li>
                   </ul>
@@ -163,6 +197,7 @@ export default function MinecraftWikiPage() {
                   <div className="font-semibold text-gray-800 mb-1">Featured Content</div>
                   <ul className="text-xs space-y-1 ml-2">
                     <li><a href="/docs/minecraft-wiki/mobs/zombie" className="text-blue-600 hover:underline">Zombie</a></li>
+                    <li><a href="/docs/minecraft-wiki/plugins/betterstructures" className="text-blue-600 hover:underline">BetterStructures</a></li>
                     <li><span className="text-gray-500">More coming soon...</span></li>
                   </ul>
                 </div>
